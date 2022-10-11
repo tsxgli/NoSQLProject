@@ -40,15 +40,16 @@
             // btnLogin
             // 
             this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
+            this.btnLogin.BackColor = System.Drawing.Color.LightGray;
             this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.BlanchedAlmond;
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(151, 398);
+            this.btnLogin.ForeColor = System.Drawing.Color.Black;
+            this.btnLogin.Location = new System.Drawing.Point(173, 531);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(143, 35);
+            this.btnLogin.Size = new System.Drawing.Size(163, 47);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -59,11 +60,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPassword.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPassword.Location = new System.Drawing.Point(70, 328);
+            this.txtPassword.Location = new System.Drawing.Point(80, 437);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
-            this.txtPassword.Size = new System.Drawing.Size(313, 32);
+            this.txtPassword.Size = new System.Drawing.Size(357, 38);
             this.txtPassword.TabIndex = 1;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // txtUsername
             // 
@@ -71,10 +74,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUsername.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtUsername.Location = new System.Drawing.Point(70, 234);
+            this.txtUsername.Location = new System.Drawing.Point(80, 312);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(313, 32);
+            this.txtUsername.Size = new System.Drawing.Size(357, 38);
             this.txtUsername.TabIndex = 2;
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // lblUsername
             // 
@@ -83,9 +88,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblUsername.Location = new System.Drawing.Point(68, 198);
+            this.lblUsername.Location = new System.Drawing.Point(78, 264);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(80, 18);
+            this.lblUsername.Size = new System.Drawing.Size(99, 23);
             this.lblUsername.TabIndex = 3;
             this.lblUsername.Text = "Username";
             // 
@@ -96,9 +101,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPassword.Location = new System.Drawing.Point(70, 294);
+            this.lblPassword.Location = new System.Drawing.Point(80, 392);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(78, 18);
+            this.lblPassword.Size = new System.Drawing.Size(98, 23);
             this.lblPassword.TabIndex = 4;
             this.lblPassword.Text = "Password";
             // 
@@ -109,9 +114,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDescription.AutoEllipsis = true;
             this.lblDescription.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDescription.Location = new System.Drawing.Point(20, 103);
+            this.lblDescription.Location = new System.Drawing.Point(23, 137);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(407, 88);
+            this.lblDescription.Size = new System.Drawing.Size(465, 117);
             this.lblDescription.TabIndex = 5;
             this.lblDescription.Text = "Please provide login credentials to login to NoDesk for The Garden Group";
             this.lblDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -122,19 +127,19 @@
             this.lblTitle.AutoEllipsis = true;
             this.lblTitle.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblTitle.Location = new System.Drawing.Point(20, 32);
+            this.lblTitle.Location = new System.Drawing.Point(23, 43);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(407, 45);
+            this.lblTitle.Size = new System.Drawing.Size(465, 60);
             this.lblTitle.TabIndex = 6;
             this.lblTitle.Text = "NoDesk: TGG";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(445, 478);
+            this.ClientSize = new System.Drawing.Size(509, 637);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblPassword);
@@ -142,6 +147,7 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.btnLogin);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LoginForm";

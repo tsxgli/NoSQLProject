@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "a3F7wO8r8crelxxmvUBWLzImQ11rjZjnKilnXdWkCBMaUEqQI7k6iY5hkRyTw6yipS+HHn8HYg1wQtWl1P2SQQ==",
+  "dgSpecHash": "kEHaR9jZTvFWwbjaxqXXCporRqgyfNTUtKpdwP95f92LH+zmFBrwYZl+8LPypJW01C0aAK4c7NUtlSyjZu53UA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rares\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\DAO\\DAL.csproj",
+  "projectFilePath": "C:\\Users\\Rares\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\DAO\\DAL.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Rares\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\DAO\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

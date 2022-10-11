@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "lMXQX/T80PMbrvewxSUJNoiPTG5cW2lWI4P3SDeS8cqfLnNTWElumNMhtMYFvgkXgFiSuliU2TwzxRB0WX8q+w==",
+  "dgSpecHash": "xJxyJStpfzABH9OiMu3FIesuB0dbXamxoWht+X75+g25LX+vhzop7LVOORypPzqxmBrYEpufF3oxePhB9maExw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rares\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\LOGIC\\LOGIC.csproj",
+  "projectFilePath": "C:\\Users\\Rares\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\LOGIC\\LOGIC.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Rares\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\LOGIC\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

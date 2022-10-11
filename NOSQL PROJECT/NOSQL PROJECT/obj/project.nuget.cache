@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "4wedo501KUGlAdBc+HKhuLf2N5nGzumzJMzROfFFDN2WkBpL70wha8mdr7RRYsyYlEb+1CucHv89Kh6OIU4ipw==",
+  "dgSpecHash": "KB1dg/0vojIpWygh4AVEf8r7lg4lQCY64YVMUVvfm/Jg5RdNe0pm4BdvgZG23Dfz1j3gy0GFb6p3sagEqY5vEw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rares\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\NOSQL PROJECT\\FORMS.csproj",
+  "projectFilePath": "C:\\Users\\Rares\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\NOSQL PROJECT\\FORMS.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Rares\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\NOSQL PROJECT\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
