@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "KB1dg/0vojIpWygh4AVEf8r7lg4lQCY64YVMUVvfm/Jg5RdNe0pm4BdvgZG23Dfz1j3gy0GFb6p3sagEqY5vEw==",
+  "dgSpecHash": "NX+JF9EivJqseFbEsv+u3IovY/H5IrF2FCPBGWuU761kyp37DrBx8lYNE9fnQDGEBdzmyIEU/ca1tzHbWOcZYQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Rares\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\NOSQL PROJECT\\FORMS.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Rares\\.nuget\\packages\\mongodb.bson\\2.17.1\\mongodb.bson.2.17.1.nupkg.sha512",
+    "C:\\Users\\Rares\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
