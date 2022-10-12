@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "GnKVZrR57fignmyOVRzf7j5AQYmKz9TXw8GJKGgZc7hj6JBV15XrSHL0Nfw6JvBrLI7bw7kZJCl4fcaBZxiEMg==",
+  "dgSpecHash": "rqUm3DumMDvxn9iO/UKTUoFOgXTxbmeszqaDeIE1UsGbbi7IL52z265GgxI9+YHVsSVxqH1k/0TJ1W6jzVudRQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\phili\\OneDrive\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\LOGIC\\LOGIC.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\phili\\.nuget\\packages\\mongodb.bson\\2.17.1\\mongodb.bson.2.17.1.nupkg.sha512",
+    "C:\\Users\\phili\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
