@@ -7,16 +7,22 @@ using System.Collections.Generic;
 
 namespace DAL
 {
-    public class DAO
+    public abstract class DAO
     {
-        private MongoClient client;
+        protected MongoClient client;
+        protected IMongoDatabase db;
+
+        //strings for inserting records into the table
+        protected string ticketCollection = "Tickets";
+        protected string employeeCollection = "Employees";
 
         public DAO()
         {
             client = new MongoClient("mongodb+srv://682624:1234@cluster0.so0c6ct.mongodb.net/test");
+            IMongoDatabase db = client.GetDatabase("studentDB");
         }
 
-        public List<Databases_Model> GetDatabases()
+        protected List<Databases_Model> GetDatabases()
         {
             List<Databases_Model> databases = new List<Databases_Model>();
 
@@ -26,7 +32,7 @@ namespace DAL
             }
             return databases;
         }
-        
+
         //get collections from database
         public IMongoCollection<BsonDocument> GetCollection(string collectionName)
         {
@@ -40,6 +46,10 @@ namespace DAL
             var collection = GetCollection(collectionName);
             collection.InsertOne(document);
         }
-
+        protected void InsertRecord(string collectionName, BsonDocument doc)
+        {
+            var collection = db.GetCollection<BsonDocument>(collectionName);
+            collection.InsertOne(doc);
+        }
     }
 }

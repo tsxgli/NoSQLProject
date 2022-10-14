@@ -275,7 +275,6 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "SUBMIT TICKET";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_CancelIncident
             // 
@@ -287,7 +286,6 @@
             this.btn_CancelIncident.TabIndex = 5;
             this.btn_CancelIncident.Text = "CANCEL";
             this.btn_CancelIncident.UseVisualStyleBackColor = false;
-            this.btn_CancelIncident.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
