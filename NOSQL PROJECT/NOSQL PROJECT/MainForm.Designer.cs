@@ -30,6 +30,8 @@
         {
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pnlCreateIncident = new System.Windows.Forms.Panel();
+            this.btn_CancelIncident = new System.Windows.Forms.Button();
+            this.btnSubmitTicket = new System.Windows.Forms.Button();
             this.dtPick_IncidentTimeReported = new System.Windows.Forms.DateTimePicker();
             this.comb_IncidentDeadline = new System.Windows.Forms.ComboBox();
             this.comb_IncidentPriority = new System.Windows.Forms.ComboBox();
@@ -49,11 +51,29 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btn_CancelIncident = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBoxSendEmail = new System.Windows.Forms.CheckBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnAddUser = new System.Windows.Forms.Button();
+            this.comboLocation = new System.Windows.Forms.ComboBox();
+            this.comboUserType = new System.Windows.Forms.ComboBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
+            this.txtPhoneNo = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             this.pnlCreateIncident.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -64,7 +84,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tabPage2.Size = new System.Drawing.Size(1270, 627);
+            this.tabPage2.Size = new System.Drawing.Size(660, 627);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Incident Management";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -72,7 +92,7 @@
             // pnlCreateIncident
             // 
             this.pnlCreateIncident.Controls.Add(this.btn_CancelIncident);
-            this.pnlCreateIncident.Controls.Add(this.button1);
+            this.pnlCreateIncident.Controls.Add(this.btnSubmitTicket);
             this.pnlCreateIncident.Controls.Add(this.dtPick_IncidentTimeReported);
             this.pnlCreateIncident.Controls.Add(this.comb_IncidentDeadline);
             this.pnlCreateIncident.Controls.Add(this.comb_IncidentPriority);
@@ -93,6 +113,28 @@
             this.pnlCreateIncident.Size = new System.Drawing.Size(1032, 624);
             this.pnlCreateIncident.TabIndex = 1;
             // 
+            // btn_CancelIncident
+            // 
+            this.btn_CancelIncident.BackColor = System.Drawing.Color.White;
+            this.btn_CancelIncident.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_CancelIncident.Location = new System.Drawing.Point(226, 505);
+            this.btn_CancelIncident.Name = "btn_CancelIncident";
+            this.btn_CancelIncident.Size = new System.Drawing.Size(140, 33);
+            this.btn_CancelIncident.TabIndex = 5;
+            this.btn_CancelIncident.Text = "CANCEL";
+            this.btn_CancelIncident.UseVisualStyleBackColor = false;
+            // 
+            // btnSubmitTicket
+            // 
+            this.btnSubmitTicket.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnSubmitTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubmitTicket.Location = new System.Drawing.Point(385, 505);
+            this.btnSubmitTicket.Name = "btnSubmitTicket";
+            this.btnSubmitTicket.Size = new System.Drawing.Size(141, 33);
+            this.btnSubmitTicket.TabIndex = 5;
+            this.btnSubmitTicket.Text = "SUBMIT TICKET";
+            this.btnSubmitTicket.UseVisualStyleBackColor = false;
+            // 
             // dtPick_IncidentTimeReported
             // 
             this.dtPick_IncidentTimeReported.Location = new System.Drawing.Point(226, 79);
@@ -103,6 +145,11 @@
             // comb_IncidentDeadline
             // 
             this.comb_IncidentDeadline.FormattingEnabled = true;
+            this.comb_IncidentDeadline.Items.AddRange(new object[] {
+            "7 days",
+            "14 days",
+            "28 days",
+            "6 months"});
             this.comb_IncidentDeadline.Location = new System.Drawing.Point(226, 313);
             this.comb_IncidentDeadline.Name = "comb_IncidentDeadline";
             this.comb_IncidentDeadline.Size = new System.Drawing.Size(300, 23);
@@ -216,7 +263,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(212, 16);
+            this.label2.Location = new System.Drawing.Point(79, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(359, 37);
             this.label2.TabIndex = 0;
@@ -237,7 +284,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tabPage1.Size = new System.Drawing.Size(1270, 627);
+            this.tabPage1.Size = new System.Drawing.Size(660, 627);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dashboard";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -251,41 +298,201 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1278, 655);
+            this.tabControl1.Size = new System.Drawing.Size(668, 655);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.panel1);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tabPage3.Size = new System.Drawing.Size(1270, 627);
+            this.tabPage3.Size = new System.Drawing.Size(660, 627);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "User Management";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // panel1
             // 
-            this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(385, 505);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 33);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "SUBMIT TICKET";
-            this.button1.UseVisualStyleBackColor = false;
+            this.panel1.Controls.Add(this.checkBoxSendEmail);
+            this.panel1.Controls.Add(this.btnCancel);
+            this.panel1.Controls.Add(this.btnAddUser);
+            this.panel1.Controls.Add(this.comboLocation);
+            this.panel1.Controls.Add(this.comboUserType);
+            this.panel1.Controls.Add(this.txtLastName);
+            this.panel1.Controls.Add(this.txtPhoneNo);
+            this.panel1.Controls.Add(this.txtEmail);
+            this.panel1.Controls.Add(this.txtFirstName);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.label16);
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(663, 624);
+            this.panel1.TabIndex = 2;
             // 
-            // btn_CancelIncident
+            // checkBoxSendEmail
             // 
-            this.btn_CancelIncident.BackColor = System.Drawing.Color.White;
-            this.btn_CancelIncident.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_CancelIncident.Location = new System.Drawing.Point(226, 505);
-            this.btn_CancelIncident.Name = "btn_CancelIncident";
-            this.btn_CancelIncident.Size = new System.Drawing.Size(140, 33);
-            this.btn_CancelIncident.TabIndex = 5;
-            this.btn_CancelIncident.Text = "CANCEL";
-            this.btn_CancelIncident.UseVisualStyleBackColor = false;
+            this.checkBoxSendEmail.AutoSize = true;
+            this.checkBoxSendEmail.Location = new System.Drawing.Point(228, 361);
+            this.checkBoxSendEmail.Name = "checkBoxSendEmail";
+            this.checkBoxSendEmail.Size = new System.Drawing.Size(293, 19);
+            this.checkBoxSendEmail.TabIndex = 6;
+            this.checkBoxSendEmail.Text = "Yes, a password will be sent in an email to the user.";
+            this.checkBoxSendEmail.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.White;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Location = new System.Drawing.Point(201, 433);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(140, 33);
+            this.btnCancel.TabIndex = 5;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            // 
+            // btnAddUser
+            // 
+            this.btnAddUser.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddUser.Location = new System.Drawing.Point(401, 433);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(141, 33);
+            this.btnAddUser.TabIndex = 5;
+            this.btnAddUser.Text = "ADD USER";
+            this.btnAddUser.UseVisualStyleBackColor = false;
+            // 
+            // comboLocation
+            // 
+            this.comboLocation.FormattingEnabled = true;
+            this.comboLocation.Items.AddRange(new object[] {
+            "Haarlem",
+            "Amsterdam",
+            "Knuppeldam",
+            "Headquarters(HQ)"});
+            this.comboLocation.Location = new System.Drawing.Point(226, 313);
+            this.comboLocation.Name = "comboLocation";
+            this.comboLocation.Size = new System.Drawing.Size(300, 23);
+            this.comboLocation.TabIndex = 3;
+            // 
+            // comboUserType
+            // 
+            this.comboUserType.FormattingEnabled = true;
+            this.comboUserType.Items.AddRange(new object[] {
+            "Employee",
+            "Service desk employee"});
+            this.comboUserType.Location = new System.Drawing.Point(226, 184);
+            this.comboUserType.Name = "comboUserType";
+            this.comboUserType.Size = new System.Drawing.Size(300, 23);
+            this.comboUserType.TabIndex = 3;
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.Location = new System.Drawing.Point(226, 133);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(300, 23);
+            this.txtLastName.TabIndex = 2;
+            // 
+            // txtPhoneNo
+            // 
+            this.txtPhoneNo.Location = new System.Drawing.Point(226, 268);
+            this.txtPhoneNo.Name = "txtPhoneNo";
+            this.txtPhoneNo.Size = new System.Drawing.Size(300, 23);
+            this.txtPhoneNo.TabIndex = 2;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(226, 222);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(300, 23);
+            this.txtEmail.TabIndex = 2;
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Location = new System.Drawing.Point(226, 85);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(300, 23);
+            this.txtFirstName.TabIndex = 2;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(79, 355);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(91, 15);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Send password?";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(79, 316);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(98, 15);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Location/branch:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(79, 268);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(89, 15);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Phone number:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(79, 222);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(87, 15);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "E-mail address:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(79, 184);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(73, 15);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Type of user:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(79, 133);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(64, 15);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "Last name:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(79, 85);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(65, 15);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "First name:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(79, 17);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(162, 37);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Create user";
             // 
             // MainForm
             // 
@@ -300,6 +507,9 @@
             this.pnlCreateIncident.ResumeLayout(false);
             this.pnlCreateIncident.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -327,7 +537,25 @@
         private System.Windows.Forms.ComboBox comb_ReportedByUser;
         private System.Windows.Forms.ComboBox comb_TypeIncident;
         private System.Windows.Forms.TextBox txt_IncidentDescription;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSubmitTicket;
         private System.Windows.Forms.Button btn_CancelIncident;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnAddUser;
+        private System.Windows.Forms.ComboBox comboLocation;
+        private System.Windows.Forms.ComboBox comboUserType;
+        private System.Windows.Forms.TextBox txtFirstName;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtLastName;
+        private System.Windows.Forms.TextBox txtPhoneNo;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.CheckBox checkBoxSendEmail;
+        private System.Windows.Forms.Label label11;
     }
 }

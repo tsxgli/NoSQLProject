@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace DAL
 {
-    public abstract class DAO
+    public  class DAO
     {
         protected MongoClient client;
         protected IMongoDatabase db;
@@ -22,7 +22,7 @@ namespace DAL
             IMongoDatabase db = client.GetDatabase("studentDB");
         }
 
-        protected List<Databases_Model> GetDatabases()
+        public List<Databases_Model> GetDatabases()
         {
             List<Databases_Model> databases = new List<Databases_Model>();
 
