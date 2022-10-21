@@ -9,11 +9,17 @@ namespace DAL
 {
     public class DAO
     {
-        private MongoClient client;
+        protected MongoClient client;
+        protected IMongoDatabase db;
+
+        //strings for inserting records into the table
+        protected string ticketCollection = "Tickets";
+        protected string employeeCollection = "Employees";
 
         public DAO()
         {
             client = new MongoClient("mongodb+srv://682624:1234@cluster0.so0c6ct.mongodb.net/test");
+            IMongoDatabase db = client.GetDatabase("Project_2_1_NOSQL");
         }
 
         public List<Databases_Model> GetDatabases()
@@ -26,12 +32,11 @@ namespace DAL
             }
             return databases;
         }
-        
+
         //get collections from database
         public IMongoCollection<BsonDocument> GetCollection(string collectionName)
         {
-            var database = client.GetDatabase("Project_2_1_NOSQL");
-            return database.GetCollection<BsonDocument>(collectionName);
+            return db.GetCollection<BsonDocument>(collectionName);
         }
 
         //add document to collection 
@@ -40,6 +45,19 @@ namespace DAL
             var collection = GetCollection(collectionName);
             collection.InsertOne(document);
         }
+        protected void InsertRecord(string collectionName, BsonDocument doc)
+        {
+            var collection = db.GetCollection<BsonDocument>(collectionName);
+            collection.InsertOne(doc);
+        }
 
+        public BsonDocument GetDocumentByObjectId(string collection, ObjectId id)
+        {
+            var dbCollection = db.GetCollection<BsonDocument>(collection);
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var document=dbCollection.Find(filter).FirstOrDefault();
+
+            return document;
+        }
     }
 }
