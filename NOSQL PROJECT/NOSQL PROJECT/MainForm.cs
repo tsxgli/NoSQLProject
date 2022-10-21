@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using MODEL;
 
 namespace NOSQL_PROJECT
 {
@@ -21,7 +22,14 @@ namespace NOSQL_PROJECT
 
         public void AddIncidentToDB()
         {
-            databases.
+            //create new ticket
+            Ticket ticket = new Ticket();
+
+            ticket.Subject = txtIncidentSubject.Text;
+            ticket.TicketPriority=(TicketPriority)comb_IncidentPriority.SelectedValue;
+            ticket.Deadline = (DateTime)comb_IncidentDeadline.SelectedValue;
+            
+
         }
 
     }

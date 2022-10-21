@@ -13,11 +13,8 @@ namespace DAL
 
         public IMongoCollection<Ticket> collection;
         
-        public IncidentDAO()
-        {
-            client = new MongoClient("mongodb+srv://682624:1234@cluster0.so0c6ct.mongodb.net/test");
-            IMongoDatabase db = client.GetDatabase("studentDB");
-            collection = db.GetCollection<Ticket>("Tickets");
+        public IncidentDAO() { 
+     
         }
 
         public void AddNewIncident(Ticket incident)
@@ -33,7 +30,7 @@ namespace DAL
 
             doc["IncidentType"] = incident.TicketType.ToString();
 
-            doc["UserReported"] = incident.EmployeeId;
+            doc["UserReported"] = incident.UserReported.FirstName;
 
             doc["Description"] = incident.Description;
 
@@ -43,6 +40,34 @@ namespace DAL
             InsertRecord(ticketCollection, doc);
         }
 
-       
+        private List<Ticket> GetIncidents(List<BsonDocument> docs) //get all incidents
+        {
+            List<Ticket> incidents = new List<Ticket>();
+
+            foreach (var doc in docs)
+            {
+                Ticket ticket = new Ticket()
+                {
+                    id = doc["_id"].AsObjectId,
+                    Subject = doc["Subject"].ToString(),
+                    ReportedDate = DateTime.Parse(doc["ReportedDate"].ToString()),
+                    TicketPriority = (TicketPriority)Enum.Parse(typeof(TicketPriority), doc["Priority"].ToString()),
+                    UserReported = GetUser((ObjectId)doc["UserReported"]),
+                    TicketType = (TicketType)Enum.Parse(typeof(TicketType), doc["IncidentType"].ToString()),
+                    Description = doc["Description"].ToString(),
+                    Deadline = DateTime.Parse(doc["Deadline"].ToString()),
+                    TicketStatus = (TicketStatus)Enum.Parse(typeof(TicketStatus), doc["Status"].ToString())
+
+                };
+                incidents.Add(ticket);
+            }
+            return incidents;
+        }
+        private Employee GetUser(ObjectId id)
+        {
+            EmployeeDAO employeeDAO = new EmployeeDAO();
+            return employeeDAO.GetEmployee(employeeCollection, id);
+        }
+
     }
 }
