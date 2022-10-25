@@ -691,11 +691,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\phili\\OneDrive\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\DAO\\DAL.csproj": {
-              "projectPath": "C:\\Users\\phili\\OneDrive\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\DAO\\DAL.csproj"
+            "C:\\UNIVERSIDAD\\NoSQL\\NoSQLProject\\NOSQL PROJECT\\DAO\\DAL.csproj": {
+              "projectPath": "C:\\UNIVERSIDAD\\NoSQL\\NoSQLProject\\NOSQL PROJECT\\DAO\\DAL.csproj"
             },
-            "C:\\Users\\phili\\OneDrive\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\MODEL\\MODEL.csproj": {
-              "projectPath": "C:\\Users\\phili\\OneDrive\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\MODEL\\MODEL.csproj"
+            "C:\\UNIVERSIDAD\\NoSQL\\NoSQLProject\\NOSQL PROJECT\\MODEL\\MODEL.csproj": {
+              "projectPath": "C:\\UNIVERSIDAD\\NoSQL\\NoSQLProject\\NOSQL PROJECT\\MODEL\\MODEL.csproj"
             }
           }
         }
