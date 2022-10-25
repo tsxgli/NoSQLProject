@@ -15,7 +15,5 @@ namespace NOSQL_PROJECT
             InitializeComponent();
         }
 
-       
-        
     }
 }
