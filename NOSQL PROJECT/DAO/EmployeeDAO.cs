@@ -19,8 +19,8 @@ namespace DAL
             Employee employee = new Employee()
             {
                 Id = doc["_id"].AsObjectId,
-                LastName = doc["FirstName"].ToString(),
-                FirstName = doc["FirstName"].ToString(),
+                LastName = doc["LastName"].ToString(),
+                FirstName = doc["First Name"].ToString(),
                 Email=doc["Email"].ToString(),
                 UserType=(UserType)Enum.Parse(typeof(UserType),doc["UserType"].ToString()),
                 PhoneNumber=doc["PhoneNo"].ToString(),
@@ -28,7 +28,28 @@ namespace DAL
             };
             return employee;
         }
+        private List<Employee> GetIncidents(List<BsonDocument> docs) //get all incidents
+        {
+            List<Employee> employees = new List<Employee>();
 
-       
+            foreach (var doc in docs)
+            {
+                Employee employee = new Employee()
+                {
+                    Id = doc["_id"].AsObjectId,
+                    LastName = doc["LastName"].ToString(),
+                    FirstName = doc["First Name"].ToString(),
+                    Email = doc["Email"].ToString(),
+                    UserType = (UserType)Enum.Parse(typeof(UserType), doc["UserType"].ToString()),
+                    PhoneNumber = doc["PhoneNo"].ToString(),
+                    Location = doc["Location"].ToString(),
+
+                };
+                employees.Add(employee);
+            }
+            return employees;
+        }
+
+
     }
 }

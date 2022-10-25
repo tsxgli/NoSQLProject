@@ -665,23 +665,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Rares\\.nuget\\packages\\": {},
+    "C:\\Users\\Jo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rares\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\LOGIC\\LOGIC.csproj",
+      "projectUniqueName": "C:\\Users\\Jo\\Source\\Repos\\NoSQLProject2\\NOSQL PROJECT\\LOGIC\\LOGIC.csproj",
       "projectName": "LOGIC",
-      "projectPath": "C:\\Users\\Rares\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\LOGIC\\LOGIC.csproj",
-      "packagesPath": "C:\\Users\\Rares\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rares\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\LOGIC\\obj\\",
+      "projectPath": "C:\\Users\\Jo\\Source\\Repos\\NoSQLProject2\\NOSQL PROJECT\\LOGIC\\LOGIC.csproj",
+      "packagesPath": "C:\\Users\\Jo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jo\\Source\\Repos\\NoSQLProject2\\NOSQL PROJECT\\LOGIC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Rares\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -696,11 +696,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Rares\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\DAO\\DAL.csproj": {
-              "projectPath": "C:\\Users\\Rares\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\DAO\\DAL.csproj"
+            "C:\\Users\\Jo\\Source\\Repos\\NoSQLProject2\\NOSQL PROJECT\\DAO\\DAL.csproj": {
+              "projectPath": "C:\\Users\\Jo\\Source\\Repos\\NoSQLProject2\\NOSQL PROJECT\\DAO\\DAL.csproj"
             },
-            "C:\\Users\\Rares\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\MODEL\\MODEL.csproj": {
-              "projectPath": "C:\\Users\\Rares\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\MODEL\\MODEL.csproj"
+            "C:\\Users\\Jo\\Source\\Repos\\NoSQLProject2\\NOSQL PROJECT\\MODEL\\MODEL.csproj": {
+              "projectPath": "C:\\Users\\Jo\\Source\\Repos\\NoSQLProject2\\NOSQL PROJECT\\MODEL\\MODEL.csproj"
             }
           }
         }
@@ -735,7 +735,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
       }
     }
   }
