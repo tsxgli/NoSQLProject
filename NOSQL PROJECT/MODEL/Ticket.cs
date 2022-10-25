@@ -17,12 +17,11 @@ namespace MODEL
         [BsonElement("Type")]
         public TicketType TicketType { get; set; } 
 
-        [BsonElement("Employee_Id")]
-        public int EmployeeId { get; set; }
+        [BsonElement("User_reported")]
+        public Employee UserReported { get; set; }
 
         [BsonElement("Priority")]
         public TicketPriority TicketPriority { get; set; }
-
 
         [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
         public BsonDateTime Deadline { get; set; }
@@ -32,5 +31,7 @@ namespace MODEL
 
         [BsonElement("Subject")]
         public string Subject { get; set; }
+        public TicketStatus TicketStatus { get; set; }
+
     }
 }

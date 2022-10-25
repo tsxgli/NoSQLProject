@@ -10,10 +10,10 @@ namespace MODEL
         public BsonObjectId Id { get; set; }
 
 
-        [BsonElement("name")]
-        public BsonDocument Name = new BsonDocument();
+        [BsonElement("First Name")]
+        public String FirstName { get; set; }
 
-        [BsonElement("Last_Name")]
+        [BsonElement("LastName")]
         public String LastName { get; set; }
 
         [BsonElement("Type")]
@@ -22,12 +22,14 @@ namespace MODEL
         [BsonElement("Email")]
         public string Email { get; set; }
 
-        [BsonElement("Phone_Number")]
+        [BsonElement("PhoneNo")]
         public string PhoneNumber { get; set; }
 
-        [BsonElement("Location")]
-
+        [BsonElement("Location/Branch")]
         public string Location { get; set; }
 
+        [BsonElement("Password")]
+        public string Password { get; set; }
     }
+
 }

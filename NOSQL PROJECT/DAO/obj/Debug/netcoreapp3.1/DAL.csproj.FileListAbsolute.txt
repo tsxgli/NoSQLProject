@@ -1,0 +1,13 @@
+C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\DAO\bin\Debug\netcoreapp3.1\DAL.deps.json
+C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\DAO\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\DAO\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\DAO\bin\Debug\netcoreapp3.1\MODEL.dll
+C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\DAO\bin\Debug\netcoreapp3.1\MODEL.pdb
+C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.csproj.AssemblyReference.cache
+C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.AssemblyInfoInputs.cache
+C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.AssemblyInfo.cs
+C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.csproj.CoreCompileInputs.cache
+C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.csproj.CopyComplete
+C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.dll
+C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.pdb
