@@ -710,8 +710,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\phili\\OneDrive\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\LOGIC\\LOGIC.csproj": {
-              "projectPath": "C:\\Users\\phili\\OneDrive\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\LOGIC\\LOGIC.csproj"
+            "C:\\UNIVERSIDAD\\NoSQL\\NoSQLProject\\NOSQL PROJECT\\LOGIC\\LOGIC.csproj": {
+              "projectPath": "C:\\UNIVERSIDAD\\NoSQL\\NoSQLProject\\NOSQL PROJECT\\LOGIC\\LOGIC.csproj"
             }
           }
         }
