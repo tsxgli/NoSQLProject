@@ -32,7 +32,7 @@ namespace NOSQL_PROJECT
 
         }
 
-        private void pnlCreateIncident_Paint(object sender, PaintEventArgs e)
+        private void btnSubmitTicket_Click(object sender, EventArgs e)
         {
 
         }
