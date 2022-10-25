@@ -124,7 +124,6 @@
             this.pnlCreateIncident.Name = "pnlCreateIncident";
             this.pnlCreateIncident.Size = new System.Drawing.Size(1217, 1339);
             this.pnlCreateIncident.TabIndex = 1;
-            this.pnlCreateIncident.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCreateIncident_Paint);
             // 
             // btn_CancelIncident
             // 
@@ -137,7 +136,6 @@
             this.btn_CancelIncident.TabIndex = 5;
             this.btn_CancelIncident.Text = "CANCEL";
             this.btn_CancelIncident.UseVisualStyleBackColor = false;
-            this.btn_CancelIncident.Click += new System.EventHandler(this.btn_CancelIncident_Click);
             // 
             // btnSubmitTicket
             // 
@@ -159,7 +157,6 @@
             this.dtPick_IncidentTimeReported.Name = "dtPick_IncidentTimeReported";
             this.dtPick_IncidentTimeReported.Size = new System.Drawing.Size(554, 39);
             this.dtPick_IncidentTimeReported.TabIndex = 4;
-            this.dtPick_IncidentTimeReported.ValueChanged += new System.EventHandler(this.dtPick_IncidentTimeReported_ValueChanged);
             // 
             // comb_IncidentDeadline
             // 
@@ -174,7 +171,6 @@
             this.comb_IncidentDeadline.Name = "comb_IncidentDeadline";
             this.comb_IncidentDeadline.Size = new System.Drawing.Size(554, 40);
             this.comb_IncidentDeadline.TabIndex = 3;
-            this.comb_IncidentDeadline.SelectedIndexChanged += new System.EventHandler(this.comb_IncidentDeadline_SelectedIndexChanged);
             // 
             // comb_IncidentPriority
             // 
@@ -184,7 +180,6 @@
             this.comb_IncidentPriority.Name = "comb_IncidentPriority";
             this.comb_IncidentPriority.Size = new System.Drawing.Size(554, 40);
             this.comb_IncidentPriority.TabIndex = 3;
-            this.comb_IncidentPriority.SelectedIndexChanged += new System.EventHandler(this.comb_IncidentPriority_SelectedIndexChanged);
             // 
             // comb_ReportedByUser
             // 
@@ -194,7 +189,6 @@
             this.comb_ReportedByUser.Name = "comb_ReportedByUser";
             this.comb_ReportedByUser.Size = new System.Drawing.Size(554, 40);
             this.comb_ReportedByUser.TabIndex = 3;
-            this.comb_ReportedByUser.SelectedIndexChanged += new System.EventHandler(this.comb_ReportedByUser_SelectedIndexChanged);
             // 
             // comb_TypeIncident
             // 
@@ -204,7 +198,6 @@
             this.comb_TypeIncident.Name = "comb_TypeIncident";
             this.comb_TypeIncident.Size = new System.Drawing.Size(554, 40);
             this.comb_TypeIncident.TabIndex = 3;
-            this.comb_TypeIncident.SelectedIndexChanged += new System.EventHandler(this.comb_TypeIncident_SelectedIndexChanged);
             // 
             // txt_IncidentDescription
             // 
@@ -216,7 +209,6 @@
             this.txt_IncidentDescription.Name = "txt_IncidentDescription";
             this.txt_IncidentDescription.Size = new System.Drawing.Size(554, 213);
             this.txt_IncidentDescription.TabIndex = 2;
-            this.txt_IncidentDescription.TextChanged += new System.EventHandler(this.txt_IncidentDescription_TextChanged);
             // 
             // txtIncidentSubject
             // 
@@ -225,7 +217,6 @@
             this.txtIncidentSubject.Name = "txtIncidentSubject";
             this.txtIncidentSubject.Size = new System.Drawing.Size(554, 39);
             this.txtIncidentSubject.TabIndex = 2;
-            this.txtIncidentSubject.TextChanged += new System.EventHandler(this.txtIncidentSubject_TextChanged);
             // 
             // label9
             // 
@@ -236,7 +227,6 @@
             this.label9.Size = new System.Drawing.Size(140, 32);
             this.label9.TabIndex = 1;
             this.label9.Text = "Description:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label8
             // 
@@ -247,7 +237,6 @@
             this.label8.Size = new System.Drawing.Size(230, 32);
             this.label8.TabIndex = 1;
             this.label8.Text = "Deadline/Follow-up:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
@@ -258,7 +247,6 @@
             this.label7.Size = new System.Drawing.Size(94, 32);
             this.label7.TabIndex = 1;
             this.label7.Text = "Priority:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6
             // 
@@ -269,7 +257,6 @@
             this.label6.Size = new System.Drawing.Size(201, 32);
             this.label6.TabIndex = 1;
             this.label6.Text = "Reported by user:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -280,7 +267,6 @@
             this.label5.Size = new System.Drawing.Size(192, 32);
             this.label5.TabIndex = 1;
             this.label5.Text = "Type of incident:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -291,7 +277,6 @@
             this.label4.Size = new System.Drawing.Size(220, 32);
             this.label4.TabIndex = 1;
             this.label4.Text = "Subject of incident:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -302,7 +287,6 @@
             this.label3.Size = new System.Drawing.Size(225, 32);
             this.label3.TabIndex = 1;
             this.label3.Text = "Date/time reported:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -314,7 +298,6 @@
             this.label2.Size = new System.Drawing.Size(704, 72);
             this.label2.TabIndex = 0;
             this.label2.Text = "Create new incident ticket.";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // tabPage1
             // 
@@ -338,7 +321,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1241, 1397);
             this.tabControl1.TabIndex = 0;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage3
             // 
