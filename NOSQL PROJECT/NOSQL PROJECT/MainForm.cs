@@ -32,5 +32,9 @@ namespace NOSQL_PROJECT
 
         }
 
+        private void pnlCreateIncident_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
