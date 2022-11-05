@@ -19,7 +19,7 @@ namespace DAL
         public DAO()
         {
             client = new MongoClient("mongodb+srv://682624:1234@cluster0.so0c6ct.mongodb.net/test");
-            IMongoDatabase db = client.GetDatabase("Project_2_1_NOSQL");
+             db = client.GetDatabase("Project_2_1_NOSQL");
         }
 
         public List<Databases_Model> GetDatabases()
@@ -58,6 +58,16 @@ namespace DAL
             var document=dbCollection.Find(filter).FirstOrDefault();
 
             return document;
+        }
+        protected List<BsonDocument> GetAll(string collection)
+        {
+            var col = db.GetCollection<BsonDocument>(collection);
+            var filter = Builders<BsonDocument>.Filter.Empty;
+
+            var doc = col.Find(filter).ToList();
+
+            return doc;
+
         }
     }
 }
