@@ -95,3 +95,4 @@ C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Deb
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\DAL.pdb
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\MODEL.pdb
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.MainForm2.resources
+C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.MainForm2.resources

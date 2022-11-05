@@ -30,7 +30,7 @@ namespace DAL
 
             doc["IncidentType"] = incident.TicketType.ToString();
 
-            doc["UserReported"] = incident.UserReported.FirstName;
+            doc["UserReported"] = incident.UserReported.Id;
 
             doc["Description"] = incident.Description;
 
@@ -52,22 +52,20 @@ namespace DAL
                     Subject = doc["Subject"].ToString(),
                     ReportedDate = DateTime.Parse(doc["ReportedDate"].ToString()),
                     TicketPriority = (TicketPriority)Enum.Parse(typeof(TicketPriority), doc["Priority"].ToString()),
-                    UserReported = GetUser((ObjectId)doc["UserReported"]),
+                    UserReported = GetEmployee((ObjectId)doc["UserReported"]),
                     TicketType = (TicketType)Enum.Parse(typeof(TicketType), doc["IncidentType"].ToString()),
                     Description = doc["Description"].ToString(),
                     Deadline = DateTime.Parse(doc["Deadline"].ToString()),
                     TicketStatus = (TicketStatus)Enum.Parse(typeof(TicketStatus), doc["Status"].ToString())
-
                 };
                 incidents.Add(ticket);
             }
             return incidents;
         }
-        private Employee GetUser(ObjectId id)
+        private Employee GetEmployee(ObjectId id)
         {
-            EmployeeDAO employeeDAO = new EmployeeDAO();
+            EmployeeDAO employeeDAO= new EmployeeDAO();
             return employeeDAO.GetEmployee(employeeCollection, id);
         }
-
     }
 }
