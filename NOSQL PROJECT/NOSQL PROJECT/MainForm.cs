@@ -12,18 +12,22 @@ using MongoDB.Bson;
 
 namespace NOSQL_PROJECT
 {
-    public partial class MainForm : Form
+    public partial class MainForm2 : Form
     {
-        private Employee currentUser;
-        public MainForm(Employee currentUser)
-        {
-            this.currentUser = currentUser;
-            InitializeComponent();
-        }
-
         //create connection to logic layer
         IncidentLogic incidentLogic;
-        EmployeeLogic employeeLogic = new EmployeeLogic();
+        EmployeeLogic employeeLogic;
+        List<Employee> employees;
+
+        public MainForm2()
+        {
+            InitializeComponent();
+            employeeLogic = new EmployeeLogic();
+            employees = new List<Employee>();
+            employees = employeeLogic.GetAllEmployees();
+            PopulateComboBox();
+            
+        }
 
         public void AddIncidentToDB()
         {
@@ -32,22 +36,53 @@ namespace NOSQL_PROJECT
             Ticket ticket = new Ticket();
 
             ticket.Subject = txtIncidentSubject.Text;
-            ticket.TicketPriority = (TicketPriority)comb_IncidentPriority.SelectedValue;
-            ticket.Deadline = (DateTime)comb_IncidentDeadline.SelectedValue;
+            switch (comb_IncidentPriority.GetItemText(comb_IncidentPriority.SelectedItem))
+            {
+                case "Low":
+                    ticket.TicketPriority = TicketPriority.Low;
+                    break;
+                case "High":
+                    ticket.TicketPriority = TicketPriority.High;
+                    break;
+                case "Normal":
+                    ticket.TicketPriority = TicketPriority.Normal;
+                    break;
+                default:
+                    ticket.TicketPriority = TicketPriority.Normal;
+                    break;
+            }
+            ticket.Deadline = dtp_Deadline.Value;
             ticket.Description = txt_IncidentDescription.Text;
             ticket.ReportedDate = dtPick_IncidentTimeReported.Value;
-            ticket.UserReported = (Employee)comb_ReportedByUser.SelectedValue;
+            //int index = comb_ReportedByUser.SelectedIndex;   
+            ticket.UserReported = employees[comb_ReportedByUser.SelectedIndex];
+
             ticket.TicketStatus = TicketStatus.Open;
 
             incidentLogic.AddNewIncident(ticket);
         }
         public void PopulateComboBox()
         {
-            List<BsonDocument> employeeDocuments = new List<BsonDocument>();
-            /*foreach (Employee e in employeeLogic.GetAllEmployees(employeeDocuments))
+            foreach (Employee e in employees)
             {
                 comb_ReportedByUser.Items.Add($"{e.FirstName} {e.LastName}");
-            }*/
+            }
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSubmitTicket_Click(object sender, EventArgs e)
+        {
+            AddIncidentToDB();
+            MessageBox.Show("Incident Created");
         }
 
     }
