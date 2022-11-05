@@ -17,11 +17,13 @@ namespace NOSQL_PROJECT
         public MainForm2()
         {
             InitializeComponent();
+            PopulateComboBox();
         }
+
 
         //create connection to logic layer
         IncidentLogic incidentLogic;
-        EmployeeLogic employeeLogic = new EmployeeLogic();
+        EmployeeLogic employeeLogic;
 
         public void AddIncidentToDB()
         {
@@ -30,8 +32,22 @@ namespace NOSQL_PROJECT
             Ticket ticket = new Ticket();
 
             ticket.Subject = txtIncidentSubject.Text;
-            ticket.TicketPriority = (TicketPriority)comb_IncidentPriority.SelectedValue;
-            ticket.Deadline = (DateTime)comb_IncidentDeadline.SelectedValue;
+            switch (comb_IncidentPriority.GetItemText(comb_IncidentPriority.SelectedItem))
+            {
+                case "Low":
+                    ticket.TicketPriority = TicketPriority.Low;
+                    break;
+                case "High":
+                    ticket.TicketPriority = TicketPriority.High;
+                    break;
+                case "Normal":
+                    ticket.TicketPriority = TicketPriority.Normal;
+                    break;
+                default:
+                    ticket.TicketPriority = TicketPriority.Normal;
+                    break;
+            }
+            ticket.Deadline = dtp_Deadline.Value;
             ticket.Description = txt_IncidentDescription.Text;
             ticket.ReportedDate = dtPick_IncidentTimeReported.Value;
             ticket.UserReported = (Employee)comb_ReportedByUser.SelectedValue;
@@ -41,11 +57,28 @@ namespace NOSQL_PROJECT
         }
         public void PopulateComboBox()
         {
+            employeeLogic = new EmployeeLogic();
             List<BsonDocument> employeeDocuments = new List<BsonDocument>();
-            foreach (Employee e in employeeLogic.GetAllEmployees(employeeDocuments))
+            foreach (Employee e in employeeLogic.GetAllEmployees())
             {
                 comb_ReportedByUser.Items.Add($"{e.FirstName} {e.LastName}");
             }
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSubmitTicket_Click(object sender, EventArgs e)
+        {
+            AddIncidentToDB();
+            MessageBox.Show("Incident Created");
         }
 
     }

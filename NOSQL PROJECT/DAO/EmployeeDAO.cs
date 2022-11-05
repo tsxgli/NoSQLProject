@@ -13,32 +13,57 @@ namespace DAL
     {
         public EmployeeDAO()
         {
-           
-        }
-        public Employee GetEmployee( ObjectId id)
-        {
-            var collection = base.GetCollection(employeeCollection);
-            Employee employee = new Employee();
 
-            var filter = Builders<Employee>.Filter.Eq("_id", id);
-            var document = collection.Find(filter).ToList();
-
-            return employee;
         }
-        public List<Employee> GetAllEmployees(List<BsonDocument> do3cs)
+
+        public List<Employee> GetAllEmployees()
         {
-            var collection = base.GetCollection(employeeCollection);
-            docs=collection.Find(new BsonDocument()).ToList();
+            return ReadEmployee(GetAll(employeeCollection));
+        }
+        public List<Employee> ReadEmployee(List<BsonDocument> collection)
+        {
             List<Employee> employees = new List<Employee>();
 
-            foreach (var doc in docs)
+            foreach (var doc in collection)
             {
-                Employee employee = BsonSerializer.Deserialize<Employee>(doc);
+                Employee employee = new Employee
+                {
+                    Id = doc["_id"].AsObjectId,
+                    FirstName = doc["First Name"].ToString(),
+                    LastName = doc["LastName"].ToString(),
+                    Email = doc["Email"].ToString(),
+                    Username = doc["Username"].ToString(),
+                    UserType = (UserType)Enum.Parse(typeof(UserType), doc["UserType"].ToString()),
+                    PhoneNumber = doc["PhoneNo"].ToString(),
+                    Location = doc["Location/Branch"].ToString(),
+                    Password = doc["Password"].ToString(),
+                };
                 employees.Add(employee);
-            };
+            }
+
             return employees;
+
         }
+        public Employee GetEmployee(string collection,ObjectId id)
+        {
+            BsonDocument doc = GetDocumentByObjectId(collection,id);
+            Employee employee = new Employee
+            {
+                Id = doc["_id"].AsObjectId,
+                FirstName = doc["First Name"].ToString(),
+                LastName = doc["LastName"].ToString(),
+                Email = doc["Email"].ToString(),
+                Username = doc["Username"].ToString(),
+                UserType = (UserType)Enum.Parse(typeof(UserType), doc["UserType"].ToString()),
+                PhoneNumber = doc["PhoneNo"].ToString(),
+                Location = doc["Location/Branch"].ToString(),
+                Password = doc["Password"].ToString(),
+            };
+            return employee;
+        }
+
     }
+
 
 
 }

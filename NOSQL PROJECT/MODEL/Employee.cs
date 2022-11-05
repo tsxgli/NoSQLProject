@@ -9,6 +9,8 @@ namespace MODEL
         [BsonId]
         public BsonObjectId Id { get; set; }
 
+        [BsonElement ("Username")]
+        public string Username { get; set; }
 
         [BsonElement("First Name")]
         public String FirstName { get; set; }
