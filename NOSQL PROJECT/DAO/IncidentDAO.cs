@@ -65,7 +65,7 @@ namespace DAL
         private Employee GetEmployee(ObjectId id)
         {
             EmployeeDAO employeeDAO= new EmployeeDAO();
-            return employeeDAO.GetEmployee(employeeCollection, id);
+            return employeeDAO.GetEmployee(id);
         }
     }
 }

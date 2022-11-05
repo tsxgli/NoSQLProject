@@ -11,7 +11,7 @@ namespace DAL
 {
     public class EmployeeDAO : DAO
     {
-        public Employee GetEmployee( ObjectId id)
+        public Employee GetEmployee(ObjectId id)
         {
             var collection = base.GetCollection(employeeCollection);
             Employee employee = new Employee();
