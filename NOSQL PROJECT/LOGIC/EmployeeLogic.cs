@@ -10,9 +10,15 @@ namespace LOGIC
     public class EmployeeLogic
     {
         private EmployeeDAO employeeDAO;
-        public List<Employee> GetAllEmployees(List<BsonDocument> docs)
+
+        public EmployeeLogic()
         {
-            return employeeDAO.GetAllEmployees(docs);
+            employeeDAO = new EmployeeDAO();
+        }
+
+        public List<Employee> GetAllEmployees()
+        {
+            return employeeDAO.GetAllEmployees();
         }
         
     }

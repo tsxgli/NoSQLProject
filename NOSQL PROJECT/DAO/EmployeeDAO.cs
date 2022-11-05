@@ -11,31 +11,45 @@ namespace DAL
 {
     public class EmployeeDAO : DAO
     {
-        public EmployeeDAO()
-        {
-           
-        }
         public Employee GetEmployee( ObjectId id)
         {
             var collection = base.GetCollection(employeeCollection);
             Employee employee = new Employee();
 
-            var filter = Builders<Employee>.Filter.Eq("_id", id);
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
             var document = collection.Find(filter).ToList();
 
             return employee;
         }
-        public List<Employee> GetAllEmployees(List<BsonDocument> do3cs)
+        public List<Employee> GetAllEmployees()
         {
-            var collection = base.GetCollection(employeeCollection);
-            docs=collection.Find(new BsonDocument()).ToList();
             List<Employee> employees = new List<Employee>();
 
-            foreach (var doc in docs)
+            var collection = base.GetCollection(employeeCollection);
+            var documents = collection.Find(new BsonDocument()).ToList();
+
+            foreach(BsonDocument doc in documents)
             {
+                /*Employee employee = new Employee()
+                {
+                    Id = doc["_id"].AsObjectId,
+                    FirstName = doc["First Name"].ToString(),
+                    LastName = doc["LastName"].ToString(),
+                    UserType = (UserType)Enum.Parse(typeof(UserType), doc["UserType"].ToString()),
+                    Email = doc["Email"].ToString(),
+                    PhoneNumber = doc["PhoneNo"].ToString(),
+                    Location = doc["Location/Branch"].ToString(),
+                    NoTicketsReported = (int)doc["NoTicketsReported"],
+                    Password = doc["Password"].ToString(),
+                    Username = doc["Username"].ToString()
+                };
+                employees.Add(employee);*/
+
                 Employee employee = BsonSerializer.Deserialize<Employee>(doc);
                 employees.Add(employee);
-            };
+
+            }
+
             return employees;
         }
     }

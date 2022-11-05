@@ -17,7 +17,7 @@ namespace NOSQL_PROJECT
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm2());
+            Application.Run(new LoginForm());
         }
     }
 }

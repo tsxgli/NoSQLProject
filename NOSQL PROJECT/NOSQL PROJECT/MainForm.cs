@@ -12,10 +12,12 @@ using MongoDB.Bson;
 
 namespace NOSQL_PROJECT
 {
-    public partial class MainForm2 : Form
+    public partial class MainForm : Form
     {
-        public MainForm2()
+        private Employee currentUser;
+        public MainForm(Employee currentUser)
         {
+            this.currentUser = currentUser;
             InitializeComponent();
         }
 
@@ -42,10 +44,10 @@ namespace NOSQL_PROJECT
         public void PopulateComboBox()
         {
             List<BsonDocument> employeeDocuments = new List<BsonDocument>();
-            foreach (Employee e in employeeLogic.GetAllEmployees(employeeDocuments))
+            /*foreach (Employee e in employeeLogic.GetAllEmployees(employeeDocuments))
             {
                 comb_ReportedByUser.Items.Add($"{e.FirstName} {e.LastName}");
-            }
+            }*/
         }
 
     }

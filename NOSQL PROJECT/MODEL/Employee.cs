@@ -9,14 +9,13 @@ namespace MODEL
         [BsonId]
         public BsonObjectId Id { get; set; }
 
-
         [BsonElement("First Name")]
-        public String FirstName { get; set; }
+        public string FirstName { get; set; }
 
         [BsonElement("LastName")]
-        public String LastName { get; set; }
+        public string LastName { get; set; }
 
-        [BsonElement("Type")]
+        [BsonElement("UserType")]
         public UserType UserType { get; set; }
 
         [BsonElement("Email")]
@@ -28,8 +27,13 @@ namespace MODEL
         [BsonElement("Location/Branch")]
         public string Location { get; set; }
 
+        [BsonElement("NoTicketsReported")]
+        public int NoTicketsReported { get; set; }
+
         [BsonElement("Password")]
         public string Password { get; set; }
-    }
 
+        [BsonElement("Username")]
+        public string Username { get; set; }
+    }
 }

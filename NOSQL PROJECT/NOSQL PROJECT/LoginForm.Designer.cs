@@ -35,6 +35,7 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -44,7 +45,7 @@
             this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.BlanchedAlmond;
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLogin.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLogin.ForeColor = System.Drawing.Color.Black;
             this.btnLogin.Location = new System.Drawing.Point(173, 531);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -53,18 +54,19 @@
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtPassword
             // 
             this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPassword.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPassword.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPassword.Location = new System.Drawing.Point(80, 437);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
-            this.txtPassword.Size = new System.Drawing.Size(357, 38);
+            this.txtPassword.Size = new System.Drawing.Size(357, 45);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
@@ -73,11 +75,11 @@
             this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUsername.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtUsername.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtUsername.Location = new System.Drawing.Point(80, 312);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(357, 38);
+            this.txtUsername.Size = new System.Drawing.Size(357, 45);
             this.txtUsername.TabIndex = 2;
             this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
@@ -87,10 +89,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblUsername.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblUsername.Location = new System.Drawing.Point(78, 264);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(99, 23);
+            this.lblUsername.Size = new System.Drawing.Size(142, 32);
             this.lblUsername.TabIndex = 3;
             this.lblUsername.Text = "Username";
             // 
@@ -100,10 +102,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPassword.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPassword.Location = new System.Drawing.Point(80, 392);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(98, 23);
+            this.lblPassword.Size = new System.Drawing.Size(135, 32);
             this.lblPassword.TabIndex = 4;
             this.lblPassword.Text = "Password";
             // 
@@ -114,7 +116,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDescription.AutoEllipsis = true;
             this.lblDescription.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDescription.Location = new System.Drawing.Point(23, 137);
+            this.lblDescription.Location = new System.Drawing.Point(23, 118);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(465, 117);
             this.lblDescription.TabIndex = 5;
@@ -125,14 +127,24 @@
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitle.AutoEllipsis = true;
-            this.lblTitle.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTitle.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblTitle.Location = new System.Drawing.Point(23, 43);
+            this.lblTitle.Location = new System.Drawing.Point(23, 24);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(465, 60);
             this.lblTitle.TabIndex = 6;
             this.lblTitle.Text = "NoDesk: TGG";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(105, 491);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 23);
+            this.lblError.TabIndex = 7;
             // 
             // LoginForm
             // 
@@ -140,6 +152,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(509, 637);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblPassword);
@@ -167,5 +180,6 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblError;
     }
 }
