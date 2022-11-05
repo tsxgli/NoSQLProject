@@ -14,16 +14,20 @@ namespace NOSQL_PROJECT
 {
     public partial class MainForm2 : Form
     {
-        public MainForm2()
-        {
-            InitializeComponent();
-            PopulateComboBox();
-        }
-
-
         //create connection to logic layer
         IncidentLogic incidentLogic;
         EmployeeLogic employeeLogic;
+        List<Employee> employees;
+
+        public MainForm2()
+        {
+            InitializeComponent();
+            employeeLogic = new EmployeeLogic();
+            employees = new List<Employee>();
+            employees = employeeLogic.GetAllEmployees();
+            PopulateComboBox();
+            
+        }
 
         public void AddIncidentToDB()
         {
@@ -50,16 +54,16 @@ namespace NOSQL_PROJECT
             ticket.Deadline = dtp_Deadline.Value;
             ticket.Description = txt_IncidentDescription.Text;
             ticket.ReportedDate = dtPick_IncidentTimeReported.Value;
-            ticket.UserReported = (Employee)comb_ReportedByUser.SelectedValue;
+            //int index = comb_ReportedByUser.SelectedIndex;   
+            ticket.UserReported = employees[comb_ReportedByUser.SelectedIndex];
+
             ticket.TicketStatus = TicketStatus.Open;
 
             incidentLogic.AddNewIncident(ticket);
         }
         public void PopulateComboBox()
         {
-            employeeLogic = new EmployeeLogic();
-            List<BsonDocument> employeeDocuments = new List<BsonDocument>();
-            foreach (Employee e in employeeLogic.GetAllEmployees())
+            foreach (Employee e in employees)
             {
                 comb_ReportedByUser.Items.Add($"{e.FirstName} {e.LastName}");
             }

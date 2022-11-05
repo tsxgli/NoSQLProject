@@ -18,6 +18,11 @@ namespace LOGIC
         {
             return employeeDAO.GetAllEmployees();
         }
-        
+        public Employee GetEmployee(string collection, ObjectId id)
+        {
+            return employeeDAO.GetEmployee(collection, id);
+        }
+
+
     }
 }
