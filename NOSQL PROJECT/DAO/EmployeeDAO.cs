@@ -44,6 +44,23 @@ namespace DAL
             return employees;
 
         }
+
+        public void AddNewEmployeeToDatabase(Employee employee)
+        {
+            BsonDocument doc = new BsonDocument();
+
+            doc["First Name"] = employee.FirstName;
+            doc["Last Name"]=employee.LastName;
+            doc["Password"]=employee.Password;
+            doc["Email"]=employee.Email;
+            doc["PhoneNo"] = employee.PhoneNumber;
+            doc["Location"] = employee.Location;
+            doc["UserType"] = employee.UserType;
+            doc["NoTicketsReported"] = 0;
+
+            InsertRecord(employeeCollection, doc);
+        }
+
         public Employee GetEmployee(string collection,ObjectId id)
         {
             BsonDocument doc = GetDocumentByObjectId(collection,id);

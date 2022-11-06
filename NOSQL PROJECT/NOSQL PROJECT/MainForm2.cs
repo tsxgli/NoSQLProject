@@ -9,6 +9,9 @@ using System.Text;
 using System.Windows.Forms;
 using MODEL;
 using MongoDB.Bson;
+using System.Net.Mail;
+using System.Net;
+using System.Linq;
 
 namespace NOSQL_PROJECT
 {
@@ -18,6 +21,7 @@ namespace NOSQL_PROJECT
         IncidentLogic incidentLogic;
         EmployeeLogic employeeLogic;
         List<Employee> employees;
+         string password ;
 
         public MainForm2()
         {
@@ -26,7 +30,7 @@ namespace NOSQL_PROJECT
             employees = new List<Employee>();
             employees = employeeLogic.GetAllEmployees();
             PopulateComboBox();
-            
+            password = GenerateRandomPassword();
         }
 
         public void AddIncidentToDB()
@@ -86,7 +90,8 @@ namespace NOSQL_PROJECT
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-
+            AddEmployeeToDatabase();
+            MessageBox.Show("Employee has been added to database");
         }
 
         private void MainForm2_Load(object sender, EventArgs e)
@@ -116,7 +121,7 @@ namespace NOSQL_PROJECT
             employee.Email =txtEmail.Text;
             employee.Location = comboLocation.SelectedText;
             employee.PhoneNumber=txtPhoneNo.Text;
-
+            employee.Password = password;
 
             switch (comboUserType.GetItemText(comboUserType.SelectedItem))
             {
@@ -133,15 +138,43 @@ namespace NOSQL_PROJECT
 
             if (checkBoxSendEmail.Checked)
             {
-
+                SendEmail();
             }
+
+            employeeLogic.AddNewEmployeeToDatabase(employee);
             
         }
 
-        public void SendPasswordToEmail()
-        {
 
+        public String GenerateRandomPassword()
+        {
+           return string.Join("", Enumerable.Repeat(0, 100).Select(n => (char)new Random().Next(127)));
+            //string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrs";
+            //char[] chars = new char[7];
+            //string finalPassword = "";
+            //Random random = new Random();
+
+            //for (int i = 0; i < letters.Length; i++)
+            //{
+            //    chars[i] = letters[random.Next(0,letters.Length)];
+            //    finalPassword += chars[i];
+            //}
+            //return finalPassword;
         }
 
+        public void SendEmail()
+        {
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress("nosqlproject2.1@gmail.com");
+            mail.To.Add(txtEmail.Text);
+            mail.Subject = "Hello World";
+            mail.Body = $"new password is {password}";
+            mail.IsBodyHtml = true;
+
+            using SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new NetworkCredential("nosqlproject2.1@gmail.com","kytvrwgerndngubn");
+            smtp.EnableSsl = true;
+            smtp.Send(mail);
+        }
     }
 }
