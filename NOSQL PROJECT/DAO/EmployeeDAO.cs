@@ -42,7 +42,6 @@ namespace DAL
             }
 
             return employees;
-
         }
 
         public void AddNewEmployeeToDatabase(Employee employee)
@@ -50,11 +49,11 @@ namespace DAL
             BsonDocument doc = new BsonDocument();
 
             doc["First Name"] = employee.FirstName;
-            doc["Last Name"]=employee.LastName;
+            doc["LastName"]=employee.LastName;
             doc["UserType"] = employee.UserType;
             doc["Email"]=employee.Email;
             doc["PhoneNo"] = employee.PhoneNumber;
-            doc["Location"] = employee.Location;
+            doc["Location/Branch"] = employee.Location;
             doc["NoTicketsReported"] = 0;
             doc["Password"] = employee.Password;
             doc["Username"] = employee.Username;

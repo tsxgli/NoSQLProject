@@ -152,7 +152,7 @@ namespace NOSQL_PROJECT
             string finalPassword = "";
             Random random = new Random();
 
-            for (int i = 0; i < letters.Length; i++)
+            for (int i = 0; i < 7; i++)
             {
                 finalPassword += letters[random.Next(0, letters.Length)];
                // finalPassword += chars[i];
@@ -175,6 +175,5 @@ namespace NOSQL_PROJECT
             smtp.Send(mail);
         }
 
-       public void 
     }
 }
