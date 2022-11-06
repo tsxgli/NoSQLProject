@@ -51,12 +51,14 @@ namespace DAL
 
             doc["First Name"] = employee.FirstName;
             doc["Last Name"]=employee.LastName;
-            doc["Password"]=employee.Password;
+            doc["UserType"] = employee.UserType;
             doc["Email"]=employee.Email;
             doc["PhoneNo"] = employee.PhoneNumber;
             doc["Location"] = employee.Location;
-            doc["UserType"] = employee.UserType;
             doc["NoTicketsReported"] = 0;
+            doc["Password"] = employee.Password;
+            doc["Username"] = employee.Username;
+
 
             InsertRecord(employeeCollection, doc);
         }

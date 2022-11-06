@@ -107,7 +107,7 @@ namespace NOSQL_PROJECT
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+           // hide current panel and show the display users panel 
         }
 
         public void AddEmployeeToDatabase()
@@ -122,6 +122,7 @@ namespace NOSQL_PROJECT
             employee.Location = comboLocation.SelectedText;
             employee.PhoneNumber=txtPhoneNo.Text;
             employee.Password = password;
+            employee.Username = txtUsername.Text;
 
             switch (comboUserType.GetItemText(comboUserType.SelectedItem))
             {
@@ -140,26 +141,23 @@ namespace NOSQL_PROJECT
             {
                 SendEmail();
             }
-
             employeeLogic.AddNewEmployeeToDatabase(employee);
-            
         }
 
 
-        public String GenerateRandomPassword()
+        public string GenerateRandomPassword()
         {
-           return string.Join("", Enumerable.Repeat(0, 100).Select(n => (char)new Random().Next(127)));
-            //string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrs";
-            //char[] chars = new char[7];
-            //string finalPassword = "";
-            //Random random = new Random();
+            string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrs";
+            char[] chars = new char[7];
+            string finalPassword = "";
+            Random random = new Random();
 
-            //for (int i = 0; i < letters.Length; i++)
-            //{
-            //    chars[i] = letters[random.Next(0,letters.Length)];
-            //    finalPassword += chars[i];
-            //}
-            //return finalPassword;
+            for (int i = 0; i < letters.Length; i++)
+            {
+                finalPassword += letters[random.Next(0, letters.Length)];
+               // finalPassword += chars[i];
+            }
+            return finalPassword;
         }
 
         public void SendEmail()
@@ -167,8 +165,8 @@ namespace NOSQL_PROJECT
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress("nosqlproject2.1@gmail.com");
             mail.To.Add(txtEmail.Text);
-            mail.Subject = "Hello World";
-            mail.Body = $"new password is {password}";
+            mail.Subject = "NoDesk password";
+            mail.Body = $"Thank you for signing up for NoDesk. \nYour new password is {password}";
             mail.IsBodyHtml = true;
 
             using SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
@@ -176,5 +174,7 @@ namespace NOSQL_PROJECT
             smtp.EnableSsl = true;
             smtp.Send(mail);
         }
+
+       public void 
     }
 }

@@ -68,6 +68,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.pnlCreateTicket.SuspendLayout();
@@ -310,6 +312,7 @@
             this.panel1.Controls.Add(this.comboLocation);
             this.panel1.Controls.Add(this.comboUserType);
             this.panel1.Controls.Add(this.txtLastName);
+            this.panel1.Controls.Add(this.txtUsername);
             this.panel1.Controls.Add(this.txtPhoneNo);
             this.panel1.Controls.Add(this.txtEmail);
             this.panel1.Controls.Add(this.txtFirstName);
@@ -317,6 +320,7 @@
             this.panel1.Controls.Add(this.checkBoxSendEmail);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnAddUser);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label13);
@@ -396,7 +400,7 @@
             // checkBoxSendEmail
             // 
             this.checkBoxSendEmail.AutoSize = true;
-            this.checkBoxSendEmail.Location = new System.Drawing.Point(312, 367);
+            this.checkBoxSendEmail.Location = new System.Drawing.Point(314, 410);
             this.checkBoxSendEmail.Name = "checkBoxSendEmail";
             this.checkBoxSendEmail.Size = new System.Drawing.Size(293, 19);
             this.checkBoxSendEmail.TabIndex = 16;
@@ -430,7 +434,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(163, 361);
+            this.label11.Location = new System.Drawing.Point(165, 404);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(91, 15);
             this.label11.TabIndex = 7;
@@ -489,6 +493,22 @@
             this.label17.Size = new System.Drawing.Size(65, 15);
             this.label17.TabIndex = 13;
             this.label17.Text = "First name:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(163, 369);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 15);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Username: ";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(312, 361);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(300, 23);
+            this.txtUsername.TabIndex = 19;
             // 
             // MainForm2
             // 
@@ -552,5 +572,7 @@
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dtp_Deadline;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Label label2;
     }
 }
