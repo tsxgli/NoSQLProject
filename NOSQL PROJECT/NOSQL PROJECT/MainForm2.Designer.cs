@@ -34,6 +34,7 @@
             this.pnlCreateTicket = new System.Windows.Forms.Panel();
             this.btn_CancelIncident = new System.Windows.Forms.Button();
             this.btnSubmitTicket = new System.Windows.Forms.Button();
+            this.dtp_Deadline = new System.Windows.Forms.DateTimePicker();
             this.dtPick_IncidentTimeReported = new System.Windows.Forms.DateTimePicker();
             this.comb_IncidentPriority = new System.Windows.Forms.ComboBox();
             this.comb_ReportedByUser = new System.Windows.Forms.ComboBox();
@@ -67,7 +68,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.dtp_Deadline = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.pnlCreateTicket.SuspendLayout();
@@ -157,6 +159,13 @@
             this.btnSubmitTicket.UseVisualStyleBackColor = false;
             this.btnSubmitTicket.Click += new System.EventHandler(this.btnSubmitTicket_Click);
             // 
+            // dtp_Deadline
+            // 
+            this.dtp_Deadline.Location = new System.Drawing.Point(294, 283);
+            this.dtp_Deadline.Name = "dtp_Deadline";
+            this.dtp_Deadline.Size = new System.Drawing.Size(300, 23);
+            this.dtp_Deadline.TabIndex = 15;
+            // 
             // dtPick_IncidentTimeReported
             // 
             this.dtPick_IncidentTimeReported.Location = new System.Drawing.Point(294, 55);
@@ -187,6 +196,10 @@
             // comb_TypeIncident
             // 
             this.comb_TypeIncident.FormattingEnabled = true;
+            this.comb_TypeIncident.Items.AddRange(new object[] {
+            "Hardware",
+            "Software",
+            "Service"});
             this.comb_TypeIncident.Location = new System.Drawing.Point(294, 152);
             this.comb_TypeIncident.Name = "comb_TypeIncident";
             this.comb_TypeIncident.Size = new System.Drawing.Size(300, 23);
@@ -299,6 +312,7 @@
             this.panel1.Controls.Add(this.comboLocation);
             this.panel1.Controls.Add(this.comboUserType);
             this.panel1.Controls.Add(this.txtLastName);
+            this.panel1.Controls.Add(this.txtUsername);
             this.panel1.Controls.Add(this.txtPhoneNo);
             this.panel1.Controls.Add(this.txtEmail);
             this.panel1.Controls.Add(this.txtFirstName);
@@ -306,6 +320,7 @@
             this.panel1.Controls.Add(this.checkBoxSendEmail);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnAddUser);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label13);
@@ -328,7 +343,7 @@
             "Amsterdam",
             "Knuppeldam",
             "Headquarters(HQ)"});
-            this.comboLocation.Location = new System.Drawing.Point(360, 327);
+            this.comboLocation.Location = new System.Drawing.Point(312, 316);
             this.comboLocation.Name = "comboLocation";
             this.comboLocation.Size = new System.Drawing.Size(300, 23);
             this.comboLocation.TabIndex = 22;
@@ -337,37 +352,37 @@
             // 
             this.comboUserType.FormattingEnabled = true;
             this.comboUserType.Items.AddRange(new object[] {
-            "Employee",
-            "Service desk employee"});
-            this.comboUserType.Location = new System.Drawing.Point(360, 198);
+            "Regular",
+            "Service Desk"});
+            this.comboUserType.Location = new System.Drawing.Point(312, 187);
             this.comboUserType.Name = "comboUserType";
             this.comboUserType.Size = new System.Drawing.Size(300, 23);
             this.comboUserType.TabIndex = 23;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(360, 147);
+            this.txtLastName.Location = new System.Drawing.Point(312, 136);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(300, 23);
             this.txtLastName.TabIndex = 18;
             // 
             // txtPhoneNo
             // 
-            this.txtPhoneNo.Location = new System.Drawing.Point(360, 282);
+            this.txtPhoneNo.Location = new System.Drawing.Point(312, 271);
             this.txtPhoneNo.Name = "txtPhoneNo";
             this.txtPhoneNo.Size = new System.Drawing.Size(300, 23);
             this.txtPhoneNo.TabIndex = 19;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(360, 236);
+            this.txtEmail.Location = new System.Drawing.Point(312, 225);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(300, 23);
             this.txtEmail.TabIndex = 20;
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(360, 99);
+            this.txtFirstName.Location = new System.Drawing.Point(312, 88);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(300, 23);
             this.txtFirstName.TabIndex = 21;
@@ -376,7 +391,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(213, 31);
+            this.label10.Location = new System.Drawing.Point(165, 20);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(162, 37);
             this.label10.TabIndex = 17;
@@ -385,7 +400,7 @@
             // checkBoxSendEmail
             // 
             this.checkBoxSendEmail.AutoSize = true;
-            this.checkBoxSendEmail.Location = new System.Drawing.Point(360, 378);
+            this.checkBoxSendEmail.Location = new System.Drawing.Point(314, 410);
             this.checkBoxSendEmail.Name = "checkBoxSendEmail";
             this.checkBoxSendEmail.Size = new System.Drawing.Size(293, 19);
             this.checkBoxSendEmail.TabIndex = 16;
@@ -396,18 +411,19 @@
             // 
             this.btnCancel.BackColor = System.Drawing.Color.White;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(333, 450);
+            this.btnCancel.Location = new System.Drawing.Point(679, 219);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(140, 33);
             this.btnCancel.TabIndex = 14;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAddUser
             // 
             this.btnAddUser.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddUser.Location = new System.Drawing.Point(533, 450);
+            this.btnAddUser.Location = new System.Drawing.Point(679, 160);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(141, 33);
             this.btnAddUser.TabIndex = 15;
@@ -418,7 +434,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(211, 372);
+            this.label11.Location = new System.Drawing.Point(165, 404);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(91, 15);
             this.label11.TabIndex = 7;
@@ -427,7 +443,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(211, 333);
+            this.label12.Location = new System.Drawing.Point(163, 322);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(98, 15);
             this.label12.TabIndex = 8;
@@ -436,7 +452,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(211, 285);
+            this.label13.Location = new System.Drawing.Point(163, 274);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(89, 15);
             this.label13.TabIndex = 9;
@@ -445,7 +461,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(211, 240);
+            this.label14.Location = new System.Drawing.Point(163, 229);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(87, 15);
             this.label14.TabIndex = 10;
@@ -454,7 +470,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(211, 202);
+            this.label15.Location = new System.Drawing.Point(163, 191);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(73, 15);
             this.label15.TabIndex = 11;
@@ -463,7 +479,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(211, 150);
+            this.label16.Location = new System.Drawing.Point(163, 139);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(64, 15);
             this.label16.TabIndex = 12;
@@ -472,18 +488,27 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(211, 102);
+            this.label17.Location = new System.Drawing.Point(163, 91);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(65, 15);
             this.label17.TabIndex = 13;
             this.label17.Text = "First name:";
             // 
-            // dtp_Deadline
+            // label2
             // 
-            this.dtp_Deadline.Location = new System.Drawing.Point(294, 283);
-            this.dtp_Deadline.Name = "dtp_Deadline";
-            this.dtp_Deadline.Size = new System.Drawing.Size(300, 23);
-            this.dtp_Deadline.TabIndex = 15;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(163, 369);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 15);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Username: ";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(312, 361);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(300, 23);
+            this.txtUsername.TabIndex = 19;
             // 
             // MainForm2
             // 
@@ -547,5 +572,7 @@
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dtp_Deadline;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Label label2;
     }
 }

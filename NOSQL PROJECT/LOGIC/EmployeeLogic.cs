@@ -23,6 +23,10 @@ namespace LOGIC
             return employeeDAO.GetEmployee(collection, id);
         }
 
+        public void AddNewEmployeeToDatabase(Employee employee)
+        {
+             employeeDAO.AddNewEmployeeToDatabase(employee);
+        }
 
     }
 }
