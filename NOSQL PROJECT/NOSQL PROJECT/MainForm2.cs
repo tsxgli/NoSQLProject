@@ -12,6 +12,7 @@ using MongoDB.Bson;
 using System.Net.Mail;
 using System.Net;
 using System.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace NOSQL_PROJECT
 {
@@ -21,10 +22,13 @@ namespace NOSQL_PROJECT
         IncidentLogic incidentLogic;
         EmployeeLogic employeeLogic;
         List<Employee> employees;
+        Employee selectedUser;
+        //Employee currentEmployee
          string password ;
 
         public MainForm2()
         {
+            //this.currentEmployee = currentEmployee
             InitializeComponent();
             employeeLogic = new EmployeeLogic();
             incidentLogic = new IncidentLogic();
@@ -33,9 +37,9 @@ namespace NOSQL_PROJECT
             PopulateComboBox();
             password = GenerateRandomPassword();
             pnlIncidentManagement.Visible = true;
-            DisplayIncidents();
+            DisplayIncidents(incidentLogic.GetIncidents());
             pnlUserManagement.Visible = true;
-            DisplayUsers();
+            DisplayUsers(employeeLogic.GetAllEmployees());
         }
 
         public void AddIncidentToDB()
@@ -115,14 +119,14 @@ namespace NOSQL_PROJECT
             // hide current panel and show the display users panel 
             panel1.Visible = false;
             pnlUserManagement.Visible = true;
-            DisplayUsers();
+            DisplayUsers(employeeLogic.GetAllEmployees());
         }        
         private void btn_CancelIncident_Click(object sender, EventArgs e)
         {
             // hide current panel and show the display incidents panel 
             pnlCreateTicket.Visible = false;
             pnlIncidentManagement.Visible = true;
-            DisplayIncidents();
+            DisplayIncidents(incidentLogic.GetIncidents());
         }
 
         public void AddEmployeeToDatabase()
@@ -201,10 +205,9 @@ namespace NOSQL_PROJECT
             pnlIncidentManagement.Visible = false;
             pnlCreateTicket.Visible = true;
         }
-        private void DisplayUsers()
+        private void DisplayUsers(List<Employee> employees)
         {
-            List<Employee>employees = employeeLogic.GetAllEmployees();
-
+            listViewOverviewUsers.Items.Clear();
             foreach (Employee employee in employees)
             {
                 ListViewItem item = new ListViewItem();
@@ -213,14 +216,14 @@ namespace NOSQL_PROJECT
                 item.SubItems.Add(employee.FirstName);
                 item.SubItems.Add(employee.LastName);
                 item.SubItems.Add(employee.NoTicketsReported); //method for count of tickets per user
+                item.Tag = employee;
 
                 listViewOverviewUsers.Items.Add(item);
             }
         }
-        private void DisplayIncidents()
+        private void DisplayIncidents(List<Ticket>tickets)
         {
-            List<Ticket> tickets = incidentLogic.GetIncidents();
-            
+            listViewIncidents.Items.Clear();
             foreach(Ticket ticket in tickets)
             {
                 ListViewItem item = new ListViewItem();
@@ -234,5 +237,65 @@ namespace NOSQL_PROJECT
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<Ticket>tickets = incidentLogic.GetIncidents();
+            List<Ticket> filteredTickets = new List<Ticket>();
+
+
+            if (txtboxFilterEmailIncidents.Text.Length > 0)
+            {
+                foreach (Ticket ticket in tickets)
+                {
+                    if (ticket.UserReported.Email.Contains(txtboxFilterEmailIncidents.Text))
+                    {
+                        filteredTickets.Add(ticket);
+                    }
+                }
+                txtboxFilterEmailIncidents.Clear();
+                DisplayIncidents(filteredTickets);
+            }
+            else
+            {
+                DisplayIncidents(tickets);
+            }
+        }
+
+        private void btnSearchUserByEmail_Click(object sender, EventArgs e)
+        {
+            List<Employee> users = employeeLogic.GetAllEmployees();
+            List<Employee> filteredUsers = new List<Employee>();
+            if (txtboxFilterEmailUsers.Text.Length > 0)
+            {
+                foreach (Employee employee in users)
+                {
+                    if (employee.Email.Contains(txtboxFilterEmailUsers.Text))
+                    {
+                        filteredUsers.Add(employee);
+                    }
+                }
+                txtboxFilterEmailUsers.Clear();
+                DisplayUsers(filteredUsers);
+            }
+            else
+            {
+                DisplayUsers(users);
+            }
+        }
+
+        private void listViewOverviewUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(listViewOverviewUsers.SelectedItems.Count == 0)
+            {
+                return;
+            }
+            ListViewItem selectedItem = listViewOverviewUsers.SelectedItems[0];
+            selectedUser = (Employee)selectedItem.Tag;
+
+            tabControl1.SelectedTab = tabPage2;
+            txtboxFilterEmailIncidents.Text = selectedUser.Email;
+            button1_Click(sender, e);
+
+        }
     }
 }

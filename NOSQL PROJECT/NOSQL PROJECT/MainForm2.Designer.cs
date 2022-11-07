@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm2));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pnlIncidentManagement = new System.Windows.Forms.Panel();
+            this.btnSearchTicketByEmail = new System.Windows.Forms.Button();
             this.listViewIncidents = new System.Windows.Forms.ListView();
             this.ID = new System.Windows.Forms.ColumnHeader();
             this.subject = new System.Windows.Forms.ColumnHeader();
@@ -61,6 +63,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pnlUserManagement = new System.Windows.Forms.Panel();
+            this.btnSearchUserByEmail = new System.Windows.Forms.Button();
             this.listViewOverviewUsers = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
@@ -138,6 +141,7 @@
             // 
             // pnlIncidentManagement
             // 
+            this.pnlIncidentManagement.Controls.Add(this.btnSearchTicketByEmail);
             this.pnlIncidentManagement.Controls.Add(this.listViewIncidents);
             this.pnlIncidentManagement.Controls.Add(this.btnCreateNewIncident);
             this.pnlIncidentManagement.Controls.Add(this.txtboxFilterEmailIncidents);
@@ -146,6 +150,17 @@
             this.pnlIncidentManagement.Name = "pnlIncidentManagement";
             this.pnlIncidentManagement.Size = new System.Drawing.Size(1025, 630);
             this.pnlIncidentManagement.TabIndex = 18;
+            // 
+            // btnSearchTicketByEmail
+            // 
+            this.btnSearchTicketByEmail.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearchTicketByEmail.BackgroundImage")));
+            this.btnSearchTicketByEmail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSearchTicketByEmail.Location = new System.Drawing.Point(232, 101);
+            this.btnSearchTicketByEmail.Name = "btnSearchTicketByEmail";
+            this.btnSearchTicketByEmail.Size = new System.Drawing.Size(34, 34);
+            this.btnSearchTicketByEmail.TabIndex = 23;
+            this.btnSearchTicketByEmail.UseVisualStyleBackColor = true;
+            this.btnSearchTicketByEmail.Click += new System.EventHandler(this.button1_Click);
             // 
             // listViewIncidents
             // 
@@ -208,9 +223,9 @@
             this.txtboxFilterEmailIncidents.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtboxFilterEmailIncidents.Location = new System.Drawing.Point(26, 101);
             this.txtboxFilterEmailIncidents.Name = "txtboxFilterEmailIncidents";
+            this.txtboxFilterEmailIncidents.PlaceholderText = "Filter by email...";
             this.txtboxFilterEmailIncidents.Size = new System.Drawing.Size(200, 34);
             this.txtboxFilterEmailIncidents.TabIndex = 20;
-            this.txtboxFilterEmailIncidents.Text = "Filter by email...";
             // 
             // label18
             // 
@@ -433,6 +448,7 @@
             // 
             // pnlUserManagement
             // 
+            this.pnlUserManagement.Controls.Add(this.btnSearchUserByEmail);
             this.pnlUserManagement.Controls.Add(this.listViewOverviewUsers);
             this.pnlUserManagement.Controls.Add(this.btnAddNewUser);
             this.pnlUserManagement.Controls.Add(this.txtboxFilterEmailUsers);
@@ -442,6 +458,17 @@
             this.pnlUserManagement.Size = new System.Drawing.Size(1025, 630);
             this.pnlUserManagement.TabIndex = 24;
             // 
+            // btnSearchUserByEmail
+            // 
+            this.btnSearchUserByEmail.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearchUserByEmail.BackgroundImage")));
+            this.btnSearchUserByEmail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSearchUserByEmail.Location = new System.Drawing.Point(232, 101);
+            this.btnSearchUserByEmail.Name = "btnSearchUserByEmail";
+            this.btnSearchUserByEmail.Size = new System.Drawing.Size(34, 34);
+            this.btnSearchUserByEmail.TabIndex = 24;
+            this.btnSearchUserByEmail.UseVisualStyleBackColor = true;
+            this.btnSearchUserByEmail.Click += new System.EventHandler(this.btnSearchUserByEmail_Click);
+            // 
             // listViewOverviewUsers
             // 
             this.listViewOverviewUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -450,13 +477,16 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader6});
+            this.listViewOverviewUsers.FullRowSelect = true;
             this.listViewOverviewUsers.HideSelection = false;
             this.listViewOverviewUsers.Location = new System.Drawing.Point(26, 179);
+            this.listViewOverviewUsers.MultiSelect = false;
             this.listViewOverviewUsers.Name = "listViewOverviewUsers";
             this.listViewOverviewUsers.Size = new System.Drawing.Size(910, 387);
             this.listViewOverviewUsers.TabIndex = 23;
             this.listViewOverviewUsers.UseCompatibleStateImageBehavior = false;
             this.listViewOverviewUsers.View = System.Windows.Forms.View.Details;
+            this.listViewOverviewUsers.SelectedIndexChanged += new System.EventHandler(this.listViewOverviewUsers_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -502,9 +532,9 @@
             this.txtboxFilterEmailUsers.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtboxFilterEmailUsers.Location = new System.Drawing.Point(26, 101);
             this.txtboxFilterEmailUsers.Name = "txtboxFilterEmailUsers";
+            this.txtboxFilterEmailUsers.PlaceholderText = "Filter by email...";
             this.txtboxFilterEmailUsers.Size = new System.Drawing.Size(200, 34);
             this.txtboxFilterEmailUsers.TabIndex = 21;
-            this.txtboxFilterEmailUsers.Text = "Filter by email...";
             // 
             // label19
             // 
@@ -818,5 +848,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.Button btnSearchTicketByEmail;
+        private System.Windows.Forms.Button btnSearchUserByEmail;
     }
 }
