@@ -95,6 +95,7 @@ C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Deb
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\DAL.pdb
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\MODEL.pdb
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.MainForm2.resources
+<<<<<<< HEAD
 C:\Users\Jo\Source\Repos\NoSQLProject2\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.exe
 C:\Users\Jo\Source\Repos\NoSQLProject2\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.deps.json
 C:\Users\Jo\Source\Repos\NoSQLProject2\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.runtimeconfig.json
@@ -144,3 +145,6 @@ C:\Users\Jo\Source\Repos\NoSQLProject2\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\net
 C:\Users\Jo\Source\Repos\NoSQLProject2\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.dll
 C:\Users\Jo\Source\Repos\NoSQLProject2\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.pdb
 C:\Users\Jo\Source\Repos\NoSQLProject2\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.genruntimeconfig.cache
+=======
+C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.MainForm2.resources
+>>>>>>> main
