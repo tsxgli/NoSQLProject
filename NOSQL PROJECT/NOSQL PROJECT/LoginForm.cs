@@ -17,6 +17,7 @@ namespace NOSQL_PROJECT
         private List<Employee> employees;
         private Employee currentUser;
         private EmployeeLogic employeeLogic;
+        //private string currentUsername;
         public LoginForm()
         {
             employeeLogic = new EmployeeLogic();
@@ -28,22 +29,26 @@ namespace NOSQL_PROJECT
 
         private void Customize()
         {
+            HidePanels();
+            pnlLogin.Show();
             btnLogin.Enabled = false;
+            btnConfirm.Enabled = false;
+            //lblForgotPassword.Enabled = false;
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
-            CheckText();
+            CheckLoginText();
             lblError.Text = "";
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-            CheckText();
+            CheckLoginText();
             lblError.Text = "";
         }
 
-        private void CheckText()
+        private void CheckLoginText()
         {
             if (txtUsername.Text != "" && txtPassword.Text != "")
             {
@@ -53,9 +58,29 @@ namespace NOSQL_PROJECT
             }
             else
             {
+
+               // lblForgotPassword.Enabled = false;
+                //if (txtUsername.Text != "")
+                    //lblForgotPassword.Enabled = true;   
                 btnLogin.Enabled = false;
                 btnLogin.BackColor = Color.LightGray;
                 btnLogin.ForeColor = Color.Black;
+            }
+        }
+
+        private void CheckEmail()
+        {
+            if (txtEmail.Text != "")
+            {
+                btnConfirm.Enabled = true;
+                btnConfirm.BackColor = Color.FromArgb(22, 155, 213);
+                btnConfirm.ForeColor = Color.White;
+            }
+            else
+            {
+                btnConfirm.Enabled = false;
+                btnConfirm.BackColor = Color.LightGray;
+                btnConfirm.ForeColor = Color.Black;
             }
         }
 
@@ -83,6 +108,61 @@ namespace NOSQL_PROJECT
             }
             else
                 lblError.Text = "Invalid username/password combination.";
+        }
+
+        private void lblForgotPassword_Click(object sender, EventArgs e)
+        {
+            /*bool userExists = false;
+            string currentUsername = txtUsername.Text.Trim();
+            foreach(Employee employee in employees)
+            {
+                if(employee.Username.Equals(currentUsername))
+                {
+                    userExists = true;
+                    this.currentUsername = currentUsername;
+                }
+            }*/
+            HidePanels();
+            pnlForgotPassword.Show();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            HidePanels();
+            pnlLogin.Show();
+        }
+
+        private void HidePanels()
+        {
+            pnlForgotPassword.Hide();
+            pnlLogin.Hide();
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            CheckEmail();
+            lblErrorForgetPassword.Text = "";
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            string email = txtEmail.Text.Trim();
+            bool emailExists = false;
+            foreach(Employee employee in employees)
+            {
+                if (employee.Email.Equals(email))
+                {
+                    emailExists = true;
+                }
+            }
+
+            if (emailExists)
+            {
+                lblErrorForgetPassword.Text = "nice";
+            }
+            else
+                lblErrorForgetPassword.Text = "Invalid email.";
+
         }
     }
 }
