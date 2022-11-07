@@ -9,17 +9,24 @@ namespace LOGIC
 {
     public class EmployeeLogic
     {
-        private EmployeeDAO employeeDAO;
-
+        private readonly EmployeeDAO employeeDAO;
         public EmployeeLogic()
         {
             employeeDAO = new EmployeeDAO();
         }
-
         public List<Employee> GetAllEmployees()
         {
             return employeeDAO.GetAllEmployees();
         }
-        
+        public Employee GetEmployee(string collection, ObjectId id)
+        {
+            return employeeDAO.GetEmployee(collection, id);
+        }
+
+        public void AddNewEmployeeToDatabase(Employee employee)
+        {
+             employeeDAO.AddNewEmployeeToDatabase(employee);
+        }
+
     }
 }

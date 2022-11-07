@@ -11,48 +11,77 @@ namespace DAL
 {
     public class EmployeeDAO : DAO
     {
-        public Employee GetEmployee(ObjectId id)
+        public EmployeeDAO()
         {
-            var collection = base.GetCollection(employeeCollection);
-            Employee employee = new Employee();
 
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
-            var document = collection.Find(filter).ToList();
-
-            return employee;
         }
+
         public List<Employee> GetAllEmployees()
+        {
+            return ReadEmployee(GetAll(employeeCollection));
+        }
+        public List<Employee> ReadEmployee(List<BsonDocument> collection)
         {
             List<Employee> employees = new List<Employee>();
 
-            var collection = base.GetCollection(employeeCollection);
-            var documents = collection.Find(new BsonDocument()).ToList();
-
-            foreach(BsonDocument doc in documents)
+            foreach (var doc in collection)
             {
-                /*Employee employee = new Employee()
+                Employee employee = new Employee
                 {
                     Id = doc["_id"].AsObjectId,
                     FirstName = doc["First Name"].ToString(),
                     LastName = doc["LastName"].ToString(),
-                    UserType = (UserType)Enum.Parse(typeof(UserType), doc["UserType"].ToString()),
                     Email = doc["Email"].ToString(),
+                    Username = doc["Username"].ToString(),
+                    UserType = (UserType)Enum.Parse(typeof(UserType), doc["UserType"].ToString()),
                     PhoneNumber = doc["PhoneNo"].ToString(),
                     Location = doc["Location/Branch"].ToString(),
-                    NoTicketsReported = (int)doc["NoTicketsReported"],
                     Password = doc["Password"].ToString(),
-                    Username = doc["Username"].ToString()
                 };
-                employees.Add(employee);*/
-
-                Employee employee = BsonSerializer.Deserialize<Employee>(doc);
                 employees.Add(employee);
-
             }
 
             return employees;
         }
+
+        public void AddNewEmployeeToDatabase(Employee employee)
+        {
+            BsonDocument doc = new BsonDocument();
+
+            doc["First Name"] = employee.FirstName;
+            doc["LastName"]=employee.LastName;
+            doc["UserType"] = employee.UserType;
+            doc["Email"]=employee.Email;
+            doc["PhoneNo"] = employee.PhoneNumber;
+            doc["Location/Branch"] = employee.Location;
+            doc["NoTicketsReported"] = 0;
+            doc["Password"] = employee.Password;
+            doc["Username"] = employee.Username;
+
+
+            InsertRecord(employeeCollection, doc);
+        }
+
+        public Employee GetEmployee(string collection,ObjectId id)
+        {
+            BsonDocument doc = GetDocumentByObjectId(collection,id);
+            Employee employee = new Employee
+            {
+                Id = doc["_id"].AsObjectId,
+                FirstName = doc["First Name"].ToString(),
+                LastName = doc["LastName"].ToString(),
+                Email = doc["Email"].ToString(),
+                Username = doc["Username"].ToString(),
+                UserType = (UserType)Enum.Parse(typeof(UserType), doc["UserType"].ToString()),
+                PhoneNumber = doc["PhoneNo"].ToString(),
+                Location = doc["Location/Branch"].ToString(),
+                Password = doc["Password"].ToString(),
+            };
+            return employee;
+        }
+
     }
+
 
 
 }
