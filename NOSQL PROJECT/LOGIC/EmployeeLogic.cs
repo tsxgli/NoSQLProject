@@ -28,5 +28,9 @@ namespace LOGIC
              employeeDAO.AddNewEmployeeToDatabase(employee);
         }
 
+        public void UpdateEmployeePassword(Employee employee, string newPassword)
+        {
+            employeeDAO.UpdateEmployeePassword(employee, newPassword);
+        }
     }
 }

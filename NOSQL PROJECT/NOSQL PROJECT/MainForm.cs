@@ -15,16 +15,18 @@ using System.Linq;
 
 namespace NOSQL_PROJECT
 {
-    public partial class MainForm2 : Form
+    public partial class MainForm : Form
     {
         //create connection to logic layer
         IncidentLogic incidentLogic;
         EmployeeLogic employeeLogic;
         List<Employee> employees;
+        Employee currentUser;
          string password ;
 
-        public MainForm2()
+        public MainForm(Employee currentUser)
         {
+            this.currentUser = currentUser;
             InitializeComponent();
             employeeLogic = new EmployeeLogic();
             employees = new List<Employee>();

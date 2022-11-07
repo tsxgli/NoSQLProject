@@ -80,6 +80,14 @@ namespace DAL
             return employee;
         }
 
+        public void UpdateEmployeePassword(Employee employee, string newPassword)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", employee.Id);
+            var update = Builders<BsonDocument>.Update.Set("Password", newPassword);
+
+            GetCollection(employeeCollection).UpdateOne(filter, update);
+        }
+
     }
 
 

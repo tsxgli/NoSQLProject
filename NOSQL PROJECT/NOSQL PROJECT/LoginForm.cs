@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MODEL;
 using LOGIC;
+using System.Net.Mail;
+using System.Net;
 
 namespace NOSQL_PROJECT
 {
@@ -147,22 +149,42 @@ namespace NOSQL_PROJECT
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             string email = txtEmail.Text.Trim();
+            Employee employeeChangePassword = new Employee();
             bool emailExists = false;
             foreach(Employee employee in employees)
             {
                 if (employee.Email.Equals(email))
                 {
                     emailExists = true;
+                    employeeChangePassword = employee;
                 }
             }
 
             if (emailExists)
             {
-                lblErrorForgetPassword.Text = "nice";
+                string password = PasswordGenerator.GenerateRandomPassword();
+                employeeLogic.UpdateEmployeePassword(employeeChangePassword, password);
+                SendEmail(email, password);
+                lblErrorForgetPassword.Text = "Success";
             }
             else
                 lblErrorForgetPassword.Text = "Invalid email.";
 
+        }
+
+        private void SendEmail(string email, string newPassword)
+        {
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress("nosqlproject2.1@gmail.com");
+            mail.To.Add(email);
+            mail.Subject = "NoDesk password change";
+            mail.Body = $"Your new NoDesk password is {newPassword}";
+            mail.IsBodyHtml = true;
+
+            using SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new NetworkCredential("nosqlproject2.1@gmail.com", "kytvrwgerndngubn");
+            smtp.EnableSsl = true;
+            smtp.Send(mail);
         }
     }
 }

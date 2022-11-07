@@ -39,12 +39,12 @@
             this.pnlLogin = new System.Windows.Forms.Panel();
             this.lblForgotPassword = new System.Windows.Forms.Label();
             this.pnlForgotPassword = new System.Windows.Forms.Panel();
+            this.lblErrorForgetPassword = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.lblTitleForgotPassword = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
-            this.lblErrorForgetPassword = new System.Windows.Forms.Label();
             this.pnlLogin.SuspendLayout();
             this.pnlForgotPassword.SuspendLayout();
             this.SuspendLayout();
@@ -200,15 +200,27 @@
             this.pnlForgotPassword.Size = new System.Drawing.Size(509, 637);
             this.pnlForgotPassword.TabIndex = 9;
             // 
+            // lblErrorForgetPassword
+            // 
+            this.lblErrorForgetPassword.AutoSize = true;
+            this.lblErrorForgetPassword.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblErrorForgetPassword.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorForgetPassword.Location = new System.Drawing.Point(92, 337);
+            this.lblErrorForgetPassword.Name = "lblErrorForgetPassword";
+            this.lblErrorForgetPassword.Size = new System.Drawing.Size(0, 23);
+            this.lblErrorForgetPassword.TabIndex = 9;
+            // 
             // btnConfirm
             // 
+            this.btnConfirm.BackColor = System.Drawing.Color.LightGray;
+            this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnConfirm.Location = new System.Drawing.Point(279, 405);
+            this.btnConfirm.Location = new System.Drawing.Point(279, 392);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(158, 45);
             this.btnConfirm.TabIndex = 8;
             this.btnConfirm.Text = "Confirm";
-            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // lblTitleForgotPassword
@@ -243,34 +255,25 @@
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmail.Font = new System.Drawing.Font("Arial", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtEmail.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtEmail.Location = new System.Drawing.Point(56, 264);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(408, 50);
+            this.txtEmail.PlaceholderText = "example@email.com";
+            this.txtEmail.Size = new System.Drawing.Size(408, 42);
             this.txtEmail.TabIndex = 3;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnBack.Location = new System.Drawing.Point(80, 405);
+            this.btnBack.Location = new System.Drawing.Point(80, 392);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(160, 45);
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // lblErrorForgetPassword
-            // 
-            this.lblErrorForgetPassword.AutoSize = true;
-            this.lblErrorForgetPassword.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblErrorForgetPassword.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorForgetPassword.Location = new System.Drawing.Point(92, 337);
-            this.lblErrorForgetPassword.Name = "lblErrorForgetPassword";
-            this.lblErrorForgetPassword.Size = new System.Drawing.Size(0, 23);
-            this.lblErrorForgetPassword.TabIndex = 9;
             // 
             // LoginForm
             // 
