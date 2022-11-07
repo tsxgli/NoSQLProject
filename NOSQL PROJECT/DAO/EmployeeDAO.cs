@@ -79,6 +79,13 @@ namespace DAL
             };
             return employee;
         }
+        public int GetNumberOfIncidentsForEmployee()
+        {
+            int count = 0;
+
+
+            return count;
+        }
 
     }
 

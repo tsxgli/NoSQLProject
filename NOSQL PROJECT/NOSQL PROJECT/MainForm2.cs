@@ -27,10 +27,15 @@ namespace NOSQL_PROJECT
         {
             InitializeComponent();
             employeeLogic = new EmployeeLogic();
+            incidentLogic = new IncidentLogic();
             employees = new List<Employee>();
             employees = employeeLogic.GetAllEmployees();
             PopulateComboBox();
             password = GenerateRandomPassword();
+            pnlIncidentManagement.Visible = true;
+            DisplayIncidents();
+            pnlUserManagement.Visible = true;
+            DisplayUsers();
         }
 
         public void AddIncidentToDB()
@@ -107,7 +112,17 @@ namespace NOSQL_PROJECT
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-           // hide current panel and show the display users panel 
+            // hide current panel and show the display users panel 
+            panel1.Visible = false;
+            pnlUserManagement.Visible = true;
+            DisplayUsers();
+        }        
+        private void btn_CancelIncident_Click(object sender, EventArgs e)
+        {
+            // hide current panel and show the display incidents panel 
+            pnlCreateTicket.Visible = false;
+            pnlIncidentManagement.Visible = true;
+            DisplayIncidents();
         }
 
         public void AddEmployeeToDatabase()
@@ -173,6 +188,50 @@ namespace NOSQL_PROJECT
             smtp.Credentials = new NetworkCredential("nosqlproject2.1@gmail.com","kytvrwgerndngubn");
             smtp.EnableSsl = true;
             smtp.Send(mail);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            pnlUserManagement.Visible = false;
+            panel1.Visible = true;
+        }
+
+        private void btnCreateNewIncident_Click(object sender, EventArgs e)
+        {
+            pnlIncidentManagement.Visible = false;
+            pnlCreateTicket.Visible = true;
+        }
+        private void DisplayUsers()
+        {
+            List<Employee>employees = employeeLogic.GetAllEmployees();
+
+            foreach (Employee employee in employees)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Text = employee.Id.ToString();
+                item.SubItems.Add(employee.Email);
+                item.SubItems.Add(employee.FirstName);
+                item.SubItems.Add(employee.LastName);
+                item.SubItems.Add("test"); //method for count of tickets per user
+
+                listViewOverviewUsers.Items.Add(item);
+            }
+        }
+        private void DisplayIncidents()
+        {
+            List<Ticket> tickets = incidentLogic.GetIncidents();
+            
+            foreach(Ticket ticket in tickets)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Text = ticket.id.ToString();
+                item.SubItems.Add(ticket.Subject);
+                item.SubItems.Add(ticket.UserReported.Email);
+                item.SubItems.Add(ticket.ReportedDate.ToString());
+                item.SubItems.Add(ticket.TicketStatus.ToString());
+                
+                listViewIncidents.Items.Add(item);
+            }
         }
 
     }

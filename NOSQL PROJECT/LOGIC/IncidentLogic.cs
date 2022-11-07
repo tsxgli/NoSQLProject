@@ -18,5 +18,9 @@ namespace LOGIC
         {
             incidentDAO.AddNewIncident(ticket);
         }
+        public List<Ticket> GetIncidents()
+        {
+            return incidentDAO.GetAllIncidents();
+        }
     }
 }

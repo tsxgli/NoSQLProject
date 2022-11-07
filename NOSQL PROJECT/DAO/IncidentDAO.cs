@@ -40,6 +40,10 @@ namespace DAL
             InsertRecord(ticketCollection, doc);
         }
 
+        public List<Ticket>GetAllIncidents()
+        {
+            return GetIncidents(GetAll(ticketCollection));
+        }
         private List<Ticket> GetIncidents(List<BsonDocument> docs) //get all incidents
         {
             List<Ticket> incidents = new List<Ticket>();
