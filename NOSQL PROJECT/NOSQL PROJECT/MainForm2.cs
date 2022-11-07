@@ -212,7 +212,7 @@ namespace NOSQL_PROJECT
                 item.SubItems.Add(employee.Email);
                 item.SubItems.Add(employee.FirstName);
                 item.SubItems.Add(employee.LastName);
-                item.SubItems.Add("test"); //method for count of tickets per user
+                item.SubItems.Add(employee.NoTicketsReported); //method for count of tickets per user
 
                 listViewOverviewUsers.Items.Add(item);
             }
