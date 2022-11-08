@@ -155,7 +155,6 @@ namespace NOSQL_PROJECT
             for (int i = 0; i < 7; i++)
             {
                 finalPassword += letters[random.Next(0, letters.Length)];
-               // finalPassword += chars[i];
             }
             return finalPassword;
         }

@@ -36,6 +36,8 @@ namespace DAL
 
             doc["ReportedDate"] = incident.ReportedDate;
 
+            doc["Status"]= incident.TicketStatus.ToString();
+
             //inserts document into ticketcollection
             InsertRecord(ticketCollection, doc);
         }
