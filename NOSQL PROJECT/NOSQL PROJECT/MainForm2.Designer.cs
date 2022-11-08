@@ -32,18 +32,11 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.pnlIncidentManagement = new System.Windows.Forms.Panel();
-            this.btnSearchTicketByEmail = new System.Windows.Forms.Button();
-            this.listViewIncidents = new System.Windows.Forms.ListView();
-            this.ID = new System.Windows.Forms.ColumnHeader();
-            this.subject = new System.Windows.Forms.ColumnHeader();
-            this.user = new System.Windows.Forms.ColumnHeader();
-            this.date = new System.Windows.Forms.ColumnHeader();
-            this.Status = new System.Windows.Forms.ColumnHeader();
-            this.btnCreateNewIncident = new System.Windows.Forms.Button();
-            this.txtboxFilterEmailIncidents = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.pnlCreateTicket = new System.Windows.Forms.Panel();
+            this.lblstatus = new System.Windows.Forms.Label();
+            this.comboboxStatus = new System.Windows.Forms.ComboBox();
+            this.btnDeleteIncident = new System.Windows.Forms.Button();
+            this.btnUpdateIncident = new System.Windows.Forms.Button();
             this.btn_CancelIncident = new System.Windows.Forms.Button();
             this.btnSubmitTicket = new System.Windows.Forms.Button();
             this.dtp_Deadline = new System.Windows.Forms.DateTimePicker();
@@ -60,7 +53,20 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblIncidentHeading = new System.Windows.Forms.Label();
+            this.pnlIncidentManagement = new System.Windows.Forms.Panel();
+            this.txtboxFilterByKeyword = new System.Windows.Forms.TextBox();
+            this.btnSearchTicketByEmail = new System.Windows.Forms.Button();
+            this.listViewIncidents = new System.Windows.Forms.ListView();
+            this.ID = new System.Windows.Forms.ColumnHeader();
+            this.subject = new System.Windows.Forms.ColumnHeader();
+            this.user = new System.Windows.Forms.ColumnHeader();
+            this.date = new System.Windows.Forms.ColumnHeader();
+            this.Status = new System.Windows.Forms.ColumnHeader();
+            this.Description = new System.Windows.Forms.ColumnHeader();
+            this.btnCreateNewIncident = new System.Windows.Forms.Button();
+            this.txtboxFilterEmailIncidents = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pnlUserManagement = new System.Windows.Forms.Panel();
             this.btnSearchUserByEmail = new System.Windows.Forms.Button();
@@ -95,8 +101,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.pnlIncidentManagement.SuspendLayout();
             this.pnlCreateTicket.SuspendLayout();
+            this.pnlIncidentManagement.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.pnlUserManagement.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -139,106 +145,12 @@
             this.tabPage2.Text = "Incident Management";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // pnlIncidentManagement
-            // 
-            this.pnlIncidentManagement.Controls.Add(this.btnSearchTicketByEmail);
-            this.pnlIncidentManagement.Controls.Add(this.listViewIncidents);
-            this.pnlIncidentManagement.Controls.Add(this.btnCreateNewIncident);
-            this.pnlIncidentManagement.Controls.Add(this.txtboxFilterEmailIncidents);
-            this.pnlIncidentManagement.Controls.Add(this.label18);
-            this.pnlIncidentManagement.Location = new System.Drawing.Point(0, 0);
-            this.pnlIncidentManagement.Name = "pnlIncidentManagement";
-            this.pnlIncidentManagement.Size = new System.Drawing.Size(1025, 630);
-            this.pnlIncidentManagement.TabIndex = 18;
-            // 
-            // btnSearchTicketByEmail
-            // 
-            this.btnSearchTicketByEmail.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearchTicketByEmail.BackgroundImage")));
-            this.btnSearchTicketByEmail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSearchTicketByEmail.Location = new System.Drawing.Point(232, 101);
-            this.btnSearchTicketByEmail.Name = "btnSearchTicketByEmail";
-            this.btnSearchTicketByEmail.Size = new System.Drawing.Size(34, 34);
-            this.btnSearchTicketByEmail.TabIndex = 23;
-            this.btnSearchTicketByEmail.UseVisualStyleBackColor = true;
-            this.btnSearchTicketByEmail.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // listViewIncidents
-            // 
-            this.listViewIncidents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ID,
-            this.subject,
-            this.user,
-            this.date,
-            this.Status});
-            this.listViewIncidents.HideSelection = false;
-            this.listViewIncidents.Location = new System.Drawing.Point(26, 179);
-            this.listViewIncidents.Name = "listViewIncidents";
-            this.listViewIncidents.Size = new System.Drawing.Size(910, 387);
-            this.listViewIncidents.TabIndex = 22;
-            this.listViewIncidents.UseCompatibleStateImageBehavior = false;
-            this.listViewIncidents.View = System.Windows.Forms.View.Details;
-            // 
-            // ID
-            // 
-            this.ID.Text = "ID";
-            this.ID.Width = 50;
-            // 
-            // subject
-            // 
-            this.subject.Text = "Subject";
-            this.subject.Width = 300;
-            // 
-            // user
-            // 
-            this.user.Text = "User";
-            this.user.Width = 300;
-            // 
-            // date
-            // 
-            this.date.Text = "Date";
-            this.date.Width = 150;
-            // 
-            // Status
-            // 
-            this.Status.Text = "Status";
-            this.Status.Width = 100;
-            // 
-            // btnCreateNewIncident
-            // 
-            this.btnCreateNewIncident.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnCreateNewIncident.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnCreateNewIncident.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCreateNewIncident.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCreateNewIncident.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCreateNewIncident.Location = new System.Drawing.Point(770, 91);
-            this.btnCreateNewIncident.Name = "btnCreateNewIncident";
-            this.btnCreateNewIncident.Size = new System.Drawing.Size(166, 57);
-            this.btnCreateNewIncident.TabIndex = 21;
-            this.btnCreateNewIncident.Text = "CREATE INCIDENT";
-            this.btnCreateNewIncident.UseVisualStyleBackColor = false;
-            this.btnCreateNewIncident.Click += new System.EventHandler(this.btnCreateNewIncident_Click);
-            // 
-            // txtboxFilterEmailIncidents
-            // 
-            this.txtboxFilterEmailIncidents.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtboxFilterEmailIncidents.Location = new System.Drawing.Point(26, 101);
-            this.txtboxFilterEmailIncidents.Name = "txtboxFilterEmailIncidents";
-            this.txtboxFilterEmailIncidents.PlaceholderText = "Filter by email...";
-            this.txtboxFilterEmailIncidents.Size = new System.Drawing.Size(200, 34);
-            this.txtboxFilterEmailIncidents.TabIndex = 20;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label18.Location = new System.Drawing.Point(26, 31);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(234, 38);
-            this.label18.TabIndex = 19;
-            this.label18.Text = "Overview tickets";
-            // 
             // pnlCreateTicket
             // 
+            this.pnlCreateTicket.Controls.Add(this.lblstatus);
+            this.pnlCreateTicket.Controls.Add(this.comboboxStatus);
+            this.pnlCreateTicket.Controls.Add(this.btnDeleteIncident);
+            this.pnlCreateTicket.Controls.Add(this.btnUpdateIncident);
             this.pnlCreateTicket.Controls.Add(this.btn_CancelIncident);
             this.pnlCreateTicket.Controls.Add(this.btnSubmitTicket);
             this.pnlCreateTicket.Controls.Add(this.dtp_Deadline);
@@ -255,13 +167,64 @@
             this.pnlCreateTicket.Controls.Add(this.label5);
             this.pnlCreateTicket.Controls.Add(this.label3);
             this.pnlCreateTicket.Controls.Add(this.label4);
-            this.pnlCreateTicket.Controls.Add(this.label1);
+            this.pnlCreateTicket.Controls.Add(this.lblIncidentHeading);
             this.pnlCreateTicket.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCreateTicket.Location = new System.Drawing.Point(3, 4);
             this.pnlCreateTicket.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.pnlCreateTicket.Name = "pnlCreateTicket";
             this.pnlCreateTicket.Size = new System.Drawing.Size(1019, 622);
             this.pnlCreateTicket.TabIndex = 0;
+            // 
+            // lblstatus
+            // 
+            this.lblstatus.AutoSize = true;
+            this.lblstatus.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblstatus.Location = new System.Drawing.Point(791, 421);
+            this.lblstatus.Name = "lblstatus";
+            this.lblstatus.Size = new System.Drawing.Size(135, 23);
+            this.lblstatus.TabIndex = 21;
+            this.lblstatus.Text = "Incident Status:";
+            // 
+            // comboboxStatus
+            // 
+            this.comboboxStatus.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboboxStatus.FormattingEnabled = true;
+            this.comboboxStatus.Items.AddRange(new object[] {
+            "Hardware",
+            "Software",
+            "Service"});
+            this.comboboxStatus.Location = new System.Drawing.Point(791, 448);
+            this.comboboxStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboboxStatus.Name = "comboboxStatus";
+            this.comboboxStatus.Size = new System.Drawing.Size(173, 39);
+            this.comboboxStatus.TabIndex = 20;
+            this.comboboxStatus.SelectedIndexChanged += new System.EventHandler(this.comboboxStatus_SelectedIndexChanged);
+            // 
+            // btnDeleteIncident
+            // 
+            this.btnDeleteIncident.BackColor = System.Drawing.Color.White;
+            this.btnDeleteIncident.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteIncident.Location = new System.Drawing.Point(767, 539);
+            this.btnDeleteIncident.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDeleteIncident.Name = "btnDeleteIncident";
+            this.btnDeleteIncident.Size = new System.Drawing.Size(110, 44);
+            this.btnDeleteIncident.TabIndex = 19;
+            this.btnDeleteIncident.Text = "DELETE";
+            this.btnDeleteIncident.UseVisualStyleBackColor = false;
+            this.btnDeleteIncident.Click += new System.EventHandler(this.btnDeleteIncident_Click);
+            // 
+            // btnUpdateIncident
+            // 
+            this.btnUpdateIncident.BackColor = System.Drawing.Color.Transparent;
+            this.btnUpdateIncident.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateIncident.Location = new System.Drawing.Point(891, 539);
+            this.btnUpdateIncident.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUpdateIncident.Name = "btnUpdateIncident";
+            this.btnUpdateIncident.Size = new System.Drawing.Size(110, 44);
+            this.btnUpdateIncident.TabIndex = 18;
+            this.btnUpdateIncident.Text = "UPDATE";
+            this.btnUpdateIncident.UseVisualStyleBackColor = false;
+            this.btnUpdateIncident.Click += new System.EventHandler(this.btnUpdateIncident_Click);
             // 
             // btn_CancelIncident
             // 
@@ -422,16 +385,133 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Subject of incident:";
             // 
-            // label1
+            // lblIncidentHeading
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(314, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(324, 35);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Create new incident ticket";
+            this.lblIncidentHeading.AutoSize = true;
+            this.lblIncidentHeading.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblIncidentHeading.Location = new System.Drawing.Point(314, 20);
+            this.lblIncidentHeading.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblIncidentHeading.Name = "lblIncidentHeading";
+            this.lblIncidentHeading.Size = new System.Drawing.Size(324, 35);
+            this.lblIncidentHeading.TabIndex = 0;
+            this.lblIncidentHeading.Text = "Create new incident ticket";
+            // 
+            // pnlIncidentManagement
+            // 
+            this.pnlIncidentManagement.Controls.Add(this.txtboxFilterByKeyword);
+            this.pnlIncidentManagement.Controls.Add(this.btnSearchTicketByEmail);
+            this.pnlIncidentManagement.Controls.Add(this.listViewIncidents);
+            this.pnlIncidentManagement.Controls.Add(this.btnCreateNewIncident);
+            this.pnlIncidentManagement.Controls.Add(this.txtboxFilterEmailIncidents);
+            this.pnlIncidentManagement.Controls.Add(this.label18);
+            this.pnlIncidentManagement.Location = new System.Drawing.Point(0, 0);
+            this.pnlIncidentManagement.Name = "pnlIncidentManagement";
+            this.pnlIncidentManagement.Size = new System.Drawing.Size(1025, 630);
+            this.pnlIncidentManagement.TabIndex = 18;
+            // 
+            // txtboxFilterByKeyword
+            // 
+            this.txtboxFilterByKeyword.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtboxFilterByKeyword.Location = new System.Drawing.Point(26, 141);
+            this.txtboxFilterByKeyword.Name = "txtboxFilterByKeyword";
+            this.txtboxFilterByKeyword.PlaceholderText = "Filter by keywords...";
+            this.txtboxFilterByKeyword.Size = new System.Drawing.Size(200, 34);
+            this.txtboxFilterByKeyword.TabIndex = 24;
+            // 
+            // btnSearchTicketByEmail
+            // 
+            this.btnSearchTicketByEmail.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearchTicketByEmail.BackgroundImage")));
+            this.btnSearchTicketByEmail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSearchTicketByEmail.Location = new System.Drawing.Point(232, 101);
+            this.btnSearchTicketByEmail.Name = "btnSearchTicketByEmail";
+            this.btnSearchTicketByEmail.Size = new System.Drawing.Size(34, 34);
+            this.btnSearchTicketByEmail.TabIndex = 23;
+            this.btnSearchTicketByEmail.UseVisualStyleBackColor = true;
+            this.btnSearchTicketByEmail.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // listViewIncidents
+            // 
+            this.listViewIncidents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
+            this.subject,
+            this.user,
+            this.date,
+            this.Status,
+            this.Description});
+            this.listViewIncidents.FullRowSelect = true;
+            this.listViewIncidents.HideSelection = false;
+            this.listViewIncidents.Location = new System.Drawing.Point(26, 179);
+            this.listViewIncidents.MultiSelect = false;
+            this.listViewIncidents.Name = "listViewIncidents";
+            this.listViewIncidents.Size = new System.Drawing.Size(910, 387);
+            this.listViewIncidents.TabIndex = 22;
+            this.listViewIncidents.UseCompatibleStateImageBehavior = false;
+            this.listViewIncidents.View = System.Windows.Forms.View.Details;
+            this.listViewIncidents.SelectedIndexChanged += new System.EventHandler(this.listViewIncidents_SelectedIndexChanged);
+            // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            this.ID.Width = 50;
+            // 
+            // subject
+            // 
+            this.subject.Text = "Subject";
+            this.subject.Width = 300;
+            // 
+            // user
+            // 
+            this.user.Text = "User";
+            this.user.Width = 300;
+            // 
+            // date
+            // 
+            this.date.Text = "Date";
+            this.date.Width = 150;
+            // 
+            // Status
+            // 
+            this.Status.Text = "Status";
+            this.Status.Width = 100;
+            // 
+            // Description
+            // 
+            this.Description.Text = "Description";
+            this.Description.Width = 200;
+            // 
+            // btnCreateNewIncident
+            // 
+            this.btnCreateNewIncident.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnCreateNewIncident.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCreateNewIncident.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCreateNewIncident.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCreateNewIncident.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCreateNewIncident.Location = new System.Drawing.Point(770, 91);
+            this.btnCreateNewIncident.Name = "btnCreateNewIncident";
+            this.btnCreateNewIncident.Size = new System.Drawing.Size(166, 57);
+            this.btnCreateNewIncident.TabIndex = 21;
+            this.btnCreateNewIncident.Text = "CREATE INCIDENT";
+            this.btnCreateNewIncident.UseVisualStyleBackColor = false;
+            this.btnCreateNewIncident.Click += new System.EventHandler(this.btnCreateNewIncident_Click);
+            // 
+            // txtboxFilterEmailIncidents
+            // 
+            this.txtboxFilterEmailIncidents.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtboxFilterEmailIncidents.Location = new System.Drawing.Point(26, 101);
+            this.txtboxFilterEmailIncidents.Name = "txtboxFilterEmailIncidents";
+            this.txtboxFilterEmailIncidents.PlaceholderText = "Filter by email...";
+            this.txtboxFilterEmailIncidents.Size = new System.Drawing.Size(200, 34);
+            this.txtboxFilterEmailIncidents.TabIndex = 20;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label18.Location = new System.Drawing.Point(26, 31);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(234, 38);
+            this.label18.TabIndex = 19;
+            this.label18.Text = "Overview tickets";
             // 
             // tabPage3
             // 
@@ -771,10 +851,10 @@
             this.Load += new System.EventHandler(this.MainForm2_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.pnlIncidentManagement.ResumeLayout(false);
-            this.pnlIncidentManagement.PerformLayout();
             this.pnlCreateTicket.ResumeLayout(false);
             this.pnlCreateTicket.PerformLayout();
+            this.pnlIncidentManagement.ResumeLayout(false);
+            this.pnlIncidentManagement.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.pnlUserManagement.ResumeLayout(false);
             this.pnlUserManagement.PerformLayout();
@@ -850,5 +930,14 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.Button btnSearchTicketByEmail;
         private System.Windows.Forms.Button btnSearchUserByEmail;
+        private System.Windows.Forms.TextBox txtboxFilterByKeyword;
+        private System.Windows.Forms.ColumnHeader Description;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Label lblstatus;
+        private System.Windows.Forms.ComboBox comboboxStatus;
+        private System.Windows.Forms.Button btnDeleteIncident;
+        private System.Windows.Forms.Button btnUpdateIncident;
+        private System.Windows.Forms.Label lblIncidentHeading;
     }
 }
