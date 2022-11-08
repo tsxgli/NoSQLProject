@@ -13,6 +13,7 @@ using System.Net.Mail;
 using System.Net;
 using System.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
+using System.Windows.Forms.VisualStyles;
 
 namespace NOSQL_PROJECT
 {
@@ -21,20 +22,23 @@ namespace NOSQL_PROJECT
         //create connection to logic layer
         IncidentLogic incidentLogic;
         EmployeeLogic employeeLogic;
+
+        Employee currentUser;
         List<Employee> employees;
         Employee selectedUser;
-        //Employee currentEmployee
+
          string password ;
 
-        public MainForm2()
+        public MainForm2(Employee currentUser)
         {
+            this.currentUser = currentUser;
+            //if(currentUser.UserType == UserType.Regular)
+            //{
+            //    tabControl1.TabPages[2].Visible = false;
+            //}
             //this.currentEmployee = currentEmployee
             InitializeComponent();
-            
-            lblstatus.Hide();
-            comboboxStatus.Hide();
-            btnUpdateIncident.Hide();
-            btnDeleteIncident.Hide();
+            HideCRUDTools();
 
             employeeLogic = new EmployeeLogic();
             incidentLogic = new IncidentLogic();
@@ -229,6 +233,12 @@ namespace NOSQL_PROJECT
         }
         private void DisplayIncidents(List<Ticket>tickets)
         {
+            pnlCreateTicket.Visible = false;
+            pnlIncidentManagement.Visible = true;
+            //if (currentUser.UserType == UserType.Regular)
+            //{
+            //    FilterIncidentsForUser();
+            //}
             listViewIncidents.Items.Clear();
             foreach(Ticket ticket in tickets)
             {
@@ -238,6 +248,7 @@ namespace NOSQL_PROJECT
                 item.SubItems.Add(ticket.UserReported.Email);
                 item.SubItems.Add(ticket.ReportedDate.ToString());
                 item.SubItems.Add(ticket.TicketStatus.ToString());
+                item.SubItems.Add(ticket.Description.ToString());
                 item.Tag =ticket;
                 
                 listViewIncidents.Items.Add(item);
@@ -246,7 +257,11 @@ namespace NOSQL_PROJECT
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<Ticket>tickets = incidentLogic.GetIncidents();
+            FilterIncidentsForUser();
+        }
+        private void FilterIncidentsForUser()
+        {
+            List<Ticket> tickets = incidentLogic.GetIncidents();
             List<Ticket> filteredTickets = new List<Ticket>();
 
 
@@ -316,9 +331,10 @@ namespace NOSQL_PROJECT
         }
         private void DisplaySelectedIncident(Ticket ticket)
         {
+            pnlIncidentManagement.Visible = false;
             pnlCreateTicket.Visible = true;
             btnSubmitTicket.Hide();
-            btn_CancelIncident.Hide();
+            btn_CancelIncident.Location = new Point(0, 0);
             btnUpdateIncident.Show();
             btnDeleteIncident.Show();
             lblstatus.Show();
@@ -326,6 +342,8 @@ namespace NOSQL_PROJECT
             lblIncidentHeading.Text = "Incident Overview";
 
             ComboboxStatus();
+
+            lblTicketIdStore.Text = ticket.id.ToString();
             txtIncidentSubject.Text = ticket.Subject;
             comb_TypeIncident.Text = ticket.TicketType.ToString();
             comb_ReportedByUser.Text = $"{ticket.UserReported.FirstName} {ticket.UserReported.LastName}";
@@ -349,12 +367,75 @@ namespace NOSQL_PROJECT
 
         private void btnDeleteIncident_Click(object sender, EventArgs e)
         {
-
+            ObjectId id = ObjectId.Parse(lblTicketIdStore.Text);
+            lblTicketIdStore.Text = "";
+            incidentLogic.DeleteIncident(id);
+            HideCRUDTools();
+            DisplayIncidents(incidentLogic.GetIncidents());
         }
 
         private void btnUpdateIncident_Click(object sender, EventArgs e)
         {
+            Ticket ticket = new Ticket();
 
+            ticket.id = ObjectId.Parse(lblTicketIdStore.Text);
+            lblTicketIdStore.Text = "";
+            ticket.ReportedDate = dtPick_IncidentTimeReported.Value;
+            ticket.Subject = txtIncidentSubject.Text;
+            ticket.Deadline = dtp_Deadline.Value;
+            ticket.Description = txt_IncidentDescription.Text;
+            ticket.ReportedDate = dtPick_IncidentTimeReported.Value;
+            ticket.UserReported = employees[comb_ReportedByUser.SelectedIndex];
+            switch (comb_IncidentPriority.GetItemText(comb_IncidentPriority.SelectedItem))
+            {
+                case "Low":
+                    ticket.TicketPriority = TicketPriority.Low;
+                    break;
+                case "High":
+                    ticket.TicketPriority = TicketPriority.High;
+                    break;
+                case "Normal":
+                    ticket.TicketPriority = TicketPriority.Normal;
+                    break;
+                default:
+                    ticket.TicketPriority = TicketPriority.Normal;
+                    break;
+            }
+            switch (comb_TypeIncident.GetItemText(comb_TypeIncident.SelectedItem))
+            {
+                case "Hardware":
+                    ticket.TicketType = TicketType.Hardware;
+                    break;
+                case "Software":
+                    ticket.TicketType = TicketType.Software;
+                    break;
+                case "Service":
+                    ticket.TicketType = TicketType.Service;
+                    break;
+                default:
+                    ticket.TicketType = TicketType.Service;
+                    break;
+            }
+            switch (comboboxStatus.GetItemText(comboboxStatus.SelectedItem))
+            {
+                case "Open":
+                    ticket.TicketStatus = TicketStatus.Open;
+                    break;
+                case "Closed":
+                    ticket.TicketStatus = TicketStatus.Closed;
+                    break;
+                case "Past Deadline":
+                    ticket.TicketStatus = TicketStatus.PastDeadline;
+                    break;
+                default:
+                    ticket.TicketStatus = TicketStatus.Open;
+                    break;
+            }
+
+
+            incidentLogic.UpdateIncident(ticket);
+            HideCRUDTools();
+            DisplayIncidents(incidentLogic.GetIncidents());
         }
 
         private void comboboxStatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -362,6 +443,15 @@ namespace NOSQL_PROJECT
             if (comboboxStatus.Text == "Open") { comboboxStatus.BackColor = Color.Orange; }
             else if (comboboxStatus.Text == "Closed") { comboboxStatus.BackColor = Color.Green; }
             else { comboboxStatus.BackColor = Color.Red; }
+        }
+        private void HideCRUDTools()
+        {
+            btnSubmitTicket.Show();
+            btn_CancelIncident.Location = new Point(776, 285);
+            lblstatus.Hide();
+            comboboxStatus.Hide();
+            btnUpdateIncident.Hide();
+            btnDeleteIncident.Hide();
         }
     }
 }

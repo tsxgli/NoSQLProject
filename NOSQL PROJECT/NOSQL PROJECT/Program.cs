@@ -1,3 +1,4 @@
+using MODEL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,11 @@ namespace NOSQL_PROJECT
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm2());
+            Employee test = new Employee();
+            test.UserType = UserType.Regular;
+            test.Email = "josianne.mckenzie@schroeder.biz";
+
+            Application.Run(new MainForm2(test));
         }
     }
 }
