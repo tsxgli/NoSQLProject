@@ -26,8 +26,8 @@ namespace NOSQL_PROJECT
         Employee currentUser;
         List<Employee> employees;
         Employee selectedUser;
-        Ticket currentTicket;
-        string password ;
+        //password that is going to be sent in an email
+        string password;
 
         public MainForm2(Employee currentUser)
         {
@@ -87,7 +87,7 @@ namespace NOSQL_PROJECT
                 case "Service":
                     ticket.TicketType = TicketType.Service;
                     break;
-                default :
+                default:
                     ticket.TicketType = TicketType.Service;
                     break;
             }
@@ -111,7 +111,7 @@ namespace NOSQL_PROJECT
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            AddEmployeeToDatabase();   
+            AddEmployeeToDatabase();
             MessageBox.Show("Employee has been added to database");
             pnlCreateUser.Hide();
             pnlUserManagement.Show();
@@ -128,7 +128,7 @@ namespace NOSQL_PROJECT
             pnlUserManagement.Refresh();
             MessageBox.Show("Incident has been succesfully created.");
             pnlCreateTicket.Hide();
-            pnlIncidentManagement.Show();    
+            pnlIncidentManagement.Show();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -137,7 +137,7 @@ namespace NOSQL_PROJECT
             pnlCreateUser.Visible = false;
             pnlUserManagement.Visible = true;
             DisplayUsers(employeeLogic.GetAllEmployees());
-        }        
+        }
         private void btn_CancelIncident_Click(object sender, EventArgs e)
         {
             // hide current panel and show the display incidents panel 
@@ -150,13 +150,13 @@ namespace NOSQL_PROJECT
         {
             incidentLogic = new IncidentLogic();
 
-            Employee employee= new Employee();
+            Employee employee = new Employee();
 
-            employee.FirstName =txtFirstName.Text;
-            employee.LastName =txtLastName.Text;
-            employee.Email =txtEmail.Text;
+            employee.FirstName = txtFirstName.Text;
+            employee.LastName = txtLastName.Text;
+            employee.Email = txtEmail.Text;
             employee.Location = comboLocation.SelectedText;
-            employee.PhoneNumber=txtPhoneNo.Text;
+            employee.PhoneNumber = txtPhoneNo.Text;
             employee.Password = password;
             employee.Username = txtUsername.Text;
 
@@ -205,7 +205,7 @@ namespace NOSQL_PROJECT
             mail.IsBodyHtml = true;
 
             using SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.Credentials = new NetworkCredential("nosqlproject2.1@gmail.com","kytvrwgerndngubn");
+            smtp.Credentials = new NetworkCredential("nosqlproject2.1@gmail.com", "kytvrwgerndngubn");
             smtp.EnableSsl = true;
             smtp.Send(mail);
         }
@@ -231,13 +231,13 @@ namespace NOSQL_PROJECT
                 item.SubItems.Add(employee.Email);
                 item.SubItems.Add(employee.FirstName);
                 item.SubItems.Add(employee.LastName);
-                item.SubItems.Add(employee.NoTicketsReported.ToString()); 
+                item.SubItems.Add(employee.NoTicketsReported.ToString());
                 item.Tag = employee;
 
                 listViewOverviewUsers.Items.Add(item);
             }
         }
-        private void DisplayIncidents(List<Ticket>tickets)
+        private void DisplayIncidents(List<Ticket> tickets)
         {
             pnlCreateTicket.Visible = false;
             pnlIncidentManagement.Visible = true;
@@ -246,21 +246,22 @@ namespace NOSQL_PROJECT
             //    FilterIncidentsForUser();
             //}
             listViewIncidents.Items.Clear();
-            foreach(Ticket ticket in tickets)
+            foreach (Ticket ticket in tickets)
             {
                 ListViewItem item = new ListViewItem();
                 item.Text = ticket.id.ToString();
                 item.SubItems.Add(ticket.Subject);
                 item.SubItems.Add(ticket.UserReported.Email);
                 item.SubItems.Add(ticket.ReportedDate.ToString());
-                if (ticket.TicketStatus < TicketStatus.Escalated)
-                {
-                    item.SubItems.Add(ticket.TicketStatus.ToString());
-                }   
+
+                item.SubItems.Add(ticket.TicketStatus.ToString());
+
                 item.SubItems.Add(ticket.Description.ToString());
-                item.Tag =ticket;
+                item.Tag = ticket;
                 
-                listViewIncidents.Items.Add(item);
+                // if ticket is not escalated, add it to listview
+                if (ticket.TicketStatus < TicketStatus.Escalated)
+                    listViewIncidents.Items.Add(item);
             }
         }
 
@@ -316,7 +317,7 @@ namespace NOSQL_PROJECT
 
         private void listViewOverviewUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(listViewOverviewUsers.SelectedItems.Count == 0)
+            if (listViewOverviewUsers.SelectedItems.Count == 0)
             {
                 return;
             }
@@ -331,7 +332,7 @@ namespace NOSQL_PROJECT
 
         private void listViewIncidents_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(listViewIncidents.SelectedItems.Count == 0)
+            if (listViewIncidents.SelectedItems.Count == 0)
             {
                 return;
             }
@@ -370,9 +371,9 @@ namespace NOSQL_PROJECT
             comboboxStatus.Items.Add(TicketStatus.Closed);
             comboboxStatus.Items.Add(TicketStatus.Resolved);
             comboboxStatus.Items.Add(TicketStatus.Escalated);
-            if(comboboxStatus.Text == "Open") { comboboxStatus.BackColor = Color.Yellow; }
-            else if(comboboxStatus.Text == "Resolved") { comboboxStatus.BackColor = Color.Green; }
-            else if(comboboxStatus.Text == "Escalated") { comboboxStatus.BackColor = Color.Purple; }
+            if (comboboxStatus.Text == "Open") { comboboxStatus.BackColor = Color.Yellow; }
+            else if (comboboxStatus.Text == "Resolved") { comboboxStatus.BackColor = Color.Green; }
+            else if (comboboxStatus.Text == "Escalated") { comboboxStatus.BackColor = Color.Purple; }
             else { comboboxStatus.BackColor = Color.Orange; }
         }
 
@@ -437,6 +438,9 @@ namespace NOSQL_PROJECT
                     break;
                 case "Resolved":
                     ticket.TicketStatus = TicketStatus.Resolved;
+                    break;
+                case "Escalated":
+                    ticket.TicketStatus = TicketStatus.Escalated;
                     break;
                 default:
                     ticket.TicketStatus = TicketStatus.Open;
