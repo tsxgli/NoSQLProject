@@ -26,7 +26,7 @@ namespace NOSQL_PROJECT
         Employee currentUser;
         List<Employee> employees;
         Employee selectedUser;
-
+        Ticket currentTicket;
          string password ;
 
         public MainForm2(Employee currentUser)
@@ -39,7 +39,6 @@ namespace NOSQL_PROJECT
             //this.currentEmployee = currentEmployee
             InitializeComponent();
             HideCRUDTools();
-
             employeeLogic = new EmployeeLogic();
             incidentLogic = new IncidentLogic();
             employees = new List<Employee>();
@@ -358,7 +357,7 @@ namespace NOSQL_PROJECT
             comboboxStatus.Items.Clear();
             comboboxStatus.Items.Add(TicketStatus.Open);
             comboboxStatus.Items.Add(TicketStatus.Closed);
-            comboboxStatus.Items.Add(TicketStatus.PastDeadline);
+            comboboxStatus.Items.Add(TicketStatus.Resolved);
             if(comboboxStatus.Text == "Open") { comboboxStatus.BackColor = Color.Orange; }
             else if(comboboxStatus.Text == "Closed") { comboboxStatus.BackColor = Color.Green; }
             else { comboboxStatus.BackColor = Color.Red; }
@@ -423,8 +422,8 @@ namespace NOSQL_PROJECT
                 case "Closed":
                     ticket.TicketStatus = TicketStatus.Closed;
                     break;
-                case "Past Deadline":
-                    ticket.TicketStatus = TicketStatus.PastDeadline;
+                case "Resolved":
+                    ticket.TicketStatus = TicketStatus.Resolved;
                     break;
                 default:
                     ticket.TicketStatus = TicketStatus.Open;
@@ -451,6 +450,11 @@ namespace NOSQL_PROJECT
             comboboxStatus.Hide();
             btnUpdateIncident.Hide();
             btnDeleteIncident.Hide();
+        }
+
+        private void btnEscalateTicket_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
