@@ -33,8 +33,5 @@ namespace MODEL
         public string Subject { get; set; }
         public TicketStatus TicketStatus { get; set; }
 
-        [BsonElement("EscalationLevel")]
-        public int EscalationLevel { get; set; }
-
     }
 }

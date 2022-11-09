@@ -69,17 +69,5 @@ namespace DAL
             return doc;
 
         }
-        protected bool UpdateDocumentbyString(string collection, ObjectId id, string attribute, string updateValue, string column)
-        {
-            var col = db.GetCollection<BsonDocument>(collection);
-            var filter = Builders<BsonDocument>.Filter.Eq(attribute, id);
-            var update = Builders<BsonDocument>.Update.Set(column, updateValue);
-            var result = col.UpdateOne(filter, update);
-            if (result.MatchedCount == 1 && result.ModifiedCount == 1)
-            {
-                return true;
-            }
-            return false;
-        }
     }
 }
