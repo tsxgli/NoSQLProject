@@ -69,6 +69,17 @@
             this.txtboxFilterEmailIncidents = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.pnlUserManagement = new System.Windows.Forms.Panel();
+            this.btnSearchUserByEmail = new System.Windows.Forms.Button();
+            this.listViewOverviewUsers = new System.Windows.Forms.ListView();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            this.btnAddNewUser = new System.Windows.Forms.Button();
+            this.txtboxFilterEmailUsers = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.pnlCreateUser = new System.Windows.Forms.Panel();
             this.comboLocation = new System.Windows.Forms.ComboBox();
             this.comboUserType = new System.Windows.Forms.ComboBox();
@@ -89,24 +100,13 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.pnlUserManagement = new System.Windows.Forms.Panel();
-            this.btnSearchUserByEmail = new System.Windows.Forms.Button();
-            this.listViewOverviewUsers = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
-            this.btnAddNewUser = new System.Windows.Forms.Button();
-            this.txtboxFilterEmailUsers = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.pnlCreateTicket.SuspendLayout();
             this.pnlIncidentManagement.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.pnlCreateUser.SuspendLayout();
             this.pnlUserManagement.SuspendLayout();
+            this.pnlCreateUser.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -188,7 +188,7 @@
             // 
             this.lblstatus.AutoSize = true;
             this.lblstatus.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblstatus.Location = new System.Drawing.Point(584, 305);
+            this.lblstatus.Location = new System.Drawing.Point(638, 303);
             this.lblstatus.Name = "lblstatus";
             this.lblstatus.Size = new System.Drawing.Size(110, 19);
             this.lblstatus.TabIndex = 21;
@@ -202,7 +202,7 @@
             "Hardware",
             "Software",
             "Service"});
-            this.comboboxStatus.Location = new System.Drawing.Point(584, 325);
+            this.comboboxStatus.Location = new System.Drawing.Point(638, 325);
             this.comboboxStatus.Name = "comboboxStatus";
             this.comboboxStatus.Size = new System.Drawing.Size(152, 33);
             this.comboboxStatus.TabIndex = 20;
@@ -212,9 +212,9 @@
             // 
             this.btnDeleteIncident.BackColor = System.Drawing.Color.OrangeRed;
             this.btnDeleteIncident.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteIncident.Location = new System.Drawing.Point(567, 402);
+            this.btnDeleteIncident.Location = new System.Drawing.Point(621, 402);
             this.btnDeleteIncident.Name = "btnDeleteIncident";
-            this.btnDeleteIncident.Size = new System.Drawing.Size(96, 33);
+            this.btnDeleteIncident.Size = new System.Drawing.Size(86, 33);
             this.btnDeleteIncident.TabIndex = 19;
             this.btnDeleteIncident.Text = "DELETE";
             this.btnDeleteIncident.UseVisualStyleBackColor = false;
@@ -224,9 +224,9 @@
             // 
             this.btnUpdateIncident.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnUpdateIncident.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateIncident.Location = new System.Drawing.Point(678, 402);
+            this.btnUpdateIncident.Location = new System.Drawing.Point(726, 402);
             this.btnUpdateIncident.Name = "btnUpdateIncident";
-            this.btnUpdateIncident.Size = new System.Drawing.Size(96, 33);
+            this.btnUpdateIncident.Size = new System.Drawing.Size(137, 33);
             this.btnUpdateIncident.TabIndex = 18;
             this.btnUpdateIncident.Text = "UPDATE";
             this.btnUpdateIncident.UseVisualStyleBackColor = false;
@@ -239,7 +239,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_CancelIncident.BackColor = System.Drawing.Color.White;
             this.btn_CancelIncident.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_CancelIncident.Location = new System.Drawing.Point(679, 214);
+            this.btn_CancelIncident.Location = new System.Drawing.Point(638, 215);
             this.btn_CancelIncident.Name = "btn_CancelIncident";
             this.btn_CancelIncident.Size = new System.Drawing.Size(140, 33);
             this.btn_CancelIncident.TabIndex = 16;
@@ -251,7 +251,7 @@
             // 
             this.btnSubmitTicket.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnSubmitTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubmitTicket.Location = new System.Drawing.Point(678, 152);
+            this.btnSubmitTicket.Location = new System.Drawing.Point(637, 158);
             this.btnSubmitTicket.Name = "btnSubmitTicket";
             this.btnSubmitTicket.Size = new System.Drawing.Size(141, 33);
             this.btnSubmitTicket.TabIndex = 17;
@@ -521,8 +521,8 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.pnlCreateUser);
             this.tabPage3.Controls.Add(this.pnlUserManagement);
+            this.tabPage3.Controls.Add(this.pnlCreateUser);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -530,6 +530,111 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "User Management";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // pnlUserManagement
+            // 
+            this.pnlUserManagement.Controls.Add(this.btnSearchUserByEmail);
+            this.pnlUserManagement.Controls.Add(this.listViewOverviewUsers);
+            this.pnlUserManagement.Controls.Add(this.btnAddNewUser);
+            this.pnlUserManagement.Controls.Add(this.txtboxFilterEmailUsers);
+            this.pnlUserManagement.Controls.Add(this.label19);
+            this.pnlUserManagement.Location = new System.Drawing.Point(0, 0);
+            this.pnlUserManagement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlUserManagement.Name = "pnlUserManagement";
+            this.pnlUserManagement.Size = new System.Drawing.Size(897, 472);
+            this.pnlUserManagement.TabIndex = 24;
+            // 
+            // btnSearchUserByEmail
+            // 
+            this.btnSearchUserByEmail.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearchUserByEmail.BackgroundImage")));
+            this.btnSearchUserByEmail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSearchUserByEmail.Location = new System.Drawing.Point(203, 76);
+            this.btnSearchUserByEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearchUserByEmail.Name = "btnSearchUserByEmail";
+            this.btnSearchUserByEmail.Size = new System.Drawing.Size(30, 26);
+            this.btnSearchUserByEmail.TabIndex = 24;
+            this.btnSearchUserByEmail.UseVisualStyleBackColor = true;
+            this.btnSearchUserByEmail.Click += new System.EventHandler(this.btnSearchUserByEmail_Click);
+            // 
+            // listViewOverviewUsers
+            // 
+            this.listViewOverviewUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader6});
+            this.listViewOverviewUsers.FullRowSelect = true;
+            this.listViewOverviewUsers.HideSelection = false;
+            this.listViewOverviewUsers.Location = new System.Drawing.Point(23, 134);
+            this.listViewOverviewUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewOverviewUsers.MultiSelect = false;
+            this.listViewOverviewUsers.Name = "listViewOverviewUsers";
+            this.listViewOverviewUsers.Size = new System.Drawing.Size(797, 291);
+            this.listViewOverviewUsers.TabIndex = 23;
+            this.listViewOverviewUsers.UseCompatibleStateImageBehavior = false;
+            this.listViewOverviewUsers.View = System.Windows.Forms.View.Details;
+            this.listViewOverviewUsers.SelectedIndexChanged += new System.EventHandler(this.listViewOverviewUsers_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 50;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Email";
+            this.columnHeader2.Width = 300;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "First Name";
+            this.columnHeader3.Width = 200;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Last Name";
+            this.columnHeader4.Width = 200;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "# of Tickets";
+            // 
+            // btnAddNewUser
+            // 
+            this.btnAddNewUser.BackColor = System.Drawing.Color.LawnGreen;
+            this.btnAddNewUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAddNewUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAddNewUser.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddNewUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAddNewUser.Location = new System.Drawing.Point(674, 68);
+            this.btnAddNewUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddNewUser.Name = "btnAddNewUser";
+            this.btnAddNewUser.Size = new System.Drawing.Size(145, 43);
+            this.btnAddNewUser.TabIndex = 22;
+            this.btnAddNewUser.Text = "+ ADD NEW USER";
+            this.btnAddNewUser.UseVisualStyleBackColor = false;
+            this.btnAddNewUser.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // txtboxFilterEmailUsers
+            // 
+            this.txtboxFilterEmailUsers.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtboxFilterEmailUsers.Location = new System.Drawing.Point(23, 76);
+            this.txtboxFilterEmailUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtboxFilterEmailUsers.Name = "txtboxFilterEmailUsers";
+            this.txtboxFilterEmailUsers.PlaceholderText = "Filter by email...";
+            this.txtboxFilterEmailUsers.Size = new System.Drawing.Size(176, 29);
+            this.txtboxFilterEmailUsers.TabIndex = 21;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label19.Location = new System.Drawing.Point(23, 23);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(172, 30);
+            this.label19.TabIndex = 20;
+            this.label19.Text = "Overview users";
             // 
             // pnlCreateUser
             // 
@@ -734,111 +839,6 @@
             this.label17.TabIndex = 13;
             this.label17.Text = "First name:";
             // 
-            // pnlUserManagement
-            // 
-            this.pnlUserManagement.Controls.Add(this.btnSearchUserByEmail);
-            this.pnlUserManagement.Controls.Add(this.listViewOverviewUsers);
-            this.pnlUserManagement.Controls.Add(this.btnAddNewUser);
-            this.pnlUserManagement.Controls.Add(this.txtboxFilterEmailUsers);
-            this.pnlUserManagement.Controls.Add(this.label19);
-            this.pnlUserManagement.Location = new System.Drawing.Point(0, 0);
-            this.pnlUserManagement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlUserManagement.Name = "pnlUserManagement";
-            this.pnlUserManagement.Size = new System.Drawing.Size(897, 472);
-            this.pnlUserManagement.TabIndex = 24;
-            // 
-            // btnSearchUserByEmail
-            // 
-            this.btnSearchUserByEmail.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearchUserByEmail.BackgroundImage")));
-            this.btnSearchUserByEmail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSearchUserByEmail.Location = new System.Drawing.Point(203, 76);
-            this.btnSearchUserByEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSearchUserByEmail.Name = "btnSearchUserByEmail";
-            this.btnSearchUserByEmail.Size = new System.Drawing.Size(30, 26);
-            this.btnSearchUserByEmail.TabIndex = 24;
-            this.btnSearchUserByEmail.UseVisualStyleBackColor = true;
-            this.btnSearchUserByEmail.Click += new System.EventHandler(this.btnSearchUserByEmail_Click);
-            // 
-            // listViewOverviewUsers
-            // 
-            this.listViewOverviewUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader6});
-            this.listViewOverviewUsers.FullRowSelect = true;
-            this.listViewOverviewUsers.HideSelection = false;
-            this.listViewOverviewUsers.Location = new System.Drawing.Point(23, 134);
-            this.listViewOverviewUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listViewOverviewUsers.MultiSelect = false;
-            this.listViewOverviewUsers.Name = "listViewOverviewUsers";
-            this.listViewOverviewUsers.Size = new System.Drawing.Size(797, 291);
-            this.listViewOverviewUsers.TabIndex = 23;
-            this.listViewOverviewUsers.UseCompatibleStateImageBehavior = false;
-            this.listViewOverviewUsers.View = System.Windows.Forms.View.Details;
-            this.listViewOverviewUsers.SelectedIndexChanged += new System.EventHandler(this.listViewOverviewUsers_SelectedIndexChanged);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 50;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Email";
-            this.columnHeader2.Width = 300;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "First Name";
-            this.columnHeader3.Width = 200;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Last Name";
-            this.columnHeader4.Width = 200;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "# of Tickets";
-            // 
-            // btnAddNewUser
-            // 
-            this.btnAddNewUser.BackColor = System.Drawing.Color.LawnGreen;
-            this.btnAddNewUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnAddNewUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAddNewUser.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddNewUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAddNewUser.Location = new System.Drawing.Point(674, 68);
-            this.btnAddNewUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddNewUser.Name = "btnAddNewUser";
-            this.btnAddNewUser.Size = new System.Drawing.Size(145, 43);
-            this.btnAddNewUser.TabIndex = 22;
-            this.btnAddNewUser.Text = "+ ADD NEW USER";
-            this.btnAddNewUser.UseVisualStyleBackColor = false;
-            this.btnAddNewUser.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // txtboxFilterEmailUsers
-            // 
-            this.txtboxFilterEmailUsers.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtboxFilterEmailUsers.Location = new System.Drawing.Point(23, 76);
-            this.txtboxFilterEmailUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtboxFilterEmailUsers.Name = "txtboxFilterEmailUsers";
-            this.txtboxFilterEmailUsers.PlaceholderText = "Filter by email...";
-            this.txtboxFilterEmailUsers.Size = new System.Drawing.Size(176, 29);
-            this.txtboxFilterEmailUsers.TabIndex = 21;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label19.Location = new System.Drawing.Point(23, 23);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(172, 30);
-            this.label19.TabIndex = 20;
-            this.label19.Text = "Overview users";
-            // 
             // MainForm2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -855,10 +855,10 @@
             this.pnlIncidentManagement.ResumeLayout(false);
             this.pnlIncidentManagement.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.pnlCreateUser.ResumeLayout(false);
-            this.pnlCreateUser.PerformLayout();
             this.pnlUserManagement.ResumeLayout(false);
             this.pnlUserManagement.PerformLayout();
+            this.pnlCreateUser.ResumeLayout(false);
+            this.pnlCreateUser.PerformLayout();
             this.ResumeLayout(false);
 
         }

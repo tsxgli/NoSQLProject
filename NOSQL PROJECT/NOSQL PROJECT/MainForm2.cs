@@ -42,9 +42,13 @@ namespace NOSQL_PROJECT
             employeeLogic = new EmployeeLogic();
             incidentLogic = new IncidentLogic();
             employees = new List<Employee>();
+            // add all the employees to a list 
             employees = employeeLogic.GetAllEmployees();
-            PopulateComboBox();
+            //add all the user names to the combo box
+            PopulateComboBoxWithUserNames();
+            // generate a random password for the new user 
             password = GenerateRandomPassword();
+
             pnlIncidentManagement.Visible = true;
             DisplayIncidents(incidentLogic.GetIncidents());
             pnlUserManagement.Visible = true;
@@ -56,26 +60,13 @@ namespace NOSQL_PROJECT
             incidentLogic = new IncidentLogic();
             //create new ticket
             Ticket ticket = new Ticket();
-
             ticket.Subject = txtIncidentSubject.Text;
-            switch (comb_IncidentPriority.GetItemText(comb_IncidentPriority.SelectedItem))
-            {
-                case "Low":
-                    ticket.TicketPriority = TicketPriority.Low;
-                    break;
-                case "High":
-                    ticket.TicketPriority = TicketPriority.High;
-                    break;
-                case "Normal":
-                    ticket.TicketPriority = TicketPriority.Normal;
-                    break;
-                default:
-                    ticket.TicketPriority = TicketPriority.Normal;
-                    break;
-            }
+           
             ticket.Deadline = dtp_Deadline.Value;
             ticket.Description = txt_IncidentDescription.Text;
             ticket.ReportedDate = dtPick_IncidentTimeReported.Value;
+            ticket.UserReported = employees[comb_ReportedByUser.SelectedIndex];//employee who reports ticket is the user in the index of the list of employee
+            ticket.TicketStatus = TicketStatus.Open;//create new tickets with open status
             switch (comb_TypeIncident.GetItemText(comb_TypeIncident.SelectedItem))
             {
                 case "Hardware":
@@ -91,17 +82,29 @@ namespace NOSQL_PROJECT
                     ticket.TicketType = TicketType.Service;
                     break;
             }
-
-            ticket.UserReported = employees[comb_ReportedByUser.SelectedIndex];
-            ticket.TicketStatus = TicketStatus.Open;
+            switch (comb_IncidentPriority.GetItemText(comb_IncidentPriority.SelectedItem))
+            {
+                case "Low":
+                    ticket.TicketPriority = TicketPriority.Low;
+                    break;
+                case "High":
+                    ticket.TicketPriority = TicketPriority.High;
+                    break;
+                case "Normal":
+                    ticket.TicketPriority = TicketPriority.Normal;
+                    break;
+                default:
+                    ticket.TicketPriority = TicketPriority.Normal;
+                    break;
+            } 
             // add 1 to the number of tickets reported of each user 
             ticket.UserReported.NoTicketsReported++;
+            //update the number of tickets report by the employee reporter 
             employeeLogic.UpdateEmployee(ticket.UserReported);
-
             //add ticket to database
             incidentLogic.AddNewIncident(ticket);
         }
-        public void PopulateComboBox()
+        public void PopulateComboBoxWithUserNames()
         {
             foreach (Employee e in employees)
             {
@@ -207,9 +210,10 @@ namespace NOSQL_PROJECT
             using SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
             smtp.Credentials = new NetworkCredential("nosqlproject2.1@gmail.com", "kytvrwgerndngubn");
             smtp.EnableSsl = true;
-            smtp.Send(mail);
+             smtp.Send(mail);
         }
 
+       
         private void button2_Click(object sender, EventArgs e)
         {
             pnlUserManagement.Visible = false;
