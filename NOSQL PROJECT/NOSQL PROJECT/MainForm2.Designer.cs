@@ -100,7 +100,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.btnEscalateTicket = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.pnlCreateTicket.SuspendLayout();
@@ -149,7 +148,6 @@
             this.pnlCreateTicket.Controls.Add(this.lblTicketIdStore);
             this.pnlCreateTicket.Controls.Add(this.lblstatus);
             this.pnlCreateTicket.Controls.Add(this.comboboxStatus);
-            this.pnlCreateTicket.Controls.Add(this.btnEscalateTicket);
             this.pnlCreateTicket.Controls.Add(this.btnDeleteIncident);
             this.pnlCreateTicket.Controls.Add(this.btnUpdateIncident);
             this.pnlCreateTicket.Controls.Add(this.btn_CancelIncident);
@@ -838,18 +836,6 @@
             this.label17.TabIndex = 13;
             this.label17.Text = "First name:";
             // 
-            // btnEscalateTicket
-            // 
-            this.btnEscalateTicket.BackColor = System.Drawing.Color.Yellow;
-            this.btnEscalateTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEscalateTicket.Location = new System.Drawing.Point(776, 325);
-            this.btnEscalateTicket.Name = "btnEscalateTicket";
-            this.btnEscalateTicket.Size = new System.Drawing.Size(96, 33);
-            this.btnEscalateTicket.TabIndex = 19;
-            this.btnEscalateTicket.Text = "ESCALATE";
-            this.btnEscalateTicket.UseVisualStyleBackColor = false;
-            this.btnEscalateTicket.Click += new System.EventHandler(this.btnEscalateTicket_Click);
-            // 
             // MainForm2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -942,7 +928,6 @@
         private System.Windows.Forms.Button btnSearchUserByEmail;
         private System.Windows.Forms.TextBox txtboxFilterByKeyword;
         private System.Windows.Forms.ColumnHeader Description;
-        private System.Windows.Forms.Button btnEscalateTicket;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label lblstatus;
         private System.Windows.Forms.ComboBox comboboxStatus;

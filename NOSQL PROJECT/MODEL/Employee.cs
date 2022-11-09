@@ -31,7 +31,7 @@ namespace MODEL
         public string Location { get; set; }
 
         [BsonElement("NoTicketsReported")]
-        public string NoTicketsReported { get; set; }
+        public int NoTicketsReported { get; set; }
 
         [BsonElement("Password")]
         public string Password { get; set; }

@@ -27,7 +27,7 @@ namespace NOSQL_PROJECT
         List<Employee> employees;
         Employee selectedUser;
         Ticket currentTicket;
-         string password ;
+        string password ;
 
         public MainForm2(Employee currentUser)
         {
@@ -94,6 +94,8 @@ namespace NOSQL_PROJECT
 
             ticket.UserReported = employees[comb_ReportedByUser.SelectedIndex];
             ticket.TicketStatus = TicketStatus.Open;
+            // add 1 to the number of tickets reported of each user 
+            ticket.UserReported.NoTicketsReported++;
 
             //add ticket to database
             incidentLogic.AddNewIncident(ticket);
@@ -245,7 +247,10 @@ namespace NOSQL_PROJECT
                 item.SubItems.Add(ticket.Subject);
                 item.SubItems.Add(ticket.UserReported.Email);
                 item.SubItems.Add(ticket.ReportedDate.ToString());
-                item.SubItems.Add(ticket.TicketStatus.ToString());
+                if (ticket.TicketStatus < TicketStatus.Escalated)
+                {
+                    item.SubItems.Add(ticket.TicketStatus.ToString());
+                }   
                 item.SubItems.Add(ticket.Description.ToString());
                 item.Tag =ticket;
                 
@@ -358,9 +363,11 @@ namespace NOSQL_PROJECT
             comboboxStatus.Items.Add(TicketStatus.Open);
             comboboxStatus.Items.Add(TicketStatus.Closed);
             comboboxStatus.Items.Add(TicketStatus.Resolved);
-            if(comboboxStatus.Text == "Open") { comboboxStatus.BackColor = Color.Orange; }
-            else if(comboboxStatus.Text == "Closed") { comboboxStatus.BackColor = Color.Green; }
-            else { comboboxStatus.BackColor = Color.Red; }
+            comboboxStatus.Items.Add(TicketStatus.Escalated);
+            if(comboboxStatus.Text == "Open") { comboboxStatus.BackColor = Color.Yellow; }
+            else if(comboboxStatus.Text == "Resolved") { comboboxStatus.BackColor = Color.Green; }
+            else if(comboboxStatus.Text == "Escalated") { comboboxStatus.BackColor = Color.Purple; }
+            else { comboboxStatus.BackColor = Color.Orange; }
         }
 
         private void btnDeleteIncident_Click(object sender, EventArgs e)
@@ -434,13 +441,16 @@ namespace NOSQL_PROJECT
             incidentLogic.UpdateIncident(ticket);
             HideCRUDTools();
             DisplayIncidents(incidentLogic.GetIncidents());
+
+            MessageBox.Show("Incident has been updated!");
         }
 
         private void comboboxStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboboxStatus.Text == "Open") { comboboxStatus.BackColor = Color.Orange; }
-            else if (comboboxStatus.Text == "Closed") { comboboxStatus.BackColor = Color.Green; }
-            else { comboboxStatus.BackColor = Color.Red; }
+            if (comboboxStatus.Text == "Open") { comboboxStatus.BackColor = Color.Yellow; }
+            else if (comboboxStatus.Text == "Resolved") { comboboxStatus.BackColor = Color.Green; }
+            else if (comboboxStatus.Text == "Escalated") { comboboxStatus.BackColor = Color.Purple; }
+            else { comboboxStatus.BackColor = Color.Orange; }
         }
         private void HideCRUDTools()
         {
@@ -450,11 +460,6 @@ namespace NOSQL_PROJECT
             comboboxStatus.Hide();
             btnUpdateIncident.Hide();
             btnDeleteIncident.Hide();
-        }
-
-        private void btnEscalateTicket_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
