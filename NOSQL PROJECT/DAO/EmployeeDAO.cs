@@ -36,6 +36,7 @@ namespace DAL
                     UserType = (UserType)Enum.Parse(typeof(UserType), doc["UserType"].ToString()),
                     PhoneNumber = doc["PhoneNo"].ToString(),
                     Location = doc["Location/Branch"].ToString(),
+                    NoTicketsReported = doc["NoTicketsReported"].ToString(),
                     Password = doc["Password"].ToString(),
                 };
                 employees.Add(employee);
@@ -75,10 +76,13 @@ namespace DAL
                 UserType = (UserType)Enum.Parse(typeof(UserType), doc["UserType"].ToString()),
                 PhoneNumber = doc["PhoneNo"].ToString(),
                 Location = doc["Location/Branch"].ToString(),
+                NoTicketsReported = doc["NoTicketsReported"].ToString(),
                 Password = doc["Password"].ToString(),
             };
             return employee;
         }
+
+        
 
     }
 

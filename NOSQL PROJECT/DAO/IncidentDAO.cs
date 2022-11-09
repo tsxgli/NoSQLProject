@@ -1,4 +1,5 @@
-﻿using MODEL;
+﻿using Microsoft.VisualBasic;
+using MODEL;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
@@ -14,7 +15,7 @@ namespace DAL
         public IMongoCollection<Ticket> collection;
         
         public IncidentDAO() { 
-     
+           
         }
 
         public void AddNewIncident(Ticket incident)
@@ -42,6 +43,10 @@ namespace DAL
             InsertRecord(ticketCollection, doc);
         }
 
+        public List<Ticket>GetAllIncidents()
+        {
+            return GetIncidents(GetAll(ticketCollection));
+        }
         private List<Ticket> GetIncidents(List<BsonDocument> docs) //get all incidents
         {
             List<Ticket> incidents = new List<Ticket>();
@@ -68,6 +73,24 @@ namespace DAL
         {
             EmployeeDAO employeeDAO= new EmployeeDAO();
             return employeeDAO.GetEmployee(employeeCollection, id);
+        }
+        public void UpdateIncident(Ticket ticket)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", ticket.id);
+            var update = Builders<BsonDocument>.Update.Set("Subject", ticket.Subject)
+                                                        .Set("Priority", ticket.TicketPriority)
+                                                        .Set("Deadline", ticket.Deadline)
+                                                        .Set("IncidentType", ticket.TicketType)
+                                                        .Set("UserReported", ticket.UserReported.Id)
+                                                        .Set("Description", ticket.Description)
+                                                        .Set("ReportedDate", ticket.ReportedDate)
+                                                        .Set("Status", ticket.TicketStatus);
+            GetCollection(ticketCollection).UpdateOne(filter, update);
+        }
+        public void DeleteIncident(ObjectId id)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            GetCollection(ticketCollection).DeleteOne(filter);
         }
     }
 }

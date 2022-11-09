@@ -30,6 +30,9 @@ namespace MODEL
         [BsonElement("Location/Branch")]
         public string Location { get; set; }
 
+        [BsonElement("NoTicketsReported")]
+        public string NoTicketsReported { get; set; }
+
         [BsonElement("Password")]
         public string Password { get; set; }
     }
