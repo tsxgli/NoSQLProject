@@ -96,6 +96,7 @@ namespace NOSQL_PROJECT
             ticket.TicketStatus = TicketStatus.Open;
             // add 1 to the number of tickets reported of each user 
             ticket.UserReported.NoTicketsReported++;
+            employeeLogic.UpdateEmployee(ticket.UserReported);
 
             //add ticket to database
             incidentLogic.AddNewIncident(ticket);
@@ -110,8 +111,10 @@ namespace NOSQL_PROJECT
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            AddEmployeeToDatabase();
+            AddEmployeeToDatabase();   
             MessageBox.Show("Employee has been added to database");
+            pnlCreateUser.Hide();
+            pnlUserManagement.Show();
         }
 
         private void MainForm2_Load(object sender, EventArgs e)
@@ -122,13 +125,16 @@ namespace NOSQL_PROJECT
         private void btnSubmitTicket_Click(object sender, EventArgs e)
         {
             AddIncidentToDB();
+            pnlUserManagement.Refresh();
             MessageBox.Show("Incident has been succesfully created.");
+            pnlCreateTicket.Hide();
+            pnlIncidentManagement.Show();    
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             // hide current panel and show the display users panel 
-            panel1.Visible = false;
+            pnlCreateUser.Visible = false;
             pnlUserManagement.Visible = true;
             DisplayUsers(employeeLogic.GetAllEmployees());
         }        
@@ -207,7 +213,7 @@ namespace NOSQL_PROJECT
         private void button2_Click(object sender, EventArgs e)
         {
             pnlUserManagement.Visible = false;
-            panel1.Visible = true;
+            pnlCreateUser.Visible = true;
         }
 
         private void btnCreateNewIncident_Click(object sender, EventArgs e)
@@ -225,7 +231,7 @@ namespace NOSQL_PROJECT
                 item.SubItems.Add(employee.Email);
                 item.SubItems.Add(employee.FirstName);
                 item.SubItems.Add(employee.LastName);
-                item.SubItems.Add(employee.NoTicketsReported); 
+                item.SubItems.Add(employee.NoTicketsReported.ToString()); 
                 item.Tag = employee;
 
                 listViewOverviewUsers.Items.Add(item);

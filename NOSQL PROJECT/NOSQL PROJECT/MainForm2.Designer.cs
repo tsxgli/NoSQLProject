@@ -80,7 +80,7 @@
             this.btnAddNewUser = new System.Windows.Forms.Button();
             this.txtboxFilterEmailUsers = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlCreateUser = new System.Windows.Forms.Panel();
             this.comboLocation = new System.Windows.Forms.ComboBox();
             this.comboUserType = new System.Windows.Forms.ComboBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
@@ -106,7 +106,7 @@
             this.pnlIncidentManagement.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.pnlUserManagement.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlCreateUser.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -125,7 +125,7 @@
             // 
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(896, 469);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dashboard";
@@ -137,7 +137,7 @@
             this.tabPage2.Controls.Add(this.pnlIncidentManagement);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(896, 469);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Incident Management";
@@ -518,11 +518,11 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.pnlCreateUser);
             this.tabPage3.Controls.Add(this.pnlUserManagement);
-            this.tabPage3.Controls.Add(this.panel1);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(896, 469);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "User Management";
@@ -633,33 +633,33 @@
             this.label19.TabIndex = 20;
             this.label19.Text = "Overview users";
             // 
-            // panel1
+            // pnlCreateUser
             // 
-            this.panel1.Controls.Add(this.comboLocation);
-            this.panel1.Controls.Add(this.comboUserType);
-            this.panel1.Controls.Add(this.txtLastName);
-            this.panel1.Controls.Add(this.txtUsername);
-            this.panel1.Controls.Add(this.txtPhoneNo);
-            this.panel1.Controls.Add(this.txtEmail);
-            this.panel1.Controls.Add(this.txtFirstName);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.checkBoxSendEmail);
-            this.panel1.Controls.Add(this.btnCancel);
-            this.panel1.Controls.Add(this.btnAddUser);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(890, 463);
-            this.panel1.TabIndex = 0;
+            this.pnlCreateUser.Controls.Add(this.comboLocation);
+            this.pnlCreateUser.Controls.Add(this.comboUserType);
+            this.pnlCreateUser.Controls.Add(this.txtLastName);
+            this.pnlCreateUser.Controls.Add(this.txtUsername);
+            this.pnlCreateUser.Controls.Add(this.txtPhoneNo);
+            this.pnlCreateUser.Controls.Add(this.txtEmail);
+            this.pnlCreateUser.Controls.Add(this.txtFirstName);
+            this.pnlCreateUser.Controls.Add(this.label10);
+            this.pnlCreateUser.Controls.Add(this.checkBoxSendEmail);
+            this.pnlCreateUser.Controls.Add(this.btnCancel);
+            this.pnlCreateUser.Controls.Add(this.btnAddUser);
+            this.pnlCreateUser.Controls.Add(this.label2);
+            this.pnlCreateUser.Controls.Add(this.label11);
+            this.pnlCreateUser.Controls.Add(this.label12);
+            this.pnlCreateUser.Controls.Add(this.label13);
+            this.pnlCreateUser.Controls.Add(this.label14);
+            this.pnlCreateUser.Controls.Add(this.label15);
+            this.pnlCreateUser.Controls.Add(this.label16);
+            this.pnlCreateUser.Controls.Add(this.label17);
+            this.pnlCreateUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCreateUser.Location = new System.Drawing.Point(3, 3);
+            this.pnlCreateUser.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.pnlCreateUser.Name = "pnlCreateUser";
+            this.pnlCreateUser.Size = new System.Drawing.Size(890, 463);
+            this.pnlCreateUser.TabIndex = 0;
             // 
             // comboLocation
             // 
@@ -854,8 +854,8 @@
             this.tabPage3.ResumeLayout(false);
             this.pnlUserManagement.ResumeLayout(false);
             this.pnlUserManagement.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlCreateUser.ResumeLayout(false);
+            this.pnlCreateUser.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -883,7 +883,7 @@
         private System.Windows.Forms.ComboBox comb_TypeIncident;
         private System.Windows.Forms.TextBox txt_IncidentDescription;
         private System.Windows.Forms.TextBox txtIncidentSubject;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlCreateUser;
         private System.Windows.Forms.CheckBox checkBoxSendEmail;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAddUser;

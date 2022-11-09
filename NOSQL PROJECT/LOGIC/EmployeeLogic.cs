@@ -27,6 +27,10 @@ namespace LOGIC
         {
              employeeDAO.AddNewEmployeeToDatabase(employee);
         }
-
+            
+        public void UpdateEmployee(Employee employee)
+        {
+            employeeDAO.UpdateEmployee(employee);   
+        }
     }
 }
