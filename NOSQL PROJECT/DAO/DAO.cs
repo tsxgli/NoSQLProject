@@ -59,6 +59,16 @@ namespace DAL
 
             return document;
         }
+
+        public BsonDocument GetTicketDocumentByStatus(string collection, TicketStatus status)
+        {
+            var dbCollection = db.GetCollection<BsonDocument>(collection);
+            var filter = Builders<BsonDocument>.Filter.Eq("Status", status);
+            var document = dbCollection.Find(filter).FirstOrDefault();
+
+            return document;
+        }
+
         protected List<BsonDocument> GetAll(string collection)
         {
             var col = db.GetCollection<BsonDocument>(collection);

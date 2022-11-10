@@ -18,3 +18,13 @@ C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\MODEL\obj\Debug\netco
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\MODEL\obj\Debug\netcoreapp3.1\MODEL.csproj.CoreCompileInputs.cache
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\MODEL\obj\Debug\netcoreapp3.1\MODEL.dll
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\MODEL\obj\Debug\netcoreapp3.1\MODEL.pdb
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\MODEL\bin\Debug\netcoreapp3.1\MODEL.deps.json
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\MODEL\bin\Debug\netcoreapp3.1\MODEL.dll
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\MODEL\bin\Debug\netcoreapp3.1\MODEL.pdb
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\MODEL\obj\Debug\netcoreapp3.1\MODEL.csproj.AssemblyReference.cache
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\MODEL\obj\Debug\netcoreapp3.1\MODEL.GeneratedMSBuildEditorConfig.editorconfig
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\MODEL\obj\Debug\netcoreapp3.1\MODEL.AssemblyInfoInputs.cache
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\MODEL\obj\Debug\netcoreapp3.1\MODEL.AssemblyInfo.cs
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\MODEL\obj\Debug\netcoreapp3.1\MODEL.csproj.CoreCompileInputs.cache
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\MODEL\obj\Debug\netcoreapp3.1\MODEL.dll
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\MODEL\obj\Debug\netcoreapp3.1\MODEL.pdb

@@ -42,7 +42,7 @@ namespace DAL
             InsertRecord(ticketCollection, doc);
         }
 
-        private List<Ticket> GetIncidents(List<BsonDocument> docs) //get all incidents
+        private List<Ticket> ReadIncidents(List<BsonDocument> docs) //get all incidents
         {
             List<Ticket> incidents = new List<Ticket>();
 
@@ -64,6 +64,22 @@ namespace DAL
             }
             return incidents;
         }
+
+        public List<Ticket> GetIncidentsByStatus(TicketStatus status)
+        {
+            List<Ticket> allIncidents = ReadIncidents(GetAll(ticketCollection));
+            List<Ticket> incidentsByStatus = new List<Ticket>();
+
+            foreach (var incident in allIncidents)
+            {
+                if (incident.TicketStatus == status || (int)incident.TicketStatus == (int)status)
+                {
+                    incidentsByStatus.Add(incident);
+                }
+            }
+            return incidentsByStatus;
+        }
+
         private Employee GetEmployee(ObjectId id)
         {
             EmployeeDAO employeeDAO= new EmployeeDAO();

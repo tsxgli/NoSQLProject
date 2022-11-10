@@ -18,5 +18,10 @@ namespace LOGIC
         {
             incidentDAO.AddNewIncident(ticket);
         }
+
+        public List<Ticket> GetIncidentsByStatus(TicketStatus status)
+        {
+            return incidentDAO.GetIncidentsByStatus(status);
+        }
     }
 }

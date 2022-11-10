@@ -174,5 +174,9 @@ namespace NOSQL_PROJECT
             smtp.Send(mail);
         }
 
+        public void GenerateChart()
+        {
+
+        }
     }
 }
