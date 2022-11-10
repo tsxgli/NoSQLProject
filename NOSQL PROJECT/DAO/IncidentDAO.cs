@@ -65,19 +65,9 @@ namespace DAL
             return incidents;
         }
 
-        public List<Ticket> GetIncidentsByStatus(TicketStatus status)
+        public List<Ticket> GetAllIncidents()
         {
-            List<Ticket> allIncidents = ReadIncidents(GetAll(ticketCollection));
-            List<Ticket> incidentsByStatus = new List<Ticket>();
-
-            foreach (var incident in allIncidents)
-            {
-                if (incident.TicketStatus == status || (int)incident.TicketStatus == (int)status)
-                {
-                    incidentsByStatus.Add(incident);
-                }
-            }
-            return incidentsByStatus;
+            return ReadIncidents(GetAll(ticketCollection));
         }
 
         private Employee GetEmployee(ObjectId id)

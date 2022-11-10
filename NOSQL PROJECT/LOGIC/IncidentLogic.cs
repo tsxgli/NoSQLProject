@@ -19,9 +19,24 @@ namespace LOGIC
             incidentDAO.AddNewIncident(ticket);
         }
 
+        public List<Ticket> GetAllIncidents()
+        {
+            return incidentDAO.GetAllIncidents();
+        }
+
         public List<Ticket> GetIncidentsByStatus(TicketStatus status)
         {
-            return incidentDAO.GetIncidentsByStatus(status);
+            List<Ticket> allIncidents = GetAllIncidents();
+            List<Ticket> incidentsByStatus = new List<Ticket>();
+
+            foreach (var incident in allIncidents)
+            {
+                if (incident.TicketStatus == status || (int)incident.TicketStatus == (int)status)
+                {
+                    incidentsByStatus.Add(incident);
+                }
+            }
+            return incidentsByStatus;
         }
     }
 }
