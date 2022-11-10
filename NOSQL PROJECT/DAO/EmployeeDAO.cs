@@ -10,34 +10,22 @@ using System.Linq;
 namespace DAL
 {
     public class EmployeeDAO : DAO
-    {
-        public EmployeeDAO()
-        {
-
-        }
-
+    { 
+        //method to get all employees from the database
         public List<Employee> GetAllEmployees()
         {
-            return ReadEmployee(GetAll(employeeCollection));
-        }
-        public List<Employee> ReadEmployee(List<BsonDocument> collection)
-        {
+            //get the employee collection
+            var collection = base.GetCollection(employeeCollection);   
+            
+            //get the documents from the collection
+            var documents = collection.Find(new BsonDocument()).ToList();
+
             List<Employee> employees = new List<Employee>();
 
-            foreach (var doc in collection)
+            //go through each document, create an employee and add it to list
+            foreach (var doc in documents)
             {
-                Employee employee = new Employee
-                {
-                    Id = doc["_id"].AsObjectId,
-                    FirstName = doc["First Name"].ToString(),
-                    LastName = doc["LastName"].ToString(),
-                    Email = doc["Email"].ToString(),
-                    Username = doc["Username"].ToString(),
-                    UserType = (UserType)Enum.Parse(typeof(UserType), doc["UserType"].ToString()),
-                    PhoneNumber = doc["PhoneNo"].ToString(),
-                    Location = doc["Location/Branch"].ToString(),
-                    Password = doc["Password"].ToString(),
-                };
+                Employee employee = BsonSerializer.Deserialize<Employee>(doc); 
                 employees.Add(employee);
             }
 
@@ -80,11 +68,16 @@ namespace DAL
             return employee;
         }
 
+        //method to update the password of an employee
         public void UpdateEmployeePassword(Employee employee, string newPassword)
         {
+            //get the if of the employee for the filter
             var filter = Builders<BsonDocument>.Filter.Eq("_id", employee.Id);
+
+            //get the new password
             var update = Builders<BsonDocument>.Update.Set("Password", newPassword);
 
+            //update the password
             GetCollection(employeeCollection).UpdateOne(filter, update);
         }
 

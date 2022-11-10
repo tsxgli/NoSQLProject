@@ -12,8 +12,11 @@ namespace LOGIC
         private readonly EmployeeDAO employeeDAO;
         public EmployeeLogic()
         {
+            //create connection to database
             employeeDAO = new EmployeeDAO();
         }
+
+        //method to get all employees
         public List<Employee> GetAllEmployees()
         {
             return employeeDAO.GetAllEmployees();
@@ -28,6 +31,7 @@ namespace LOGIC
              employeeDAO.AddNewEmployeeToDatabase(employee);
         }
 
+        //method to update the password of an employee
         public void UpdateEmployeePassword(Employee employee, string newPassword)
         {
             employeeDAO.UpdateEmployeePassword(employee, newPassword);
