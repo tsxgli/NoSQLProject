@@ -116,9 +116,6 @@ namespace NOSQL_PROJECT
         {
             AddEmployeeToDatabase();
             MessageBox.Show("Employee has been added to database");
-            //clear all textboxes and user
-            ClearTextboxesAndComboBoxes();
-            //hide create user panel and show user management panel
             pnlCreateUser.Hide();
             pnlUserManagement.Show();
         }
@@ -140,15 +137,15 @@ namespace NOSQL_PROJECT
         private void btnCancel_Click(object sender, EventArgs e)
         {
             // hide current panel and show the display users panel 
-            pnlCreateUser.Hide();
-            pnlUserManagement.Show();
+            pnlCreateUser.Visible = false;
+            pnlUserManagement.Visible = true;
             DisplayUsers(employeeLogic.GetAllEmployees());
         }
         private void btn_CancelIncident_Click(object sender, EventArgs e)
         {
             // hide current panel and show the display incidents panel 
-            pnlCreateTicket.Hide();
-            pnlIncidentManagement.Show();
+            pnlCreateTicket.Visible = false;
+            pnlIncidentManagement.Visible = true;
             DisplayIncidents(incidentLogic.GetIncidents());
         }
 
@@ -225,9 +222,8 @@ namespace NOSQL_PROJECT
 
         private void btnCreateNewIncident_Click(object sender, EventArgs e)
         {
-            pnlIncidentManagement.Hide();
-            ClearTextboxesAndComboBoxes();
-            pnlCreateTicket.Show();
+            pnlIncidentManagement.Visible = false;
+            pnlCreateTicket.Visible = true;
         }
         private void DisplayUsers(List<Employee> employees)
         {
@@ -479,24 +475,5 @@ namespace NOSQL_PROJECT
             btnUpdateIncident.Hide();
             btnDeleteIncident.Hide();
         }
-
-        private void ClearTextboxesAndComboBoxes()
-        {
-            txtIncidentSubject.Clear();
-            txt_IncidentDescription.Clear();
-            comboboxStatus.Text = "";
-            comboLocation.Text = "";
-            comb_IncidentPriority.Text = "";
-            comb_ReportedByUser.Text = "";
-            comb_TypeIncident.Text = "";
-            txtPhoneNo.Clear();
-            txtUsername.Clear();
-            txtFirstName.Clear();
-            txtEmail.Clear();
-            txtLastName.Clear();
-            comboUserType.Text = "";
-            comboLocation.Text = "";
-        }
-
     }
 }
