@@ -1,10 +1,22 @@
-﻿using System;
+﻿using DAL;
+using MODEL;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace LOGIC
 {
-    internal class SearchByKeywordLogic
+    public class SearchByKeywordLogic
     {
+        private IncidentDAO incidentDAO;
+        public SearchByKeywordLogic()
+        {
+            incidentDAO = new IncidentDAO();
+        }
+        public List<Ticket> GetIncidentWithKeywords(string keyword)
+        {
+            return incidentDAO.GetIncidentWithKeywords(keyword);
+        }
+
     }
 }

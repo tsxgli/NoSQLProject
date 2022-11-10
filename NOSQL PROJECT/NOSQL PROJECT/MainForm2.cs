@@ -22,6 +22,7 @@ namespace NOSQL_PROJECT
         //create connection to logic layer
         IncidentLogic incidentLogic;
         EmployeeLogic employeeLogic;
+        SearchByKeywordLogic searchByKeywordLogic;
 
         Employee currentUser;
         List<Employee> employees;
@@ -41,6 +42,7 @@ namespace NOSQL_PROJECT
             HideCRUDTools();
             employeeLogic = new EmployeeLogic();
             incidentLogic = new IncidentLogic();
+            searchByKeywordLogic = new SearchByKeywordLogic();
             employees = new List<Employee>();
             // add all the employees to a list 
             employees = employeeLogic.GetAllEmployees();
@@ -269,50 +271,42 @@ namespace NOSQL_PROJECT
             }
         }
         //search by email button
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSearchTicketByEmail_Click(object sender, EventArgs e)
         {
             FilterIncidentsForUser();
+        }
+
+        private void btnSearchTicketByKeyword_Click(object sender, EventArgs e)
+        {
+            listViewIncidents.Items.Clear();
+            List<Ticket> ticketsToPrint = incidentLogic.GetIncidents();
+            if (txtboxFilterByKeyword.Text.Length > 0)
+            {
+                ticketsToPrint = searchByKeywordLogic.GetIncidentWithKeywords(txtboxFilterByKeyword.Text);
+            }
+            txtboxFilterEmailIncidents.Clear();
+            DisplayIncidents(ticketsToPrint);
         }
         //only shows incidents for selected email
         private void FilterIncidentsForUser()
         {
-            List<Ticket> tickets = incidentLogic.GetIncidents();
-            //List<Ticket> filteredTickets = new List<Ticket>();
+            listViewIncidents.Items.Clear();
+            List<Ticket> ticketsToPrint = incidentLogic.GetIncidents();
 
 
             if (txtboxFilterEmailIncidents.Text.Length > 0)
             {
-                List<Ticket> filteredTickets = incidentLogic.GetIncidentByEmployeeEmail(txtboxFilterEmailIncidents.Text);
-                //foreach (Ticket ticket in tickets)
-                //{
-                //    if (ticket.UserReported.Email.Contains(txtboxFilterEmailIncidents.Text))
-                //    {
-                //        filteredTickets.Add(ticket);
-                //    }
-                //}
-                //txtboxFilterEmailIncidents.Clear();
-                DisplayIncidents(filteredTickets);
+                ticketsToPrint = incidentLogic.GetIncidentByEmployeeEmail(txtboxFilterEmailIncidents.Text);
             }
-            else
-            {
-                DisplayIncidents(tickets);
-            }
+            txtboxFilterEmailIncidents.Clear();
+            DisplayIncidents(ticketsToPrint);
         }
         //
         private void btnSearchUserByEmail_Click(object sender, EventArgs e)
         {
             List<Employee> users = employeeLogic.GetAllEmployees();
-            //List<Employee> filteredUsers = new List<Employee>();
             if (txtboxFilterEmailUsers.Text.Length > 0)
             {
-                //foreach (Employee employee in users)
-                //{
-                //    if (employee.Email.Contains(txtboxFilterEmailUsers.Text))
-                //    {
-                //        filteredUsers.Add(employee);
-                //    }
-                //}
-                //txtboxFilterEmailUsers.Clear();
                 DisplayUsers(employeeLogic.GetEmployeeByEmail(txtboxFilterEmailUsers.Text));
             }
             else
@@ -332,7 +326,7 @@ namespace NOSQL_PROJECT
 
             tabControl1.SelectedTab = tabPage2;
             txtboxFilterEmailIncidents.Text = selectedUser.Email;
-            button1_Click(sender, e);
+            btnSearchTicketByEmail_Click(sender, e);
             selectedUser = null;
             listViewOverviewUsers.SelectedItems.Clear();
         }
@@ -491,5 +485,6 @@ namespace NOSQL_PROJECT
             txt_IncidentDescription.Clear();
             comboboxStatus.SelectedIndex = -1;
         }
+
     }
 }
