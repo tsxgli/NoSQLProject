@@ -32,5 +32,9 @@ namespace LOGIC
         {
             employeeDAO.UpdateEmployee(employee);   
         }
+        public List<Employee> GetEmployeeByEmail(string letters)
+        {
+            return employeeDAO.GetEmployeeByEmail(letters);
+        }
     }
 }

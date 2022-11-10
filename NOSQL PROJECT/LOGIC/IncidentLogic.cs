@@ -31,5 +31,9 @@ namespace LOGIC
         {
             incidentDAO.UpdateIncident(ticket);
         }
+        public List<Ticket> GetIncidentByEmployeeEmail(string letters)
+        {
+            return incidentDAO.GetIncidentByEmployeeEmail(letters);
+        }
     }
 }

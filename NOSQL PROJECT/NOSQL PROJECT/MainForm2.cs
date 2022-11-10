@@ -146,6 +146,7 @@ namespace NOSQL_PROJECT
             // hide current panel and show the display incidents panel 
             pnlCreateTicket.Visible = false;
             pnlIncidentManagement.Visible = true;
+            ClearIncidentContentBoxes();
             DisplayIncidents(incidentLogic.GetIncidents());
         }
 
@@ -213,18 +214,19 @@ namespace NOSQL_PROJECT
              smtp.Send(mail);
         }
 
-       
+       //add User Button
         private void button2_Click(object sender, EventArgs e)
         {
             pnlUserManagement.Visible = false;
             pnlCreateUser.Visible = true;
         }
-
+        //Create new Incident Button
         private void btnCreateNewIncident_Click(object sender, EventArgs e)
         {
             pnlIncidentManagement.Visible = false;
             pnlCreateTicket.Visible = true;
         }
+        //Displays all the users in the database in the UserManagement Tab
         private void DisplayUsers(List<Employee> employees)
         {
             listViewOverviewUsers.Items.Clear();
@@ -241,14 +243,12 @@ namespace NOSQL_PROJECT
                 listViewOverviewUsers.Items.Add(item);
             }
         }
+        //Displays all the Incidents in the Database
         private void DisplayIncidents(List<Ticket> tickets)
         {
             pnlCreateTicket.Visible = false;
             pnlIncidentManagement.Visible = true;
-            //if (currentUser.UserType == UserType.Regular)
-            //{
-            //    FilterIncidentsForUser();
-            //}
+
             listViewIncidents.Items.Clear();
             foreach (Ticket ticket in tickets)
             {
@@ -268,27 +268,29 @@ namespace NOSQL_PROJECT
                     listViewIncidents.Items.Add(item);
             }
         }
-
+        //search by email button
         private void button1_Click(object sender, EventArgs e)
         {
             FilterIncidentsForUser();
         }
+        //only shows incidents for selected email
         private void FilterIncidentsForUser()
         {
             List<Ticket> tickets = incidentLogic.GetIncidents();
-            List<Ticket> filteredTickets = new List<Ticket>();
+            //List<Ticket> filteredTickets = new List<Ticket>();
 
 
             if (txtboxFilterEmailIncidents.Text.Length > 0)
             {
-                foreach (Ticket ticket in tickets)
-                {
-                    if (ticket.UserReported.Email.Contains(txtboxFilterEmailIncidents.Text))
-                    {
-                        filteredTickets.Add(ticket);
-                    }
-                }
-                txtboxFilterEmailIncidents.Clear();
+                List<Ticket> filteredTickets = incidentLogic.GetIncidentByEmployeeEmail(txtboxFilterEmailIncidents.Text);
+                //foreach (Ticket ticket in tickets)
+                //{
+                //    if (ticket.UserReported.Email.Contains(txtboxFilterEmailIncidents.Text))
+                //    {
+                //        filteredTickets.Add(ticket);
+                //    }
+                //}
+                //txtboxFilterEmailIncidents.Clear();
                 DisplayIncidents(filteredTickets);
             }
             else
@@ -296,29 +298,29 @@ namespace NOSQL_PROJECT
                 DisplayIncidents(tickets);
             }
         }
-
+        //
         private void btnSearchUserByEmail_Click(object sender, EventArgs e)
         {
             List<Employee> users = employeeLogic.GetAllEmployees();
-            List<Employee> filteredUsers = new List<Employee>();
+            //List<Employee> filteredUsers = new List<Employee>();
             if (txtboxFilterEmailUsers.Text.Length > 0)
             {
-                foreach (Employee employee in users)
-                {
-                    if (employee.Email.Contains(txtboxFilterEmailUsers.Text))
-                    {
-                        filteredUsers.Add(employee);
-                    }
-                }
-                txtboxFilterEmailUsers.Clear();
-                DisplayUsers(filteredUsers);
+                //foreach (Employee employee in users)
+                //{
+                //    if (employee.Email.Contains(txtboxFilterEmailUsers.Text))
+                //    {
+                //        filteredUsers.Add(employee);
+                //    }
+                //}
+                //txtboxFilterEmailUsers.Clear();
+                DisplayUsers(employeeLogic.GetEmployeeByEmail(txtboxFilterEmailUsers.Text));
             }
             else
             {
                 DisplayUsers(users);
             }
         }
-
+        //shows incidents of certain user in the Incident management after clicking
         private void listViewOverviewUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listViewOverviewUsers.SelectedItems.Count == 0)
@@ -332,8 +334,9 @@ namespace NOSQL_PROJECT
             txtboxFilterEmailIncidents.Text = selectedUser.Email;
             button1_Click(sender, e);
             selectedUser = null;
+            listViewOverviewUsers.SelectedItems.Clear();
         }
-
+        //Gives incident details for selected incident for CRUD operations
         private void listViewIncidents_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listViewIncidents.SelectedItems.Count == 0)
@@ -380,16 +383,17 @@ namespace NOSQL_PROJECT
             else if (comboboxStatus.Text == "Escalated") { comboboxStatus.BackColor = Color.Purple; }
             else { comboboxStatus.BackColor = Color.Orange; }
         }
-
+        //Delete Incident out of the database
         private void btnDeleteIncident_Click(object sender, EventArgs e)
         {
             ObjectId id = ObjectId.Parse(lblTicketIdStore.Text);
             lblTicketIdStore.Text = "";
             incidentLogic.DeleteIncident(id);
             HideCRUDTools();
+            ClearIncidentContentBoxes();
             DisplayIncidents(incidentLogic.GetIncidents());
         }
-
+        //Updates incident in the database
         private void btnUpdateIncident_Click(object sender, EventArgs e)
         {
             Ticket ticket = new Ticket();
@@ -454,6 +458,7 @@ namespace NOSQL_PROJECT
 
             incidentLogic.UpdateIncident(ticket);
             HideCRUDTools();
+            ClearIncidentContentBoxes();
             DisplayIncidents(incidentLogic.GetIncidents());
 
             MessageBox.Show("Incident has been updated!");
@@ -474,6 +479,17 @@ namespace NOSQL_PROJECT
             comboboxStatus.Hide();
             btnUpdateIncident.Hide();
             btnDeleteIncident.Hide();
+        }
+        private void ClearIncidentContentBoxes()
+        {
+            dtPick_IncidentTimeReported.Value = DateTime.Today;
+            dtp_Deadline.Value = DateTime.Today;
+            txtIncidentSubject.Clear();
+            comb_TypeIncident.SelectedIndex = -1;
+            comb_IncidentPriority.SelectedIndex = -1;
+            comb_ReportedByUser.SelectedIndex = -1;
+            txt_IncidentDescription.Clear();
+            comboboxStatus.SelectedIndex = -1;
         }
     }
 }

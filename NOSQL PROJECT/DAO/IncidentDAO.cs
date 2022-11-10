@@ -92,5 +92,34 @@ namespace DAL
             var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
             GetCollection(ticketCollection).DeleteOne(filter);
         }
+        public List<Ticket> GetIncidentByEmployeeEmail(string letters)
+        {
+            EmployeeDAO employeeDao = new EmployeeDAO();
+            List<Employee>employees = employeeDao.GetEmployeeByEmail(letters);
+            List<Ticket> ticketList = new List<Ticket>();
+            foreach (Employee employee in employees)
+            {
+                var filter = Builders<BsonDocument>.Filter.Eq("UserReported", (ObjectId)employee.Id);
+                var list = GetCollection(ticketCollection).Find(filter).ToList();
+                foreach (var doc in list)
+                {
+                    Ticket ticket = new Ticket()
+                    {
+                        id = doc["_id"].AsObjectId,
+                        Subject = doc["Subject"].ToString(),
+                        ReportedDate = DateTime.Parse(doc["ReportedDate"].ToString()),
+                        TicketPriority = (TicketPriority)Enum.Parse(typeof(TicketPriority), doc["Priority"].ToString()),
+                        UserReported = GetEmployee((ObjectId)doc["UserReported"]),
+                        TicketType = (TicketType)Enum.Parse(typeof(TicketType), doc["IncidentType"].ToString()),
+                        Description = doc["Description"].ToString(),
+                        Deadline = DateTime.Parse(doc["Deadline"].ToString()),
+                        TicketStatus = (TicketStatus)Enum.Parse(typeof(TicketStatus), doc["Status"].ToString())
+                    };
+                    ticketList.Add(ticket);
+                }
+
+            }
+            return ticketList;
+        }
     }
 }
