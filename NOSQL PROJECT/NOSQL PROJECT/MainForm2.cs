@@ -187,7 +187,6 @@ namespace NOSQL_PROJECT
         public string GenerateRandomPassword()
         {
             string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrs";
-            char[] chars = new char[7];
             string finalPassword = "";
             Random random = new Random();
 
