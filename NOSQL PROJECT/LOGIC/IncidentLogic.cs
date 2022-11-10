@@ -38,5 +38,10 @@ namespace LOGIC
             }
             return incidentsByStatus;
         }
+
+        public List<Ticket> SortTicketsByPriority()
+        {
+            return incidentDAO.SortTicketsByPriority();
+        }
     }
 }
