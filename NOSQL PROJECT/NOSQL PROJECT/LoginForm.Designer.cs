@@ -205,7 +205,7 @@
             this.lblErrorForgetPassword.AutoSize = true;
             this.lblErrorForgetPassword.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblErrorForgetPassword.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorForgetPassword.Location = new System.Drawing.Point(92, 337);
+            this.lblErrorForgetPassword.Location = new System.Drawing.Point(56, 334);
             this.lblErrorForgetPassword.Name = "lblErrorForgetPassword";
             this.lblErrorForgetPassword.Size = new System.Drawing.Size(0, 23);
             this.lblErrorForgetPassword.TabIndex = 9;
@@ -213,6 +213,7 @@
             // btnConfirm
             // 
             this.btnConfirm.BackColor = System.Drawing.Color.LightGray;
+            this.btnConfirm.FlatAppearance.BorderSize = 0;
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnConfirm.Location = new System.Drawing.Point(279, 392);
@@ -281,8 +282,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(509, 637);
-            this.Controls.Add(this.pnlForgotPassword);
             this.Controls.Add(this.pnlLogin);
+            this.Controls.Add(this.pnlForgotPassword);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

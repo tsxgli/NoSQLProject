@@ -11,6 +11,7 @@ using MODEL;
 using LOGIC;
 using System.Net.Mail;
 using System.Net;
+using PostmarkDotNet;
 
 namespace NOSQL_PROJECT
 {
@@ -100,32 +101,39 @@ namespace NOSQL_PROJECT
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            bool userExists = false;
-
-            //get the username and password from input
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text.Trim();
-
-            //go through all employees and check if one with the same username and password exists
-            foreach (Employee employee in employees)
+            try
             {
-                if (employee.Username.Equals(username) && employee.Password.Equals(password))
+                bool userExists = false;
+
+                //get the username and password from input
+                string username = txtUsername.Text.Trim();
+                string password = txtPassword.Text.Trim();
+
+                //go through all employees and check if one with the same username and password exists
+                foreach (Employee employee in employees)
                 {
-                    //if it exists, store the current employee
-                    currentUser = employee;
-                    userExists = true;
+                    if (employee.Username.Equals(username) && employee.Password.Equals(password))
+                    {
+                        //if it exists, store the current employee
+                        currentUser = employee;
+                        userExists = true;
+                    }
                 }
-            }
 
-            //if the user exists, open the main form and close login fornm
-            if (userExists)
-            {
-                MainForm mainForm = new MainForm(currentUser);
-                mainForm.Show();
-                this.Hide();
+                //if the user exists, open the main form and close login fornm
+                if (userExists)
+                {
+                    MainForm mainForm = new MainForm(currentUser);
+                    mainForm.Show();
+                    this.Hide();
+                }
+                else //else alert the user
+                    lblError.Text = "Invalid username/password combination.";
             }
-            else //else alert the user
-                lblError.Text = "Invalid username/password combination.";
+            catch (Exception ex)
+            {
+                lblError.Text = $"Error: {ex.Message}";
+            }
         }
 
         private void lblForgotPassword_Click(object sender, EventArgs e)
@@ -164,50 +172,43 @@ namespace NOSQL_PROJECT
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            //get the email from input
-            string email = txtEmail.Text.Trim();
-
-            Employee employeeChangePassword = new Employee();
-            bool emailExists = false;
-
-            //go through all employees to find one with the input email
-            foreach(Employee employee in employees)
+            try
             {
-                if (employee.Email.Equals(email))
+                //get the email from input
+                string email = txtEmail.Text.Trim();
+
+                Employee employeeChangePassword = new Employee();
+                bool emailExists = false;
+
+                //go through all employees to find one with the input email
+                foreach (Employee employee in employees)
                 {
-                    //if one is found, store it
-                    emailExists = true;
-                    employeeChangePassword = employee;
+                    if (employee.Email.Equals(email))
+                    {
+                        //if one is found, store it
+                        emailExists = true;
+                        employeeChangePassword = employee;
+                    }
                 }
-            }
 
-            //if the email belongs to an amployee, change his password and send it by email
-            if (emailExists)
+                //if the email belongs to an amployee, change his password and send it by email
+                if (emailExists)
+                {
+                    string password = PasswordGenerator.GenerateRandomPassword();
+                    employeeLogic.UpdateEmployeePassword(employeeChangePassword, password);
+                    EmailSender.SendEmail(email, password);
+                    txtEmail.Text = "";
+                    lblErrorForgetPassword.Text = "New password has been sent.";
+                }
+                else
+                    //else inform the user
+                    lblErrorForgetPassword.Text = "Invalid email.";
+            }
+            catch (Exception ex)
             {
-                string password = PasswordGenerator.GenerateRandomPassword();
-                employeeLogic.UpdateEmployeePassword(employeeChangePassword, password);
-                SendEmail(email, password);
-                lblErrorForgetPassword.Text = "Success";
+                lblErrorForgetPassword.Text = $"Error: {ex.Message}";
             }
-            else
-                //else inform the user
-                lblErrorForgetPassword.Text = "Invalid email.";
 
-        }
-
-        private void SendEmail(string email, string newPassword)
-        {
-            MailMessage mail = new MailMessage();
-            mail.From = new MailAddress("nosqlproject2.1@gmail.com");
-            mail.To.Add(email);
-            mail.Subject = "NoDesk password change";
-            mail.Body = $"Your new NoDesk password is {newPassword}";
-            mail.IsBodyHtml = true;
-
-            using SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.Credentials = new NetworkCredential("nosqlproject2.1@gmail.com", "kytvrwgerndngubn");
-            smtp.EnableSsl = true;
-            smtp.Send(mail);
         }
     }
 }
