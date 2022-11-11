@@ -665,42 +665,43 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\phili\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\aplac\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Nevron Software\\Nevron .NET Vision 2022.2\\NugetPackage\\nevrondotnetvision": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\phili\\OneDrive\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\LOGIC\\LOGIC.csproj",
+      "projectUniqueName": "C:\\UNIVERSIDAD\\NoSQL\\NoSQLProject\\NOSQL PROJECT\\LOGIC\\LOGIC.csproj",
       "projectName": "LOGIC",
-      "projectPath": "C:\\Users\\phili\\OneDrive\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\LOGIC\\LOGIC.csproj",
-      "packagesPath": "C:\\Users\\phili\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\phili\\OneDrive\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\LOGIC\\obj\\",
+      "projectPath": "C:\\UNIVERSIDAD\\NoSQL\\NoSQLProject\\NOSQL PROJECT\\LOGIC\\LOGIC.csproj",
+      "packagesPath": "C:\\Users\\aplac\\.nuget\\packages\\",
+      "outputPath": "C:\\UNIVERSIDAD\\NoSQL\\NoSQLProject\\NOSQL PROJECT\\LOGIC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Nevron Software\\Nevron .NET Vision 2022.2\\NugetPackage\\nevrondotnetvision"
       ],
       "configFilePaths": [
-        "C:\\Users\\phili\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aplac\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\NevronDotNetVision.22.11.3.12.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files (x86)\\Nevron Software\\Nevron .NET Vision 2022.2\\NugetPackage\\nevrondotnetvision": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\phili\\OneDrive\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\DAO\\DAL.csproj": {
-              "projectPath": "C:\\Users\\phili\\OneDrive\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\DAO\\DAL.csproj"
+            "C:\\UNIVERSIDAD\\NoSQL\\NoSQLProject\\NOSQL PROJECT\\DAO\\DAL.csproj": {
+              "projectPath": "C:\\UNIVERSIDAD\\NoSQL\\NoSQLProject\\NOSQL PROJECT\\DAO\\DAL.csproj"
             },
-            "C:\\Users\\phili\\OneDrive\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\MODEL\\MODEL.csproj": {
-              "projectPath": "C:\\Users\\phili\\OneDrive\\Documents\\GitHub\\NoSQLProject\\NOSQL PROJECT\\MODEL\\MODEL.csproj"
+            "C:\\UNIVERSIDAD\\NoSQL\\NoSQLProject\\NOSQL PROJECT\\MODEL\\MODEL.csproj": {
+              "projectPath": "C:\\UNIVERSIDAD\\NoSQL\\NoSQLProject\\NOSQL PROJECT\\MODEL\\MODEL.csproj"
             }
           }
         }
@@ -735,7 +736,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
