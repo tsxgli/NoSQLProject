@@ -22,7 +22,7 @@ namespace NOSQL_PROJECT
             test.UserType = UserType.Regular;
             test.Email = "josianne.mckenzie@schroeder.biz";
 
-            Application.Run(new MainForm2(test));
+            Application.Run(new LoginForm());
         }
     }
 }

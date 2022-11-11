@@ -200,3 +200,8 @@ C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcorea
 C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.dll
 C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.pdb
 C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.genruntimeconfig.cache
+C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\Postmark.dll
+C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\ScottPlot.dll
+C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\ScottPlot.WinForms.dll
+C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.DashboardForm.resources
