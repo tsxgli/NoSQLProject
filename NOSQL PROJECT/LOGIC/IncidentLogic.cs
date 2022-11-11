@@ -57,5 +57,9 @@ namespace LOGIC
         {
             return incidentDAO.GetIncidentByEmployeeEmail(letters);
         }
+        public List<Ticket> GetIncidentWithKeywords(string keyword)
+        {
+            return incidentDAO.GetIncidentWithKeywords(keyword);
+        }
     }
 }

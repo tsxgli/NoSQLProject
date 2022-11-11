@@ -6,16 +6,18 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace DAL
 {
-    public class IncidentDAO: DAO
+    public class IncidentDAO : DAO
     {
 
         public IMongoCollection<Ticket> collection;
-        
-        public IncidentDAO() { 
-           
+
+        public IncidentDAO()
+        {
+
         }
 
         public void AddNewIncident(Ticket incident)
@@ -37,97 +39,172 @@ namespace DAL
 
             doc["ReportedDate"] = incident.ReportedDate;
 
-            doc["Status"]= incident.TicketStatus.ToString();
+            doc["Status"] = incident.TicketStatus.ToString();
 
             //inserts document into ticketcollection
             InsertRecord(ticketCollection, doc);
         }
 
-        public List<Ticket>GetAllIncidents()
+        public List<Ticket> GetAllIncidents()
         {
             return GetIncidents(GetAll(ticketCollection));
         }
         private List<Ticket> GetIncidents(List<BsonDocument> docs) //get all incidents
         {
-            List<Ticket> incidents = new List<Ticket>();
-
-            foreach (var doc in docs)
+            try
             {
-                Ticket ticket = new Ticket()
+
+
+                List<Ticket> incidents = new List<Ticket>();
+
+                foreach (var doc in docs)
                 {
-                    id = doc["_id"].AsObjectId,
-                    Subject = doc["Subject"].ToString(),
-                    ReportedDate = DateTime.Parse(doc["ReportedDate"].ToString()),
-                    TicketPriority = (TicketPriority)Enum.Parse(typeof(TicketPriority), doc["Priority"].ToString()),
-                    UserReported = GetEmployee((ObjectId)doc["UserReported"]),
-                    TicketType = (TicketType)Enum.Parse(typeof(TicketType), doc["IncidentType"].ToString()),
-                    Description = doc["Description"].ToString(),
-                    Deadline = DateTime.Parse(doc["Deadline"].ToString()),
-                    TicketStatus = (TicketStatus)Enum.Parse(typeof(TicketStatus), doc["Status"].ToString())
-                };
-                incidents.Add(ticket);
+                    Ticket ticket = new Ticket()
+                    {
+                        id = doc["_id"].AsObjectId,
+                        Subject = doc["Subject"].ToString(),
+                        ReportedDate = DateTime.Parse(doc["ReportedDate"].ToString()),
+                        TicketPriority = (TicketPriority)Enum.Parse(typeof(TicketPriority), doc["Priority"].ToString()),
+                        UserReported = GetEmployee((ObjectId)doc["UserReported"]),
+                        TicketType = (TicketType)Enum.Parse(typeof(TicketType), doc["IncidentType"].ToString()),
+                        Description = doc["Description"].ToString(),
+                        Deadline = DateTime.Parse(doc["Deadline"].ToString()),
+                        TicketStatus = (TicketStatus)Enum.Parse(typeof(TicketStatus), doc["Status"].ToString())
+                    };
+                    incidents.Add(ticket);
+                }
+                return incidents;
+
             }
-            return incidents;
+            catch (Exception e)
+            {
+                throw new Exception($"Something went wrong while getting the incidents: {e.Message}");
+
+            }
         }
         private Employee GetEmployee(ObjectId id)
         {
-            EmployeeDAO employeeDAO= new EmployeeDAO();
+            EmployeeDAO employeeDAO = new EmployeeDAO();
             return employeeDAO.GetEmployee(employeeCollection, id);
         }
         public void UpdateIncident(Ticket ticket)
         {
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", ticket.id);
-            var update = Builders<BsonDocument>.Update.Set("Subject", ticket.Subject)
-                                                        .Set("Priority", ticket.TicketPriority)
-                                                        .Set("Deadline", ticket.Deadline)
-                                                        .Set("IncidentType", ticket.TicketType)
-                                                        .Set("UserReported", ticket.UserReported.Id)
-                                                        .Set("Description", ticket.Description)
-                                                        .Set("ReportedDate", ticket.ReportedDate)
-                                                        .Set("Status", ticket.TicketStatus);
-            GetCollection(ticketCollection).UpdateOne(filter, update);
+            try
+            {
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", ticket.id);
+                var update = Builders<BsonDocument>.Update.Set("Subject", ticket.Subject)
+                                                            .Set("Priority", ticket.TicketPriority)
+                                                            .Set("Deadline", ticket.Deadline)
+                                                            .Set("IncidentType", ticket.TicketType)
+                                                            .Set("UserReported", ticket.UserReported.Id)
+                                                            .Set("Description", ticket.Description)
+                                                            .Set("ReportedDate", ticket.ReportedDate)
+                                                            .Set("Status", ticket.TicketStatus);
+                GetCollection(ticketCollection).UpdateOne(filter, update);
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Something went wrong while updating the incidents: {e.Message}");
+
+            }
         }
         public void DeleteIncident(ObjectId id)
         {
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
-            GetCollection(ticketCollection).DeleteOne(filter);
+            try
+            {
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+                GetCollection(ticketCollection).DeleteOne(filter);
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Something went wrong while deleting the incidents:{e.Message}");
+
+            }
         }
 
         public List<Ticket> SortTicketsByPriority()
         {
-            List<Ticket> sortedTickets = new List<Ticket>();
-            List<BsonDocument> sortedList = GetCollection(ticketCollection).Find(Builders<BsonDocument>.Filter.Empty).Sort(Builders<BsonDocument>.Sort.Ascending("Priority")).ToList();
-
-            foreach (var doc in sortedList)
+            try
             {
-                Ticket ticket = new Ticket()
+                List<Ticket> sortedTickets = new List<Ticket>();
+                List<BsonDocument> sortedList = GetCollection(ticketCollection).Find(Builders<BsonDocument>.Filter.Empty).Sort(Builders<BsonDocument>.Sort.Ascending("Priority")).ToList();
+
+                foreach (var doc in sortedList)
                 {
-                    id = doc["_id"].AsObjectId,
-                    Subject = doc["Subject"].ToString(),
-                    ReportedDate = DateTime.Parse(doc["ReportedDate"].ToString()),
-                    TicketPriority = (TicketPriority)Enum.Parse(typeof(TicketPriority), doc["Priority"].ToString()),
-                    UserReported = GetEmployee((ObjectId)doc["UserReported"]),
-                    TicketType = (TicketType)Enum.Parse(typeof(TicketType), doc["IncidentType"].ToString()),
-                    Description = doc["Description"].ToString(),
-                    Deadline = DateTime.Parse(doc["Deadline"].ToString()),
-                    TicketStatus = (TicketStatus)Enum.Parse(typeof(TicketStatus), doc["Status"].ToString())
-                };
-                sortedTickets.Add(ticket);
+                    Ticket ticket = new Ticket()
+                    {
+                        id = doc["_id"].AsObjectId,
+                        Subject = doc["Subject"].ToString(),
+                        ReportedDate = DateTime.Parse(doc["ReportedDate"].ToString()),
+                        TicketPriority = (TicketPriority)Enum.Parse(typeof(TicketPriority), doc["Priority"].ToString()),
+                        UserReported = GetEmployee((ObjectId)doc["UserReported"]),
+                        TicketType = (TicketType)Enum.Parse(typeof(TicketType), doc["IncidentType"].ToString()),
+                        Description = doc["Description"].ToString(),
+                        Deadline = DateTime.Parse(doc["Deadline"].ToString()),
+                        TicketStatus = (TicketStatus)Enum.Parse(typeof(TicketStatus), doc["Status"].ToString())
+                    };
+                    sortedTickets.Add(ticket);
+
+                }
+
+                return sortedTickets;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Something went wrong while getting the incidents:{e.Message}");
 
             }
-
-            return sortedTickets;
         }
 
         public List<Ticket> GetIncidentByEmployeeEmail(string letters)
         {
-            EmployeeDAO employeeDao = new EmployeeDAO();
-            List<Employee> employees = employeeDao.GetEmployeeByEmail(letters);
-            List<Ticket> ticketList = new List<Ticket>();
-            foreach (Employee employee in employees)
+            try
             {
-                var filter = Builders<BsonDocument>.Filter.Eq("UserReported", (ObjectId)employee.Id);
-                var list = GetCollection(ticketCollection).Find(filter).ToList();
+                EmployeeDAO employeeDao = new EmployeeDAO();
+                List<Employee> employees = employeeDao.GetEmployeeByEmail(letters);
+                List<Ticket> ticketList = new List<Ticket>();
+                foreach (Employee employee in employees)
+                {
+                    var filter = Builders<BsonDocument>.Filter.Eq("UserReported", (ObjectId)employee.Id);
+                    var list = GetCollection(ticketCollection).Find(filter).ToList();
+                    foreach (var doc in list)
+                    {
+                        Ticket ticket = new Ticket()
+                        {
+                            id = doc["_id"].AsObjectId,
+                            Subject = doc["Subject"].ToString(),
+                            ReportedDate = DateTime.Parse(doc["ReportedDate"].ToString()),
+                            TicketPriority = (TicketPriority)Enum.Parse(typeof(TicketPriority), doc["Priority"].ToString()),
+                            UserReported = GetEmployee((ObjectId)doc["UserReported"]),
+                            TicketType = (TicketType)Enum.Parse(typeof(TicketType), doc["IncidentType"].ToString()),
+                            Description = doc["Description"].ToString(),
+                            Deadline = DateTime.Parse(doc["Deadline"].ToString()),
+                            TicketStatus = (TicketStatus)Enum.Parse(typeof(TicketStatus), doc["Status"].ToString())
+                        };
+                        ticketList.Add(ticket);
+                    }
+
+                }
+                return ticketList;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Something went wrong while getting the incidents:{e.Message}");
+
+            }
+        }
+        public List<Ticket> GetIncidentWithKeywords(string keyword)
+        {
+            try
+            {
+                List<Ticket> ticketList = new List<Ticket>();
+                Regex regex = new Regex(keyword, RegexOptions.IgnoreCase);
+                var filter1 = Builders<BsonDocument>.Filter.Regex("Subject", regex);
+                var filter2 = Builders<BsonDocument>.Filter.Regex("Description", regex);
+                var filter = Builders<BsonDocument>.Filter.Or(filter1, filter2);
+
+
+                var list = GetCollection(ticketCollection).Find(filter).Sort(Builders<BsonDocument>.Sort.Descending("ReportedDate")).ToList();
                 foreach (var doc in list)
                 {
                     Ticket ticket = new Ticket()
@@ -144,11 +221,14 @@ namespace DAL
                     };
                     ticketList.Add(ticket);
                 }
+                return ticketList;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Something went wrong while getting the incidents:{e.Message}");
 
             }
-            return ticketList;
         }
-
 
     }
 }

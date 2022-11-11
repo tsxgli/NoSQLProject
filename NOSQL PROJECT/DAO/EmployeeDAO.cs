@@ -48,9 +48,9 @@ namespace DAL
             catch (Exception e)
             {
                 throw new Exception($"Something went wrong while getting all employees:{e.Message}");
-                
+
             }
-           
+
         }
 
         public void AddNewEmployeeToDatabase(Employee employee)
@@ -77,10 +77,10 @@ namespace DAL
 
                 throw new Exception($"There was something wrong when adding new employee: {e.Message}");
             }
-           
+
         }
 
-        public Employee GetEmployee(string collection,ObjectId id)
+        public Employee GetEmployee(string collection, ObjectId id)
         {
             try
             {
@@ -103,9 +103,9 @@ namespace DAL
             catch (Exception e)
             {
 
-                throw new Exception($"Something went wrong when getting the employee: {e.Message} " );
+                throw new Exception($"Something went wrong when getting the employee: {e.Message} ");
             }
-           
+
         }
         public void UpdateEmployee(Employee employee)
         {
@@ -126,7 +126,7 @@ namespace DAL
             {
                 throw new Exception($"Something went wrong when updating user:{e.Message} ");
             }
-           
+
         }
 
         //method to update the password of an employee
@@ -145,27 +145,34 @@ namespace DAL
 
         public List<Employee> GetEmployeeByEmail(string letters)
         {
-            List<Employee> employees = new List<Employee>();
-            var filter = Builders<BsonDocument>.Filter.Regex("Email", letters);
-            var list = GetCollection(employeeCollection).Find(filter).ToList();
-            foreach (var doc in list)
+            try
             {
-                Employee employee = new Employee
+                List<Employee> employees = new List<Employee>();
+                var filter = Builders<BsonDocument>.Filter.Regex("Email", letters);
+                var list = GetCollection(employeeCollection).Find(filter).ToList();
+                foreach (var doc in list)
                 {
-                    Id = doc["_id"].AsObjectId,
-                    FirstName = doc["First Name"].ToString(),
-                    LastName = doc["LastName"].ToString(),
-                    Email = doc["Email"].ToString(),
-                    Username = doc["Username"].ToString(),
-                    UserType = (UserType)Enum.Parse(typeof(UserType), doc["UserType"].ToString()),
-                    PhoneNumber = doc["PhoneNo"].ToString(),
-                    Location = doc["Location/Branch"].ToString(),
-                    NoTicketsReported = (int)doc["NoTicketsReported"],
-                    Password = doc["Password"].ToString(),
-                };
-                employees.Add(employee);
+                    Employee employee = new Employee
+                    {
+                        Id = doc["_id"].AsObjectId,
+                        FirstName = doc["First Name"].ToString(),
+                        LastName = doc["LastName"].ToString(),
+                        Email = doc["Email"].ToString(),
+                        Username = doc["Username"].ToString(),
+                        UserType = (UserType)Enum.Parse(typeof(UserType), doc["UserType"].ToString()),
+                        PhoneNumber = doc["PhoneNo"].ToString(),
+                        Location = doc["Location/Branch"].ToString(),
+                        NoTicketsReported = (int)doc["NoTicketsReported"],
+                        Password = doc["Password"].ToString(),
+                    };
+                    employees.Add(employee);
+                }
+                return employees;
             }
-            return employees;
+            catch (Exception e)
+            {
+                throw new Exception($"Something went wrong when getting user: {e.Message} ");
+            }
         }
 
     }
