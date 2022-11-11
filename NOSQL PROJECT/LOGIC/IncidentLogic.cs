@@ -44,6 +44,7 @@ namespace LOGIC
         public List<Ticket> SortTicketsByPriority()
         {
             return incidentDAO.SortTicketsByPriority();
+        }
 
         public List<Ticket> GetIncidents()
         {
