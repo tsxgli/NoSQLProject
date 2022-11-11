@@ -151,7 +151,7 @@ namespace DAL
             }
             catch (Exception e)
             {
-                throw new Exception($"Something went wrong while getting the incidents:{e.Message}");
+                throw new ArgumentException($"Something went wrong while getting the incidents:{e.Message}");
 
             }
         }
@@ -189,7 +189,7 @@ namespace DAL
             }
             catch (Exception e)
             {
-                throw new Exception($"Something went wrong while getting the incidents:{e.Message}");
+                throw new ArgumentException($"Something went wrong while getting the incidents:{e.Message}");
 
             }
         }
@@ -225,7 +225,7 @@ namespace DAL
             }
             catch (Exception e)
             {
-                throw new Exception($"Something went wrong while getting the incidents:{e.Message}");
+                throw new ArgumentException($"Something went wrong while getting the incidents:{e.Message}");
 
             }
         }

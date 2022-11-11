@@ -47,7 +47,7 @@ namespace DAL
             }
             catch (Exception e)
             {
-                throw new Exception($"Something went wrong while getting all employees:{e.Message}");
+                throw new ArgumentException($"Something went wrong while getting all employees:{e.Message}");
 
             }
 
@@ -75,7 +75,7 @@ namespace DAL
             catch (Exception e)
             {
 
-                throw new Exception($"There was something wrong when adding new employee: {e.Message}");
+                throw new ArgumentException($"There was something wrong when adding new employee: {e.Message}");
             }
 
         }
@@ -103,7 +103,7 @@ namespace DAL
             catch (Exception e)
             {
 
-                throw new Exception($"Something went wrong when getting the employee: {e.Message} ");
+                throw new ArgumentException($"Something went wrong when getting the employee: {e.Message} ");
             }
 
         }
@@ -171,7 +171,7 @@ namespace DAL
             }
             catch (Exception e)
             {
-                throw new Exception($"Something went wrong when getting user: {e.Message} ");
+                throw new ArgumentException($"Something went wrong when getting user: {e.Message} ");
             }
         }
 
