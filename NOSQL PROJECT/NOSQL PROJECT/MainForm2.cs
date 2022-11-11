@@ -38,6 +38,7 @@ namespace NOSQL_PROJECT
             //}
             //this.currentEmployee = currentEmployee
             InitializeComponent();
+
             HideCRUDTools();
 
             employeeLogic = new EmployeeLogic();

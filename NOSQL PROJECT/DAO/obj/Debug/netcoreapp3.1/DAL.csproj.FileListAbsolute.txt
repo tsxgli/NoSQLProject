@@ -24,16 +24,16 @@ C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcore
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.csproj.CopyComplete
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.dll
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.pdb
-C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\DAO\bin\Debug\netcoreapp3.1\DAL.deps.json
-C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\DAO\bin\Debug\netcoreapp3.1\DAL.dll
-C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\DAO\bin\Debug\netcoreapp3.1\DAL.pdb
-C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\DAO\bin\Debug\netcoreapp3.1\MODEL.dll
-C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\DAO\bin\Debug\netcoreapp3.1\MODEL.pdb
-C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.csproj.AssemblyReference.cache
-C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.AssemblyInfoInputs.cache
-C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.AssemblyInfo.cs
-C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.csproj.CoreCompileInputs.cache
-C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.csproj.CopyComplete
-C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.dll
-C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.pdb
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\DAO\bin\Debug\netcoreapp3.1\DAL.deps.json
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\DAO\bin\Debug\netcoreapp3.1\DAL.dll
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\DAO\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\DAO\bin\Debug\netcoreapp3.1\MODEL.dll
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\DAO\bin\Debug\netcoreapp3.1\MODEL.pdb
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.csproj.AssemblyReference.cache
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.AssemblyInfoInputs.cache
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.AssemblyInfo.cs
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.csproj.CoreCompileInputs.cache
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.csproj.CopyComplete
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.dll
+C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\DAO\obj\Debug\netcoreapp3.1\DAL.pdb

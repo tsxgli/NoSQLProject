@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using DAL;
 using MODEL;
-using MongoDB.Bson;
 
 namespace LOGIC
 {
@@ -19,17 +18,30 @@ namespace LOGIC
         {
             incidentDAO.AddNewIncident(ticket);
         }
-        public List<Ticket> GetIncidents()
+
+        public List<Ticket> GetAllIncidents()
         {
             return incidentDAO.GetAllIncidents();
         }
-        public void DeleteIncident(ObjectId id)
+
+        public List<Ticket> GetIncidentsByStatus(TicketStatus status)
         {
-            incidentDAO.DeleteIncident(id);
+            List<Ticket> allIncidents = GetAllIncidents();
+            List<Ticket> incidentsByStatus = new List<Ticket>();
+
+            foreach (var incident in allIncidents)
+            {
+                if (incident.TicketStatus == status || (int)incident.TicketStatus == (int)status)
+                {
+                    incidentsByStatus.Add(incident);
+                }
+            }
+            return incidentsByStatus;
         }
-        public void UpdateIncident(Ticket ticket)
+
+        public List<Ticket> SortTicketsByPriority()
         {
-            incidentDAO.UpdateIncident(ticket);
+            return incidentDAO.SortTicketsByPriority();
         }
     }
 }

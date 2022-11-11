@@ -1,9 +1,9 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\phili\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\phili\\.nuget\\packages",
-      "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
+      "C:\\Users\\aplac\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\aplac\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Nevron Software\\Nevron .NET Vision 2022.2\\NugetPackage\\nevrondotnetvision"
     ]
   }
 }
