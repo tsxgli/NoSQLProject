@@ -23,11 +23,14 @@ namespace NOSQL_PROJECT
         List<Employee> employees;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         Employee selectedUser;
         //password that is going to be sent in an email
         string password;
         
 =======
+=======
+>>>>>>> parent of d00917e (Merge branch 'Trying-to-merge-with-jo-new-code' into RARES)
 =======
 >>>>>>> parent of d00917e (Merge branch 'Trying-to-merge-with-jo-new-code' into RARES)
         Employee currentUser;

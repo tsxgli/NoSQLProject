@@ -96,6 +96,7 @@ C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Deb
 C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.MainForm2.resources
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.exe
 C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.deps.json
 C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.runtimeconfig.json
@@ -205,11 +206,16 @@ C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Deb
 =======
 =======
 >>>>>>> parent of d00917e (Merge branch 'Trying-to-merge-with-jo-new-code' into RARES)
+=======
+>>>>>>> parent of d00917e (Merge branch 'Trying-to-merge-with-jo-new-code' into RARES)
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.MainForm.resources
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.Properties.Resources.resources
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\Postmark.dll
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of d00917e (Merge branch 'Trying-to-merge-with-jo-new-code' into RARES)
+=======
 >>>>>>> parent of d00917e (Merge branch 'Trying-to-merge-with-jo-new-code' into RARES)
 =======
 >>>>>>> parent of d00917e (Merge branch 'Trying-to-merge-with-jo-new-code' into RARES)
