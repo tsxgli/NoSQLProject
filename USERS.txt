@@ -1,0 +1,7 @@
+User 1 - (Regular employee)
+	username: philiptsagli
+	password: aUplSfX
+
+User 2 - (Service Desk employee)
+	username: jose
+	password: 1234
