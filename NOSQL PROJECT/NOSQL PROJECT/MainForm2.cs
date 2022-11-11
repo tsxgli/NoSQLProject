@@ -592,7 +592,5 @@ namespace NOSQL_PROJECT
         {
             pnlDashboard.Show();
         }
-
-
     }
 }

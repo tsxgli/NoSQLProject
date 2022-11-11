@@ -122,9 +122,10 @@ namespace NOSQL_PROJECT
                 //if the user exists, open the main form and close login fornm
                 if (userExists)
                 {
-                    MainForm2 mainForm = new MainForm2(currentUser);
-                    mainForm.Show();
+                    var mainForm = new MainForm2(currentUser);
+                    mainForm.Closed += (s, args) => this.Close();
                     this.Hide();
+                    mainForm.Show();
                 }
                 else //else alert the user
                     lblError.Text = "Invalid username/password combination.";
