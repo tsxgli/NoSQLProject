@@ -265,6 +265,7 @@ namespace NOSQL_PROJECT
                 item.SubItems.Add(ticket.TicketStatus.ToString());
 
                 item.SubItems.Add(ticket.Description.ToString());
+                item.SubItems.Add(ticket.TicketPriority.ToString());
                 item.Tag = ticket;
 
                 // if ticket is not escalated, add it to listview
@@ -553,6 +554,17 @@ namespace NOSQL_PROJECT
         private void tabControl1_Click(object sender, EventArgs e)
         {
             pnlDashboard.Show();
+        }
+
+        private void sortByPriorityBtn_Click(object sender, EventArgs e)
+        {
+            List<Ticket> sortedtickets = incidentLogic.SortTicketsByPriority();
+            foreach (ListViewItem item in listViewIncidents.Items)
+            {
+                item.Remove();
+            }
+            DisplayIncidents(sortedtickets);
+            listViewIncidents.Refresh();
         }
     }
 }

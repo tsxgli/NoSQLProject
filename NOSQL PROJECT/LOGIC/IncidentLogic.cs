@@ -47,5 +47,10 @@ namespace LOGIC
         {
             incidentDAO.UpdateIncident(ticket);
         }
+
+        public List<Ticket> SortTicketsByPriority()
+        {
+            return incidentDAO.SortTicketsByPriority();
+        }
     }
 }
