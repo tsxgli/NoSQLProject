@@ -547,8 +547,8 @@ namespace NOSQL_PROJECT
         private void showTicketsListBtn_Click_1(object sender, EventArgs e)
         {
             pnlDashboard.Hide();
-            pnlIncidentManagement.Show();
-            //tabIncidentManagement.Show();
+            pnlIncidentManagement.Visible=true;
+            tabControl1.SelectedTab = tabIncidentManagement;
         }
 
         private void tabControl1_Click(object sender, EventArgs e)
