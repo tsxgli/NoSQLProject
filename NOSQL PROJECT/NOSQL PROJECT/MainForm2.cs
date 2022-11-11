@@ -23,7 +23,7 @@ namespace NOSQL_PROJECT
         List<Employee> employees;
          string password ;
 
-        public MainForm2()
+        public MainForm2(Employee employee)
         {
             InitializeComponent();
             incidentLogic = new IncidentLogic();

@@ -607,7 +607,7 @@
             // incidentsPastDeadlinePictureBox
             // 
             this.incidentsPastDeadlinePictureBox.Location = new System.Drawing.Point(941, 342);
-            this.incidentsPastDeadlinePictureBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.incidentsPastDeadlinePictureBox.Margin = new System.Windows.Forms.Padding(5);
             this.incidentsPastDeadlinePictureBox.Name = "incidentsPastDeadlinePictureBox";
             this.incidentsPastDeadlinePictureBox.Size = new System.Drawing.Size(552, 483);
             this.incidentsPastDeadlinePictureBox.TabIndex = 21;
@@ -616,7 +616,7 @@
             // unresolvedIncidentsPictureBox
             // 
             this.unresolvedIncidentsPictureBox.Location = new System.Drawing.Point(153, 342);
-            this.unresolvedIncidentsPictureBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.unresolvedIncidentsPictureBox.Margin = new System.Windows.Forms.Padding(5);
             this.unresolvedIncidentsPictureBox.Name = "unresolvedIncidentsPictureBox";
             this.unresolvedIncidentsPictureBox.Size = new System.Drawing.Size(552, 483);
             this.unresolvedIncidentsPictureBox.TabIndex = 20;
@@ -649,9 +649,9 @@
             // 
             this.unresolvedIncidentsGroupBox.BackColor = System.Drawing.Color.Transparent;
             this.unresolvedIncidentsGroupBox.Location = new System.Drawing.Point(84, 178);
-            this.unresolvedIncidentsGroupBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.unresolvedIncidentsGroupBox.Margin = new System.Windows.Forms.Padding(5);
             this.unresolvedIncidentsGroupBox.Name = "unresolvedIncidentsGroupBox";
-            this.unresolvedIncidentsGroupBox.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.unresolvedIncidentsGroupBox.Padding = new System.Windows.Forms.Padding(5);
             this.unresolvedIncidentsGroupBox.Size = new System.Drawing.Size(694, 702);
             this.unresolvedIncidentsGroupBox.TabIndex = 26;
             this.unresolvedIncidentsGroupBox.TabStop = false;
@@ -660,9 +660,9 @@
             // 
             this.incidentsPastDeadlineGroupBox.BackColor = System.Drawing.Color.Transparent;
             this.incidentsPastDeadlineGroupBox.Location = new System.Drawing.Point(868, 178);
-            this.incidentsPastDeadlineGroupBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.incidentsPastDeadlineGroupBox.Margin = new System.Windows.Forms.Padding(5);
             this.incidentsPastDeadlineGroupBox.Name = "incidentsPastDeadlineGroupBox";
-            this.incidentsPastDeadlineGroupBox.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.incidentsPastDeadlineGroupBox.Padding = new System.Windows.Forms.Padding(5);
             this.incidentsPastDeadlineGroupBox.Size = new System.Drawing.Size(694, 702);
             this.incidentsPastDeadlineGroupBox.TabIndex = 28;
             this.incidentsPastDeadlineGroupBox.TabStop = false;
