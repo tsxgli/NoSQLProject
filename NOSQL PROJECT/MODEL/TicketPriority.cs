@@ -6,6 +6,6 @@ namespace MODEL
 {
     public enum TicketPriority
     {
-        Low, High, Normal
+        Low, Normal, High
     }
 }
