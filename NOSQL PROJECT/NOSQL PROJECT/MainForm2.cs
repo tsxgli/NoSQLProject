@@ -64,7 +64,7 @@ namespace NOSQL_PROJECT
             //create new ticket
             Ticket ticket = new Ticket();
             ticket.Subject = txtIncidentSubject.Text;
-           
+
             ticket.Deadline = dtp_Deadline.Value;
             ticket.Description = txt_IncidentDescription.Text;
             ticket.ReportedDate = dtPick_IncidentTimeReported.Value;
@@ -99,7 +99,7 @@ namespace NOSQL_PROJECT
                 default:
                     ticket.TicketPriority = TicketPriority.Normal;
                     break;
-            } 
+            }
             // add 1 to the number of tickets reported of each user 
             ticket.UserReported.NoTicketsReported++;
             //update the number of tickets report by the employee reporter 
@@ -119,6 +119,7 @@ namespace NOSQL_PROJECT
         {
             AddEmployeeToDatabase();
             MessageBox.Show("Employee has been added to database");
+            ClearUserContentBoxes();
             pnlCreateUser.Hide();
             pnlUserManagement.Show();
         }
@@ -133,6 +134,7 @@ namespace NOSQL_PROJECT
             AddIncidentToDB();
             pnlUserManagement.Refresh();
             MessageBox.Show("Incident has been succesfully created.");
+            ClearIncidentContentBoxes();
             pnlCreateTicket.Hide();
             pnlIncidentManagement.Show();
         }
@@ -212,10 +214,10 @@ namespace NOSQL_PROJECT
             using SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
             smtp.Credentials = new NetworkCredential("nosqlproject2.1@gmail.com", "kytvrwgerndngubn");
             smtp.EnableSsl = true;
-             smtp.Send(mail);
+            smtp.Send(mail);
         }
 
-       
+
         private void button2_Click(object sender, EventArgs e)
         {
             pnlUserManagement.Visible = false;
@@ -264,7 +266,7 @@ namespace NOSQL_PROJECT
 
                 item.SubItems.Add(ticket.Description.ToString());
                 item.Tag = ticket;
-                
+
                 // if ticket is not escalated, add it to listview
                 if (ticket.TicketStatus < TicketStatus.Escalated)
                     listViewIncidents.Items.Add(item);
@@ -330,7 +332,7 @@ namespace NOSQL_PROJECT
             ListViewItem selectedItem = listViewOverviewUsers.SelectedItems[0];
             selectedUser = (Employee)selectedItem.Tag;
 
-            tabControl1.SelectedTab = tabPage2;
+            tabControl1.SelectedTab = tabIncidentManagement;
             txtboxFilterEmailIncidents.Text = selectedUser.Email;
             button1_Click(sender, e);
             selectedUser = null;
@@ -389,6 +391,7 @@ namespace NOSQL_PROJECT
             lblTicketIdStore.Text = "";
             incidentLogic.DeleteIncident(id);
             HideCRUDTools();
+            ClearIncidentContentBoxes();
             DisplayIncidents(incidentLogic.GetIncidents());
         }
 
@@ -456,6 +459,7 @@ namespace NOSQL_PROJECT
 
             incidentLogic.UpdateIncident(ticket);
             HideCRUDTools();
+            ClearIncidentContentBoxes();
             DisplayIncidents(incidentLogic.GetIncidents());
 
             MessageBox.Show("Incident has been updated!");
@@ -516,6 +520,39 @@ namespace NOSQL_PROJECT
             plt.SaveFig("incidentsPastDeadlineChart.png");
             incidentsPastDeadlinePictureBox.Load("incidentsPastDeadlineChart.png");
         }
-    }
+        private void ClearIncidentContentBoxes()
+        {
+            dtPick_IncidentTimeReported.Value = DateTime.Today;
+            dtp_Deadline.Value = DateTime.Today;
+            txtIncidentSubject.Clear();
+            comb_TypeIncident.SelectedIndex = -1;
+            comb_IncidentPriority.SelectedIndex = -1;
+            comb_ReportedByUser.SelectedIndex = -1;
+            txt_IncidentDescription.Clear();
+            comboboxStatus.SelectedIndex = -1;
+            comb_TypeIncident.Text = "";
+        }
+        private void ClearUserContentBoxes()
+        {
+            txtFirstName.Clear();
+            txtLastName.Clear();
+            txtPhoneNo.Clear();
+            txtEmail.Clear();
+            txtUsername.Clear();
+            comboUserType.Text = "";
+            comboLocation.Text = "";
+        }
 
+        private void showTicketsListBtn_Click_1(object sender, EventArgs e)
+        {
+            pnlDashboard.Hide();
+            pnlIncidentManagement.Show();
+            //tabIncidentManagement.Show();
+        }
+
+        private void tabControl1_Click(object sender, EventArgs e)
+        {
+            pnlDashboard.Show();
+        }
+    }
 }

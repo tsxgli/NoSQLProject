@@ -25,7 +25,7 @@ namespace DAL
 
             doc["Subject"] = incident.Subject;
 
-            doc["Priority"] = incident.TicketPriority.ToString();
+            doc["Priority"] = incident.TicketPriority;
 
             doc["Deadline"] = incident.Deadline;
 
