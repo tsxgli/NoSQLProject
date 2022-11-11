@@ -1,4 +1,5 @@
-﻿using MODEL;
+﻿using Microsoft.VisualBasic;
+using MODEL;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
@@ -14,7 +15,7 @@ namespace DAL
         public IMongoCollection<Ticket> collection;
         
         public IncidentDAO() { 
-     
+           
         }
 
         public void AddNewIncident(Ticket incident)
@@ -24,7 +25,7 @@ namespace DAL
 
             doc["Subject"] = incident.Subject;
 
-            doc["Priority"] = incident.TicketPriority.ToString();
+            doc["Priority"] = incident.TicketPriority;
 
             doc["Deadline"] = incident.Deadline;
 
@@ -36,10 +37,16 @@ namespace DAL
 
             doc["ReportedDate"] = incident.ReportedDate;
 
+            doc["Status"]= incident.TicketStatus.ToString();
+
             //inserts document into ticketcollection
             InsertRecord(ticketCollection, doc);
         }
 
+        public List<Ticket>GetAllIncidents()
+        {
+            return GetIncidents(GetAll(ticketCollection));
+        }
         private List<Ticket> GetIncidents(List<BsonDocument> docs) //get all incidents
         {
             List<Ticket> incidents = new List<Ticket>();
@@ -66,6 +73,50 @@ namespace DAL
         {
             EmployeeDAO employeeDAO= new EmployeeDAO();
             return employeeDAO.GetEmployee("Employees", id);
+        }
+        public void UpdateIncident(Ticket ticket)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", ticket.id);
+            var update = Builders<BsonDocument>.Update.Set("Subject", ticket.Subject)
+                                                        .Set("Priority", ticket.TicketPriority)
+                                                        .Set("Deadline", ticket.Deadline)
+                                                        .Set("IncidentType", ticket.TicketType)
+                                                        .Set("UserReported", ticket.UserReported.Id)
+                                                        .Set("Description", ticket.Description)
+                                                        .Set("ReportedDate", ticket.ReportedDate)
+                                                        .Set("Status", ticket.TicketStatus);
+            GetCollection(ticketCollection).UpdateOne(filter, update);
+        }
+        public void DeleteIncident(ObjectId id)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            GetCollection(ticketCollection).DeleteOne(filter);
+        }
+
+        public List<Ticket> SortTicketsByPriority()
+        {
+            List<Ticket> sortedTickets = new List<Ticket>();
+            List<BsonDocument> sortedList = GetCollection(ticketCollection).Find(Builders<BsonDocument>.Filter.Empty).Sort(Builders<BsonDocument>.Sort.Ascending("Priority")).ToList();
+
+            foreach (var doc in sortedList)
+            {
+                Ticket ticket = new Ticket()
+                {
+                    id = doc["_id"].AsObjectId,
+                    Subject = doc["Subject"].ToString(),
+                    ReportedDate = DateTime.Parse(doc["ReportedDate"].ToString()),
+                    TicketPriority = (TicketPriority)Enum.Parse(typeof(TicketPriority), doc["Priority"].ToString()),
+                    UserReported = GetEmployee((ObjectId)doc["UserReported"]),
+                    TicketType = (TicketType)Enum.Parse(typeof(TicketType), doc["IncidentType"].ToString()),
+                    Description = doc["Description"].ToString(),
+                    Deadline = DateTime.Parse(doc["Deadline"].ToString()),
+                    TicketStatus = (TicketStatus)Enum.Parse(typeof(TicketStatus), doc["Status"].ToString())
+                };
+                sortedTickets.Add(ticket);
+
+            }
+
+            return sortedTickets;
         }
     }
 }

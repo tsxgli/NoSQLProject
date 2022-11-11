@@ -36,5 +36,10 @@ namespace LOGIC
         {
             employeeDAO.UpdateEmployeePassword(employee, newPassword);
         }
+            
+        public void UpdateEmployee(Employee employee)
+        {
+            employeeDAO.UpdateEmployee(employee);   
+        }
     }
 }

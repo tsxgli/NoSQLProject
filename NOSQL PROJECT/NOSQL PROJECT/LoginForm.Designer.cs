@@ -58,7 +58,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLogin.ForeColor = System.Drawing.Color.Black;
-            this.btnLogin.Location = new System.Drawing.Point(173, 531);
+            this.btnLogin.Location = new System.Drawing.Point(172, 531);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(163, 47);
@@ -129,7 +129,7 @@
             this.lblDescription.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDescription.Location = new System.Drawing.Point(23, 118);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(465, 117);
+            this.lblDescription.Size = new System.Drawing.Size(463, 117);
             this.lblDescription.TabIndex = 5;
             this.lblDescription.Text = "Please provide login credentials to login to NoDesk for The Garden Group";
             this.lblDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
