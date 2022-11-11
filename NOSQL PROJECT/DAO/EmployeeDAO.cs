@@ -19,13 +19,72 @@ namespace DAL
         public List<Employee> GetAllEmployees()
         {
             //return ReadEmployee(GetAll(employeeCollection));
-
-            List<Employee> employees = new List<Employee>();
-            var collection = base.GetCollection(employeeCollection);
-            var documents = collection.Find(new BsonDocument()).ToList();
-
-            foreach (BsonDocument doc in documents)
+            try
             {
+                List<Employee> employees = new List<Employee>();
+                var collection = base.GetCollection(employeeCollection);
+                var documents = collection.Find(new BsonDocument()).ToList();
+
+                foreach (BsonDocument doc in documents)
+                {
+                    Employee employee = new Employee
+                    {
+                        Id = doc["_id"].AsObjectId,
+                        FirstName = doc["First Name"].ToString(),
+                        LastName = doc["LastName"].ToString(),
+                        Email = doc["Email"].ToString(),
+                        Username = doc["Username"].ToString(),
+                        UserType = (UserType)Enum.Parse(typeof(UserType), doc["UserType"].ToString()),
+                        PhoneNumber = doc["PhoneNo"].ToString(),
+                        Location = doc["Location/Branch"].ToString(),
+                        NoTicketsReported = (int)doc["NoTicketsReported"],
+                        Password = doc["Password"].ToString(),
+                    };
+                    employees.Add(employee);
+                }
+
+                return employees;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Something went wrong while getting all employees:{e.Message}");
+                
+            }
+           
+        }
+
+        public void AddNewEmployeeToDatabase(Employee employee)
+        {
+            try
+            {
+                BsonDocument doc = new BsonDocument();
+
+                doc["First Name"] = employee.FirstName;
+                doc["LastName"] = employee.LastName;
+                doc["UserType"] = employee.UserType;
+                doc["Email"] = employee.Email;
+                doc["PhoneNo"] = employee.PhoneNumber;
+                doc["Location/Branch"] = employee.Location;
+                doc["NoTicketsReported"] = 0;
+                doc["Password"] = employee.Password;
+                doc["Username"] = employee.Username;
+
+
+                InsertRecord(employeeCollection, doc);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception($"There was something wrong when adding new employee: {e.Message}");
+            }
+           
+        }
+
+        public Employee GetEmployee(string collection,ObjectId id)
+        {
+            try
+            {
+                BsonDocument doc = GetDocumentByObjectId(collection, id);
                 Employee employee = new Employee
                 {
                     Id = doc["_id"].AsObjectId,
@@ -39,60 +98,35 @@ namespace DAL
                     NoTicketsReported = (int)doc["NoTicketsReported"],
                     Password = doc["Password"].ToString(),
                 };
-                employees.Add(employee);
+                return employee;
             }
-
-            return employees;
-        }
-
-        public void AddNewEmployeeToDatabase(Employee employee)
-        {
-            BsonDocument doc = new BsonDocument();
-
-            doc["First Name"] = employee.FirstName;
-            doc["LastName"]=employee.LastName;
-            doc["UserType"] = employee.UserType;
-            doc["Email"]=employee.Email;
-            doc["PhoneNo"] = employee.PhoneNumber;
-            doc["Location/Branch"] = employee.Location;
-            doc["NoTicketsReported"] = 0;
-            doc["Password"] = employee.Password;
-            doc["Username"] = employee.Username;
-
-
-            InsertRecord(employeeCollection, doc);
-        }
-
-        public Employee GetEmployee(string collection,ObjectId id)
-        {
-            BsonDocument doc = GetDocumentByObjectId(collection,id);
-            Employee employee = new Employee
+            catch (Exception e)
             {
-                Id = doc["_id"].AsObjectId,
-                FirstName = doc["First Name"].ToString(),
-                LastName = doc["LastName"].ToString(),
-                Email = doc["Email"].ToString(),
-                Username = doc["Username"].ToString(),
-                UserType = (UserType)Enum.Parse(typeof(UserType), doc["UserType"].ToString()),
-                PhoneNumber = doc["PhoneNo"].ToString(),
-                Location = doc["Location/Branch"].ToString(),
-                NoTicketsReported = (int)doc["NoTicketsReported"],
-                Password = doc["Password"].ToString(),
-            };
-            return employee;
+
+                throw new Exception($"Something went wrong when getting the employee: {e.Message} " );
+            }
+           
         }
         public void UpdateEmployee(Employee employee)
         {
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", employee.Id);
-            var update = Builders<BsonDocument>.Update.Set("First Name", employee.FirstName)
-                                                        .Set("LastName", employee.LastName)
-                                                        .Set("UserType", employee.UserType)
-                                                        .Set("Username", employee.Username)
-                                                        .Set("PhoneNo", employee.PhoneNumber)
-                                                        .Set("Location/Branch", employee.Location)
-                                                        .Set("Password", employee.Password)
-                                                        .Set("NoTicketsReported", employee.NoTicketsReported);
-            GetCollection(employeeCollection).UpdateOne(filter, update);
+            try
+            {
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", employee.Id);
+                var update = Builders<BsonDocument>.Update.Set("First Name", employee.FirstName)
+                                                            .Set("LastName", employee.LastName)
+                                                            .Set("UserType", employee.UserType)
+                                                            .Set("Username", employee.Username)
+                                                            .Set("PhoneNo", employee.PhoneNumber)
+                                                            .Set("Location/Branch", employee.Location)
+                                                            .Set("Password", employee.Password)
+                                                            .Set("NoTicketsReported", employee.NoTicketsReported);
+                GetCollection(employeeCollection).UpdateOne(filter, update);
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Something went wrong when updating user:{e.Message} ");
+            }
+           
         }
 
         //method to update the password of an employee
