@@ -50,7 +50,14 @@ namespace NOSQL_PROJECT
             password = GenerateRandomPassword();
 
             pnlIncidentManagement.Visible = true;
-            DisplayIncidents(incidentLogic.GetIncidents());
+            if (currentUser.UserType != UserType.Regular)
+                DisplayIncidents(incidentLogic.GetIncidents());
+            else
+            {
+                DisplayIncidents(incidentLogic.GetIncidentByEmployeeEmail(currentUser.Email));
+                HideControls();
+            }
+
             pnlUserManagement.Visible = true;
             DisplayUsers(employeeLogic.GetAllEmployees());
 
@@ -249,10 +256,10 @@ namespace NOSQL_PROJECT
         {
             pnlCreateTicket.Visible = false;
             pnlIncidentManagement.Visible = true;
-            //if (currentUser.UserType == UserType.Regular)
-            //{
-            //    FilterIncidentsForUser();
-            //}
+            if (currentUser.UserType == UserType.Regular)
+            {
+                tickets = incidentLogic.GetIncidentByEmployeeEmail(currentUser.Email);
+            }
             listViewIncidents.Items.Clear();
             foreach (Ticket ticket in tickets)
             {
@@ -345,8 +352,15 @@ namespace NOSQL_PROJECT
             {
                 return;
             }
-            ListViewItem selectedIncident = listViewIncidents.SelectedItems[0];
-            DisplaySelectedIncident((Ticket)selectedIncident.Tag);
+            if (currentUser.UserType == UserType.ServiceDesk)
+            {
+                ListViewItem selectedIncident = listViewIncidents.SelectedItems[0];
+                DisplaySelectedIncident((Ticket)selectedIncident.Tag);
+            }
+            else
+            {
+                return;
+            }
         }
         private void DisplaySelectedIncident(Ticket ticket)
         {
@@ -565,6 +579,14 @@ namespace NOSQL_PROJECT
             }
             DisplayIncidents(sortedtickets);
             listViewIncidents.Refresh();
+        }
+
+        private void HideControls()
+        {
+            txtboxFilterEmailIncidents.Hide();
+            btnSearchTicketByEmail.Hide();
+            txtboxFilterByKeyword.Hide();
+            tabControl1.TabPages.Remove(tabUserManagement);
         }
     }
 }

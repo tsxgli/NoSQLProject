@@ -54,6 +54,7 @@
             this.date = new System.Windows.Forms.ColumnHeader();
             this.Status = new System.Windows.Forms.ColumnHeader();
             this.Description = new System.Windows.Forms.ColumnHeader();
+            this.Priority = new System.Windows.Forms.ColumnHeader();
             this.btnCreateNewIncident = new System.Windows.Forms.Button();
             this.txtboxFilterEmailIncidents = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -112,7 +113,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.Priority = new System.Windows.Forms.ColumnHeader();
             this.tabControl1.SuspendLayout();
             this.tabDashboard.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -386,6 +386,10 @@
             // 
             this.Description.Text = "Description";
             this.Description.Width = 200;
+            // 
+            // Priority
+            // 
+            this.Priority.Text = "Priority";
             // 
             // btnCreateNewIncident
             // 
@@ -1034,10 +1038,6 @@
             this.label17.Size = new System.Drawing.Size(80, 20);
             this.label17.TabIndex = 13;
             this.label17.Text = "First name:";
-            // 
-            // Priority
-            // 
-            this.Priority.Text = "Priority";
             // 
             // MainForm2
             // 

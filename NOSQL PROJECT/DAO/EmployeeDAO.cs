@@ -108,6 +108,32 @@ namespace DAL
             GetCollection(employeeCollection).UpdateOne(filter, update);
         }
 
+
+        public List<Employee> GetEmployeeByEmail(string letters)
+        {
+            List<Employee> employees = new List<Employee>();
+            var filter = Builders<BsonDocument>.Filter.Regex("Email", letters);
+            var list = GetCollection(employeeCollection).Find(filter).ToList();
+            foreach (var doc in list)
+            {
+                Employee employee = new Employee
+                {
+                    Id = doc["_id"].AsObjectId,
+                    FirstName = doc["First Name"].ToString(),
+                    LastName = doc["LastName"].ToString(),
+                    Email = doc["Email"].ToString(),
+                    Username = doc["Username"].ToString(),
+                    UserType = (UserType)Enum.Parse(typeof(UserType), doc["UserType"].ToString()),
+                    PhoneNumber = doc["PhoneNo"].ToString(),
+                    Location = doc["Location/Branch"].ToString(),
+                    NoTicketsReported = (int)doc["NoTicketsReported"],
+                    Password = doc["Password"].ToString(),
+                };
+                employees.Add(employee);
+            }
+            return employees;
+        }
+
     }
 
 

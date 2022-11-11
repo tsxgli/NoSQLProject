@@ -52,5 +52,10 @@ namespace LOGIC
         {
             return incidentDAO.SortTicketsByPriority();
         }
+
+        public List<Ticket> GetIncidentByEmployeeEmail(string letters)
+        {
+            return incidentDAO.GetIncidentByEmployeeEmail(letters);
+        }
     }
 }
