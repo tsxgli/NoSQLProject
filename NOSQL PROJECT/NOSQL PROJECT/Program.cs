@@ -18,11 +18,14 @@ namespace NOSQL_PROJECT
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 <<<<<<< HEAD
+<<<<<<< HEAD
            
             Employee em
                 = new Employee();
             Application.Run(new MainForm(em));
 =======
+=======
+>>>>>>> parent of d00917e (Merge branch 'Trying-to-merge-with-jo-new-code' into RARES)
             Application.Run(new LoginForm());
 >>>>>>> parent of d00917e (Merge branch 'Trying-to-merge-with-jo-new-code' into RARES)
         }
