@@ -794,7 +794,7 @@
             this.btnAddNewUser.TabIndex = 22;
             this.btnAddNewUser.Text = "+ ADD NEW USER";
             this.btnAddNewUser.UseVisualStyleBackColor = false;
-            this.btnAddNewUser.Click += new System.EventHandler(this.button2_Click);
+            this.btnAddNewUser.Click += new System.EventHandler(this.btnCreateUserClick);
             // 
             // txtboxFilterEmailUsers
             // 
@@ -1048,7 +1048,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm2";
             this.Text = "MainForm2";
-            this.Load += new System.EventHandler(this.MainForm2_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabDashboard.ResumeLayout(false);
             this.pnlDashboard.ResumeLayout(false);

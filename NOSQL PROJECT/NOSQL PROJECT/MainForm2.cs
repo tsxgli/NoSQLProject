@@ -26,17 +26,13 @@ namespace NOSQL_PROJECT
         Employee currentUser;
         List<Employee> employees;
         Employee selectedUser;
+
         //password that is going to be sent in an email
         string password;
 
         public MainForm2(Employee currentUser)
         {
             this.currentUser = currentUser;
-            //if(currentUser.UserType == UserType.Regular)
-            //{
-            //    tabControl1.TabPages[2].Visible = false;
-            //}
-            //this.currentEmployee = currentEmployee
             InitializeComponent();
             HideCRUDTools();
             employeeLogic = new EmployeeLogic();
@@ -47,7 +43,7 @@ namespace NOSQL_PROJECT
             //add all the user names to the combo box
             PopulateComboBoxWithUserNames();
             // generate a random password for the new user 
-            password = GenerateRandomPassword();
+            password = PasswordGenerator.GenerateRandomPassword();
 
             pnlIncidentManagement.Visible = true;
             if (currentUser.UserType != UserType.Regular)
@@ -65,6 +61,7 @@ namespace NOSQL_PROJECT
             GenerateUnresolvedIncidentsChart();
         }
 
+        #region Create new incident 
         public void AddIncidentToDB()
         {
             incidentLogic = new IncidentLogic();
@@ -114,28 +111,6 @@ namespace NOSQL_PROJECT
             //add ticket to database
             incidentLogic.AddNewIncident(ticket);
         }
-        public void PopulateComboBoxWithUserNames()
-        {
-            foreach (Employee e in employees)
-            {
-                comb_ReportedByUser.Items.Add($"{e.FirstName} {e.LastName}");
-            }
-        }
-
-        private void btnAddUser_Click(object sender, EventArgs e)
-        {
-            AddEmployeeToDatabase();
-            MessageBox.Show("Employee has been added to database");
-            ClearUserContentBoxes();
-            pnlCreateUser.Hide();
-            pnlUserManagement.Show();
-        }
-
-        private void MainForm2_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSubmitTicket_Click(object sender, EventArgs e)
         {
             AddIncidentToDB();
@@ -146,13 +121,6 @@ namespace NOSQL_PROJECT
             pnlIncidentManagement.Show();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            // hide current panel and show the display users panel 
-            pnlCreateUser.Visible = false;
-            pnlUserManagement.Visible = true;
-            DisplayUsers(employeeLogic.GetAllEmployees());
-        }
         private void btn_CancelIncident_Click(object sender, EventArgs e)
         {
             // hide current panel and show the display incidents panel 
@@ -160,7 +128,19 @@ namespace NOSQL_PROJECT
             pnlIncidentManagement.Visible = true;
             DisplayIncidents(incidentLogic.GetIncidents());
         }
+        #endregion
 
+        #region Add employee names to combobox
+        public void PopulateComboBoxWithUserNames()
+        {
+            foreach (Employee e in employees)
+            {
+                comb_ReportedByUser.Items.Add($"{e.FirstName} {e.LastName}");
+            }
+        }
+        #endregion
+
+        #region Create employee
         public void AddEmployeeToDatabase()
         {
             incidentLogic = new IncidentLogic();
@@ -190,52 +170,105 @@ namespace NOSQL_PROJECT
 
             if (checkBoxSendEmail.Checked)
             {
-                SendEmail();
+                EmailSender.SendEmail(employee.Email, password);
             }
             employeeLogic.AddNewEmployeeToDatabase(employee);
         }
 
-
-        public string GenerateRandomPassword()
+        private void btnAddUser_Click(object sender, EventArgs e)
         {
-            string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrs";
-            string finalPassword = "";
-            Random random = new Random();
-
-            for (int i = 0; i < 7; i++)
-            {
-                finalPassword += letters[random.Next(0, letters.Length)];
-            }
-            return finalPassword;
+            AddEmployeeToDatabase();
+            MessageBox.Show("Employee has been added to database");
+            ClearUserContentBoxes();
+            pnlCreateUser.Hide();
+            pnlUserManagement.Show();
+        }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            // hide current panel and show the display users panel 
+            pnlCreateUser.Visible = false;
+            pnlUserManagement.Visible = true;
+            DisplayUsers(employeeLogic.GetAllEmployees());
         }
 
-        public void SendEmail()
-        {
-            MailMessage mail = new MailMessage();
-            mail.From = new MailAddress("nosqlproject2.1@gmail.com");
-            mail.To.Add(txtEmail.Text);
-            mail.Subject = "NoDesk password";
-            mail.Body = $"Thank you for signing up for NoDesk. \nYour new password is {password}";
-            mail.IsBodyHtml = true;
+        #endregion
 
-            using SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.Credentials = new NetworkCredential("nosqlproject2.1@gmail.com", "kytvrwgerndngubn");
-            smtp.EnableSsl = true;
-            smtp.Send(mail);
-        }
+        #region User Listview Controls
 
-
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCreateUserClick(object sender, EventArgs e)
         {
             pnlUserManagement.Visible = false;
             pnlCreateUser.Visible = true;
         }
 
+        private void listViewOverviewUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewOverviewUsers.SelectedItems.Count == 0)
+            {
+                return;
+            }
+            ListViewItem selectedItem = listViewOverviewUsers.SelectedItems[0];
+            selectedUser = (Employee)selectedItem.Tag;
+
+            tabControl1.SelectedTab = tabIncidentManagement;
+            txtboxFilterEmailIncidents.Text = selectedUser.Email;
+            button1_Click(sender, e);
+            selectedUser = null;
+        }
+
+        #endregion
+
+        #region Incident Listview controls 
         private void btnCreateNewIncident_Click(object sender, EventArgs e)
         {
             pnlIncidentManagement.Visible = false;
             pnlCreateTicket.Visible = true;
         }
+
+        private void listViewIncidents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewIncidents.SelectedItems.Count == 0)
+            {
+                return;
+            }
+            if (currentUser.UserType == UserType.ServiceDesk)
+            {
+                ListViewItem selectedIncident = listViewIncidents.SelectedItems[0];
+                DisplaySelectedIncident((Ticket)selectedIncident.Tag);
+            }
+            else
+            {
+                return;
+            }
+        }
+        private void DisplaySelectedIncident(Ticket ticket)
+        {
+            pnlIncidentManagement.Visible = false;
+            pnlCreateTicket.Visible = true;
+            btnSubmitTicket.Hide();
+            btn_CancelIncident.Location = new Point(0, 0);
+            btnUpdateIncident.Show();
+            btnDeleteIncident.Show();
+            lblstatus.Show();
+            comboboxStatus.Show();
+            lblIncidentHeading.Text = "Incident Overview";
+
+            ComboboxStatus();
+
+            lblTicketIdStore.Text = ticket.id.ToString();
+            txtIncidentSubject.Text = ticket.Subject;
+            comb_TypeIncident.Text = ticket.TicketType.ToString();
+            comb_ReportedByUser.Text = $"{ticket.UserReported.FirstName} {ticket.UserReported.LastName}";
+            comb_IncidentPriority.Text = ticket.TicketPriority.ToString();
+            dtPick_IncidentTimeReported.Text = ticket.ReportedDate.ToString();
+            dtp_Deadline.Text = ticket.Deadline.ToString();
+            txt_IncidentDescription.Text = ticket.Description;
+            comboboxStatus.Text = ticket.TicketStatus.ToString();
+
+        }
+        #endregion
+
+        #region Display Users
         private void DisplayUsers(List<Employee> employees)
         {
             listViewOverviewUsers.Items.Clear();
@@ -252,6 +285,9 @@ namespace NOSQL_PROJECT
                 listViewOverviewUsers.Items.Add(item);
             }
         }
+        #endregion
+
+        #region Display Incidents
         private void DisplayIncidents(List<Ticket> tickets)
         {
             pnlCreateTicket.Visible = false;
@@ -280,11 +316,16 @@ namespace NOSQL_PROJECT
                     listViewIncidents.Items.Add(item);
             }
         }
+        #endregion
 
+        #region Filter 
         private void button1_Click(object sender, EventArgs e)
         {
             FilterIncidentsForUser();
         }
+      
+
+
         private void FilterIncidentsForUser()
         {
             List<Ticket> tickets = incidentLogic.GetIncidents();
@@ -331,62 +372,9 @@ namespace NOSQL_PROJECT
             }
         }
 
-        private void listViewOverviewUsers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listViewOverviewUsers.SelectedItems.Count == 0)
-            {
-                return;
-            }
-            ListViewItem selectedItem = listViewOverviewUsers.SelectedItems[0];
-            selectedUser = (Employee)selectedItem.Tag;
+        #endregion
 
-            tabControl1.SelectedTab = tabIncidentManagement;
-            txtboxFilterEmailIncidents.Text = selectedUser.Email;
-            button1_Click(sender, e);
-            selectedUser = null;
-        }
-
-        private void listViewIncidents_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listViewIncidents.SelectedItems.Count == 0)
-            {
-                return;
-            }
-            if (currentUser.UserType == UserType.ServiceDesk)
-            {
-                ListViewItem selectedIncident = listViewIncidents.SelectedItems[0];
-                DisplaySelectedIncident((Ticket)selectedIncident.Tag);
-            }
-            else
-            {
-                return;
-            }
-        }
-        private void DisplaySelectedIncident(Ticket ticket)
-        {
-            pnlIncidentManagement.Visible = false;
-            pnlCreateTicket.Visible = true;
-            btnSubmitTicket.Hide();
-            btn_CancelIncident.Location = new Point(0, 0);
-            btnUpdateIncident.Show();
-            btnDeleteIncident.Show();
-            lblstatus.Show();
-            comboboxStatus.Show();
-            lblIncidentHeading.Text = "Incident Overview";
-
-            ComboboxStatus();
-
-            lblTicketIdStore.Text = ticket.id.ToString();
-            txtIncidentSubject.Text = ticket.Subject;
-            comb_TypeIncident.Text = ticket.TicketType.ToString();
-            comb_ReportedByUser.Text = $"{ticket.UserReported.FirstName} {ticket.UserReported.LastName}";
-            comb_IncidentPriority.Text = ticket.TicketPriority.ToString();
-            dtPick_IncidentTimeReported.Text = ticket.ReportedDate.ToString();
-            dtp_Deadline.Text = ticket.Deadline.ToString();
-            txt_IncidentDescription.Text = ticket.Description;
-            comboboxStatus.Text = ticket.TicketStatus.ToString();
-
-        }
+        #region Combobox Status 
         private void ComboboxStatus()
         {
             comboboxStatus.Items.Clear();
@@ -399,7 +387,9 @@ namespace NOSQL_PROJECT
             else if (comboboxStatus.Text == "Escalated") { comboboxStatus.BackColor = Color.Purple; }
             else { comboboxStatus.BackColor = Color.Orange; }
         }
+        #endregion
 
+        #region CRUD controls
         private void btnDeleteIncident_Click(object sender, EventArgs e)
         {
             ObjectId id = ObjectId.Parse(lblTicketIdStore.Text);
@@ -496,8 +486,9 @@ namespace NOSQL_PROJECT
             btnUpdateIncident.Hide();
             btnDeleteIncident.Hide();
         }
+        #endregion
 
-
+        #region Dashboard
         public void GenerateUnresolvedIncidentsChart()
         {
             var plt = new ScottPlot.Plot(350, 300);
@@ -535,6 +526,17 @@ namespace NOSQL_PROJECT
             plt.SaveFig("incidentsPastDeadlineChart.png");
             incidentsPastDeadlinePictureBox.Load("incidentsPastDeadlineChart.png");
         }
+
+        private void showTicketsListBtn_Click_1(object sender, EventArgs e)
+        {
+            pnlDashboard.Hide();
+            pnlIncidentManagement.Show();
+            tabControl1.SelectedTab = tabIncidentManagement;
+        }
+
+        #endregion
+
+        #region Clear Textboxes
         private void ClearIncidentContentBoxes()
         {
             dtPick_IncidentTimeReported.Value = DateTime.Today;
@@ -557,19 +559,9 @@ namespace NOSQL_PROJECT
             comboUserType.Text = "";
             comboLocation.Text = "";
         }
+        #endregion
 
-        private void showTicketsListBtn_Click_1(object sender, EventArgs e)
-        {
-            pnlDashboard.Hide();
-            pnlIncidentManagement.Show();
-            //tabIncidentManagement.Show();
-        }
-
-        private void tabControl1_Click(object sender, EventArgs e)
-        {
-            pnlDashboard.Show();
-        }
-
+        #region Sorting Button
         private void sortByPriorityBtn_Click(object sender, EventArgs e)
         {
             List<Ticket> sortedtickets = incidentLogic.SortTicketsByPriority();
@@ -580,13 +572,22 @@ namespace NOSQL_PROJECT
             DisplayIncidents(sortedtickets);
             listViewIncidents.Refresh();
         }
+        #endregion
 
+        #region Hide controls when user is regular employee
         private void HideControls()
         {
             txtboxFilterEmailIncidents.Hide();
             btnSearchTicketByEmail.Hide();
             txtboxFilterByKeyword.Hide();
             tabControl1.TabPages.Remove(tabUserManagement);
+        }
+        #endregion
+
+
+        private void tabControl1_Click(object sender, EventArgs e)
+        {
+            pnlDashboard.Show();
         }
     }
 }
