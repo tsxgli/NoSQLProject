@@ -27,6 +27,22 @@ namespace LOGIC
         {
             incidentDAO.DeleteIncident(id);
         }
+
+        public List<Ticket> GetIncidentsByStatus(TicketStatus status)
+        {
+            List<Ticket> incidents = GetIncidents();
+            List<Ticket> incidentsByStatus = new List<Ticket>();
+
+            foreach (var  incident in incidents)
+            {
+                if(incident.TicketStatus==status||(int)incident.TicketStatus==(int)status)
+                {
+                    incidentsByStatus.Add(incident);
+                }
+            }
+            return incidentsByStatus;
+        }
+
         public void UpdateIncident(Ticket ticket)
         {
             incidentDAO.UpdateIncident(ticket);
