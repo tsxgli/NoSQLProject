@@ -36,6 +36,7 @@ namespace DAL
                     UserType = (UserType)Enum.Parse(typeof(UserType), doc["UserType"].ToString()),
                     PhoneNumber = doc["PhoneNo"].ToString(),
                     Location = doc["Location/Branch"].ToString(),
+                    NoTicketsReported = (int)doc["NoTicketsReported"],
                     Password = doc["Password"].ToString(),
                 };
                 employees.Add(employee);
@@ -75,10 +76,25 @@ namespace DAL
                 UserType = (UserType)Enum.Parse(typeof(UserType), doc["UserType"].ToString()),
                 PhoneNumber = doc["PhoneNo"].ToString(),
                 Location = doc["Location/Branch"].ToString(),
+                NoTicketsReported = (int)doc["NoTicketsReported"],
                 Password = doc["Password"].ToString(),
             };
             return employee;
         }
+        public void UpdateEmployee(Employee employee)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", employee.Id);
+            var update = Builders<BsonDocument>.Update.Set("First Name", employee.FirstName)
+                                                        .Set("LastName", employee.LastName)
+                                                        .Set("UserType", employee.UserType)
+                                                        .Set("Username", employee.Username)
+                                                        .Set("PhoneNo", employee.PhoneNumber)
+                                                        .Set("Location/Branch", employee.Location)
+                                                        .Set("Password", employee.Password)
+                                                        .Set("NoTicketsReported", employee.NoTicketsReported);
+            GetCollection(employeeCollection).UpdateOne(filter, update);
+        }
+
 
     }
 

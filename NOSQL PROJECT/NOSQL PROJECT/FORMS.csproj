@@ -13,7 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DAO\DAL.csproj" />
     <ProjectReference Include="..\LOGIC\LOGIC.csproj" />
+    <ProjectReference Include="..\MODEL\MODEL.csproj" />
   </ItemGroup>
 
 </Project>

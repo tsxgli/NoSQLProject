@@ -96,54 +96,52 @@ C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Deb
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\MODEL.pdb
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.MainForm2.resources
 C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.MainForm2.resources
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.exe
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.deps.json
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.runtimeconfig.json
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.runtimeconfig.dev.json
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.pdb
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\DnsClient.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\Microsoft.Win32.Registry.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\MongoDB.Bson.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\MongoDB.Driver.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\MongoDB.Driver.Core.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\MongoDB.Libmongocrypt.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\ScottPlot.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\ScottPlot.WinForms.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\SharpCompress.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\System.Security.AccessControl.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\System.Security.Principal.Windows.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\Microsoft.Win32.Registry.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\linux\native\libsnappy64.so
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\linux\native\libzstd.so
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\osx\native\libsnappy64.dylib
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\osx\native\libzstd.dylib
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\win\native\libzstd.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy32.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\linux\native\libmongocrypt.so
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\osx\native\libmongocrypt.dylib
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\win\native\mongocrypt.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Security.AccessControl.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\DAL.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\LOGIC.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\MODEL.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\LOGIC.pdb
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\DAL.pdb
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\MODEL.pdb
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.csproj.AssemblyReference.cache
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.LoginForm.resources
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.MainForm.resources
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.MainForm2.resources
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.csproj.GenerateResource.cache
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.GeneratedMSBuildEditorConfig.editorconfig
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.AssemblyInfoInputs.cache
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.AssemblyInfo.cs
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.csproj.CoreCompileInputs.cache
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.csproj.CopyComplete
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.pdb
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.genruntimeconfig.cache
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.exe
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.deps.json
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.runtimeconfig.json
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.runtimeconfig.dev.json
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.pdb
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\DnsClient.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\Microsoft.Win32.Registry.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\MongoDB.Bson.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\MongoDB.Driver.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\MongoDB.Driver.Core.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\MongoDB.Libmongocrypt.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\SharpCompress.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\System.Security.AccessControl.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\System.Security.Principal.Windows.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\Microsoft.Win32.Registry.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\linux\native\libsnappy64.so
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\linux\native\libzstd.so
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\osx\native\libsnappy64.dylib
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\osx\native\libzstd.dylib
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\win\native\libzstd.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy32.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\linux\native\libmongocrypt.so
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\win\native\mongocrypt.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Security.AccessControl.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\LOGIC.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\MODEL.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\LOGIC.pdb
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\MODEL.pdb
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.csproj.AssemblyReference.cache
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.LoginForm.resources
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.MainForm.resources
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.MainForm2.resources
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.csproj.GenerateResource.cache
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.AssemblyInfoInputs.cache
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.AssemblyInfo.cs
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.csproj.CoreCompileInputs.cache
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.csproj.CopyComplete
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.pdb
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.genruntimeconfig.cache

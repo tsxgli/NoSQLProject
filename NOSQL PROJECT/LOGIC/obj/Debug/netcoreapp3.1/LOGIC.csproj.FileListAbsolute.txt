@@ -28,18 +28,18 @@ C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netco
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.csproj.CopyComplete
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.dll
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.pdb
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\LOGIC\bin\Debug\netcoreapp3.1\LOGIC.deps.json
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\LOGIC\bin\Debug\netcoreapp3.1\LOGIC.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\LOGIC\bin\Debug\netcoreapp3.1\LOGIC.pdb
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\LOGIC\bin\Debug\netcoreapp3.1\DAL.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\LOGIC\bin\Debug\netcoreapp3.1\MODEL.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\LOGIC\bin\Debug\netcoreapp3.1\DAL.pdb
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\LOGIC\bin\Debug\netcoreapp3.1\MODEL.pdb
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.csproj.AssemblyReference.cache
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.GeneratedMSBuildEditorConfig.editorconfig
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.AssemblyInfoInputs.cache
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.AssemblyInfo.cs
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.csproj.CoreCompileInputs.cache
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.csproj.CopyComplete
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.dll
-C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.pdb
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\LOGIC\bin\Debug\netcoreapp3.1\LOGIC.deps.json
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\LOGIC\bin\Debug\netcoreapp3.1\LOGIC.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\LOGIC\bin\Debug\netcoreapp3.1\LOGIC.pdb
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\LOGIC\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\LOGIC\bin\Debug\netcoreapp3.1\MODEL.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\LOGIC\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\LOGIC\bin\Debug\netcoreapp3.1\MODEL.pdb
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.csproj.AssemblyReference.cache
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.AssemblyInfoInputs.cache
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.AssemblyInfo.cs
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.csproj.CoreCompileInputs.cache
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.csproj.CopyComplete
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.dll
+C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.pdb
