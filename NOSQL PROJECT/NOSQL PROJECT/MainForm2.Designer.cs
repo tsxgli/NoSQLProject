@@ -44,6 +44,7 @@
             this.incidentsPastDeadlineGroupBox = new System.Windows.Forms.GroupBox();
             this.tabIncidentManagement = new System.Windows.Forms.TabPage();
             this.pnlIncidentManagement = new System.Windows.Forms.Panel();
+            this.btnSearchTicketByKeyword = new System.Windows.Forms.Button();
             this.sortByPriorityBtn = new System.Windows.Forms.Button();
             this.txtboxFilterByKeyword = new System.Windows.Forms.TextBox();
             this.btnSearchTicketByEmail = new System.Windows.Forms.Button();
@@ -285,6 +286,7 @@
             // 
             // pnlIncidentManagement
             // 
+            this.pnlIncidentManagement.Controls.Add(this.btnSearchTicketByKeyword);
             this.pnlIncidentManagement.Controls.Add(this.sortByPriorityBtn);
             this.pnlIncidentManagement.Controls.Add(this.txtboxFilterByKeyword);
             this.pnlIncidentManagement.Controls.Add(this.btnSearchTicketByEmail);
@@ -297,6 +299,18 @@
             this.pnlIncidentManagement.Name = "pnlIncidentManagement";
             this.pnlIncidentManagement.Size = new System.Drawing.Size(1025, 629);
             this.pnlIncidentManagement.TabIndex = 18;
+            // 
+            // btnSearchTicketByKeyword
+            // 
+            this.btnSearchTicketByKeyword.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearchTicketByKeyword.BackgroundImage")));
+            this.btnSearchTicketByKeyword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSearchTicketByKeyword.Location = new System.Drawing.Point(232, 141);
+            this.btnSearchTicketByKeyword.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnSearchTicketByKeyword.Name = "btnSearchTicketByKeyword";
+            this.btnSearchTicketByKeyword.Size = new System.Drawing.Size(34, 34);
+            this.btnSearchTicketByKeyword.TabIndex = 28;
+            this.btnSearchTicketByKeyword.UseVisualStyleBackColor = true;
+            this.btnSearchTicketByKeyword.Click += new System.EventHandler(this.btnSearchTicketByKeyword_Click);
             // 
             // sortByPriorityBtn
             // 
@@ -333,7 +347,7 @@
             this.btnSearchTicketByEmail.Size = new System.Drawing.Size(34, 34);
             this.btnSearchTicketByEmail.TabIndex = 23;
             this.btnSearchTicketByEmail.UseVisualStyleBackColor = true;
-            this.btnSearchTicketByEmail.Click += new System.EventHandler(this.button1_Click);
+            this.btnSearchTicketByEmail.Click += new System.EventHandler(this.btnSearchTicketByEmail_Click);
             // 
             // listViewIncidents
             // 
@@ -1156,5 +1170,6 @@
         private System.Windows.Forms.GroupBox incidentsPastDeadlineGroupBox;
         private System.Windows.Forms.Button sortByPriorityBtn;
         private System.Windows.Forms.ColumnHeader Priority;
+        private System.Windows.Forms.Button btnSearchTicketByKeyword;
     }
 }

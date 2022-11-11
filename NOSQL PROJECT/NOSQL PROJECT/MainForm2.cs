@@ -22,6 +22,7 @@ namespace NOSQL_PROJECT
         //create connection to logic layer
         IncidentLogic incidentLogic;
         EmployeeLogic employeeLogic;
+        SearchByKeywordLogic searchByKeywordLogic;
 
         Employee currentUser;
         List<Employee> employees;
@@ -37,6 +38,7 @@ namespace NOSQL_PROJECT
             HideCRUDTools();
             employeeLogic = new EmployeeLogic();
             incidentLogic = new IncidentLogic();
+            searchByKeywordLogic = new SearchByKeywordLogic();
             employees = new List<Employee>();
             // add all the employees to a list 
             employees = employeeLogic.GetAllEmployees();
@@ -200,9 +202,10 @@ namespace NOSQL_PROJECT
             pnlUserManagement.Visible = false;
             pnlCreateUser.Visible = true;
         }
-
+        
         private void listViewOverviewUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //when user is selected by service desk employee, the users tickets will be displayed in Incidentmanagement
             if (listViewOverviewUsers.SelectedItems.Count == 0)
             {
                 return;
@@ -212,7 +215,7 @@ namespace NOSQL_PROJECT
 
             tabControl1.SelectedTab = tabIncidentManagement;
             txtboxFilterEmailIncidents.Text = selectedUser.Email;
-            button1_Click(sender, e);
+            btnSearchTicketByEmail_Click(sender, e);
             selectedUser = null;
         }
 
@@ -227,6 +230,7 @@ namespace NOSQL_PROJECT
 
         private void listViewIncidents_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //when a ticket is selected the details will be displayed available for CRUD actions
             if (listViewIncidents.SelectedItems.Count == 0)
             {
                 return;
@@ -243,6 +247,7 @@ namespace NOSQL_PROJECT
         }
         private void DisplaySelectedIncident(Ticket ticket)
         {
+            //Display one selected incident for CRUD actions
             pnlIncidentManagement.Visible = false;
             pnlCreateTicket.Visible = true;
             btnSubmitTicket.Hide();
@@ -271,6 +276,7 @@ namespace NOSQL_PROJECT
         #region Display Users
         private void DisplayUsers(List<Employee> employees)
         {
+            //display the list of users for the service desk employees
             listViewOverviewUsers.Items.Clear();
             foreach (Employee employee in employees)
             {
@@ -290,6 +296,7 @@ namespace NOSQL_PROJECT
         #region Display Incidents
         private void DisplayIncidents(List<Ticket> tickets)
         {
+            //Display list of incidents with its details
             pnlCreateTicket.Visible = false;
             pnlIncidentManagement.Visible = true;
             if (currentUser.UserType == UserType.Regular)
@@ -303,7 +310,7 @@ namespace NOSQL_PROJECT
                 item.Text = ticket.id.ToString();
                 item.SubItems.Add(ticket.Subject);
                 item.SubItems.Add(ticket.UserReported.Email);
-                item.SubItems.Add(ticket.ReportedDate.ToString());
+                item.SubItems.Add(ticket.ReportedDate.Value.ToString("dd/MM/yyyy"));
 
                 item.SubItems.Add(ticket.TicketStatus.ToString());
 
@@ -319,52 +326,45 @@ namespace NOSQL_PROJECT
         #endregion
 
         #region Filter 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSearchTicketByEmail_Click(object sender, EventArgs e)
         {
+            //if keyletters are entered the incidents with the matching email will be shown
             FilterIncidentsForUser();
         }
-      
-
+        private void btnSearchTicketByKeyword_Click(object sender, EventArgs e)
+        {
+            //when keyletters are entered, the incidents with matching letters in the subject or description are shown
+            listViewIncidents.Items.Clear();
+            List<Ticket> ticketsToPrint = incidentLogic.GetIncidents();
+            if (txtboxFilterByKeyword.Text.Length > 0)
+            {
+                ticketsToPrint = searchByKeywordLogic.GetIncidentWithKeywords(txtboxFilterByKeyword.Text);
+            }
+            txtboxFilterByKeyword.Clear();
+            DisplayIncidents(ticketsToPrint);
+        }
 
         private void FilterIncidentsForUser()
         {
-            List<Ticket> tickets = incidentLogic.GetIncidents();
-            List<Ticket> filteredTickets = new List<Ticket>();
+            listViewIncidents.Items.Clear();
+            List<Ticket> ticketsToPrint = incidentLogic.GetIncidents();
 
 
             if (txtboxFilterEmailIncidents.Text.Length > 0)
             {
-                foreach (Ticket ticket in tickets)
-                {
-                    if (ticket.UserReported.Email.Contains(txtboxFilterEmailIncidents.Text))
-                    {
-                        filteredTickets.Add(ticket);
-                    }
-                }
-                txtboxFilterEmailIncidents.Clear();
-                DisplayIncidents(filteredTickets);
+                ticketsToPrint = incidentLogic.GetIncidentByEmployeeEmail(txtboxFilterEmailIncidents.Text);
             }
-            else
-            {
-                DisplayIncidents(tickets);
-            }
+            txtboxFilterEmailIncidents.Clear();
+            DisplayIncidents(ticketsToPrint);
         }
 
         private void btnSearchUserByEmail_Click(object sender, EventArgs e)
         {
+            //when keyletters are entered the users with the matching emails are shown
             List<Employee> users = employeeLogic.GetAllEmployees();
-            List<Employee> filteredUsers = new List<Employee>();
             if (txtboxFilterEmailUsers.Text.Length > 0)
             {
-                foreach (Employee employee in users)
-                {
-                    if (employee.Email.Contains(txtboxFilterEmailUsers.Text))
-                    {
-                        filteredUsers.Add(employee);
-                    }
-                }
-                txtboxFilterEmailUsers.Clear();
-                DisplayUsers(filteredUsers);
+                DisplayUsers(employeeLogic.GetEmployeeByEmail(txtboxFilterEmailUsers.Text));
             }
             else
             {
@@ -377,6 +377,7 @@ namespace NOSQL_PROJECT
         #region Combobox Status 
         private void ComboboxStatus()
         {
+            //to populate the combobox for displaying and changing the status
             comboboxStatus.Items.Clear();
             comboboxStatus.Items.Add(TicketStatus.Open);
             comboboxStatus.Items.Add(TicketStatus.Closed);
@@ -392,6 +393,7 @@ namespace NOSQL_PROJECT
         #region CRUD controls
         private void btnDeleteIncident_Click(object sender, EventArgs e)
         {
+            //delete incident out of the database
             ObjectId id = ObjectId.Parse(lblTicketIdStore.Text);
             lblTicketIdStore.Text = "";
             incidentLogic.DeleteIncident(id);
@@ -402,6 +404,7 @@ namespace NOSQL_PROJECT
 
         private void btnUpdateIncident_Click(object sender, EventArgs e)
         {
+            //update the information on an incident in the database
             Ticket ticket = new Ticket();
 
             ticket.id = ObjectId.Parse(lblTicketIdStore.Text);
@@ -460,7 +463,6 @@ namespace NOSQL_PROJECT
                     ticket.TicketStatus = TicketStatus.Open;
                     break;
             }
-
 
             incidentLogic.UpdateIncident(ticket);
             HideCRUDTools();
@@ -579,6 +581,7 @@ namespace NOSQL_PROJECT
         {
             txtboxFilterEmailIncidents.Hide();
             btnSearchTicketByEmail.Hide();
+            btnSearchTicketByKeyword.Hide();
             txtboxFilterByKeyword.Hide();
             tabControl1.TabPages.Remove(tabUserManagement);
         }
@@ -589,5 +592,7 @@ namespace NOSQL_PROJECT
         {
             pnlDashboard.Show();
         }
+
+
     }
 }
