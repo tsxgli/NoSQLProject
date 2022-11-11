@@ -1,4 +1,3 @@
-using MODEL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +17,14 @@ namespace NOSQL_PROJECT
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
            
             Employee em
                 = new Employee();
             Application.Run(new MainForm(em));
+=======
+            Application.Run(new LoginForm());
+>>>>>>> parent of d00917e (Merge branch 'Trying-to-merge-with-jo-new-code' into RARES)
         }
     }
 }

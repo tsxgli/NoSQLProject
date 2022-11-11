@@ -9,13 +9,10 @@
 
   <ItemGroup>
     <PackageReference Include="MongoDB.Bson" Version="2.17.1" />
-    <PackageReference Include="ScottPlot.WinForms" Version="4.1.59" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DAO\DAL.csproj" />
     <ProjectReference Include="..\LOGIC\LOGIC.csproj" />
-    <ProjectReference Include="..\MODEL\MODEL.csproj" />
   </ItemGroup>
 
   <ItemGroup>

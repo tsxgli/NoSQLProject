@@ -6,7 +6,6 @@ C:\Users\rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Deb
 C:\Users\rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.pdb
 C:\Users\rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.csproj.AssemblyReference.cache
 C:\Users\rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.LoginForm.resources
-C:\Users\rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.MainForm.resources
 C:\Users\rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.csproj.GenerateResource.cache
 C:\Users\rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.AssemblyInfoInputs.cache
@@ -94,8 +93,8 @@ C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Deb
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\LOGIC.pdb
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\DAL.pdb
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\MODEL.pdb
-C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.MainForm2.resources
 C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.MainForm2.resources
+<<<<<<< HEAD
 C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.exe
 C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.deps.json
 C:\Users\Jo\OneDrive - Hogeschool Inholland\Documents\Inholland\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\FORMS.runtimeconfig.json
@@ -202,3 +201,9 @@ C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcorea
 C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.genruntimeconfig.cache
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.DashboardForm.resources
 C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.Properties.Resources.resources
+=======
+C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.MainForm.resources
+C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.Properties.Resources.resources
+C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Rares\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\bin\Debug\netcoreapp3.1\Postmark.dll
+>>>>>>> parent of d00917e (Merge branch 'Trying-to-merge-with-jo-new-code' into RARES)

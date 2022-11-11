@@ -6,6 +6,6 @@ namespace MODEL
 {
     public enum TicketStatus
     {
-        Open, Closed, Resolved,PastDeadline,Escalated
+        Open,Closed,PastDeadline
     }
 }
