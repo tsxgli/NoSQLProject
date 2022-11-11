@@ -12,7 +12,7 @@ namespace DAL
     public class EmployeeDAO : DAO
     { 
         //method to get all employees from the database
-        public List<Employee> GetAllEmployeesInDb()
+        public List<Employee> GetAllEmployees()
         {
             //get the employee collection
             var collection = base.GetCollection(employeeCollection);   

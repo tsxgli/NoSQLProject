@@ -19,7 +19,9 @@ namespace NOSQL_PROJECT
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
            
-            Application.Run(new LoginForm());
+            Employee em
+                = new Employee();
+            Application.Run(new MainForm(em));
         }
     }
 }

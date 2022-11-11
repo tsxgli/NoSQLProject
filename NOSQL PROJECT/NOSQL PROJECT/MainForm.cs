@@ -28,10 +28,9 @@ namespace NOSQL_PROJECT
         Employee selectedUser;
         //password that is going to be sent in an email
         string password;
-        Employee currentUser;
-         string password ;
+        
 
-        public MainForm2(Employee currentUser)
+        public MainForm(Employee currentUser)
         {
             this.currentUser = currentUser;
             //if(currentUser.UserType == UserType.Regular)
