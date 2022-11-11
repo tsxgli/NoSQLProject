@@ -48,7 +48,7 @@ namespace NOSQL_PROJECT
             PopulateComboBox();
             password = GenerateRandomPassword();
             pnlIncidentManagement.Visible = true;
-            DisplayIncidents(incidentLogic.GetIncidents());
+            DisplayIncidents(incidentLogic.GetAllIncidents());
             pnlUserManagement.Visible = true;
             DisplayUsers(employeeLogic.GetAllEmployees());
         }
@@ -137,7 +137,7 @@ namespace NOSQL_PROJECT
             // hide current panel and show the display incidents panel 
             pnlCreateTicket.Visible = false;
             pnlIncidentManagement.Visible = true;
-            DisplayIncidents(incidentLogic.GetIncidents());
+            DisplayIncidents(incidentLogic.GetAllIncidents());
         }
 
         public void AddEmployeeToDatabase()
@@ -261,7 +261,7 @@ namespace NOSQL_PROJECT
         }
         private void FilterIncidentsForUser()
         {
-            List<Ticket> tickets = incidentLogic.GetIncidents();
+            List<Ticket> tickets = incidentLogic.GetAllIncidents();
             List<Ticket> filteredTickets = new List<Ticket>();
 
 
@@ -371,7 +371,7 @@ namespace NOSQL_PROJECT
             lblTicketIdStore.Text = "";
             incidentLogic.DeleteIncident(id);
             HideCRUDTools();
-            DisplayIncidents(incidentLogic.GetIncidents());
+            DisplayIncidents(incidentLogic.GetAllIncidents());
         }
 
         private void btnUpdateIncident_Click(object sender, EventArgs e)
@@ -435,7 +435,7 @@ namespace NOSQL_PROJECT
 
             incidentLogic.UpdateIncident(ticket);
             HideCRUDTools();
-            DisplayIncidents(incidentLogic.GetIncidents());
+            DisplayIncidents(incidentLogic.GetAllIncidents());
         }
 
         private void comboboxStatus_SelectedIndexChanged(object sender, EventArgs e)

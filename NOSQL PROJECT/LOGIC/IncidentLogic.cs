@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DAL;
 using MODEL;
+using MongoDB.Bson;
 
 namespace LOGIC
 {
@@ -42,6 +43,16 @@ namespace LOGIC
         public List<Ticket> SortTicketsByPriority()
         {
             return incidentDAO.SortTicketsByPriority();
+        }
+
+        public void UpdateIncident(Ticket ticket)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteIncident(ObjectId id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

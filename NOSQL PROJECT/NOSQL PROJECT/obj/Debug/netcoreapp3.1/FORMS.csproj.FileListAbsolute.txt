@@ -148,3 +148,4 @@ C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcorea
 C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.pdb
 C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\FORMS.genruntimeconfig.cache
 C:\UNIVERSIDAD\NoSQL\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.DashboardForm.resources
+C:\Users\phili\OneDrive\Documents\GitHub\NoSQLProject\NOSQL PROJECT\NOSQL PROJECT\obj\Debug\netcoreapp3.1\NOSQL_PROJECT.DashboardForm.resources
